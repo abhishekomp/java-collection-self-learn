@@ -1,0 +1,63 @@
+Topic: How to count the number of occurrences of an element in a List
+https://stackoverflow.com/questions/505928/how-to-count-the-number-of-occurrences-of-an-element-in-a-list
+----------------------------------------
+Topic: Sorting a Map
+Topic: Given a Map, we want a list output containing the keys in sorted order
+For example, if the Map has key as person name and value as their age, then we want a list having the person name in sorted order
+https://stackoverflow.com/questions/30425836/java-8-stream-map-to-list-of-keys-sorted-by-values
+May be this also: https://stackoverflow.com/questions/53512537/java-stream-sort-map-by-key-and-value
+List<Type> types = countByType.entrySet().stream()
+        .sorted(Comparator.comparing(Map.Entry::getValue))
+        .map(Map.Entry::getKey)
+        .collect(Collectors.toList());
+----------------------------------------
+Topic: Sorting a Map (Level: Hard)
+Requirement: /**
+                  * Take a sentence as input and sort the words in it by the number of
+                  * times they appear in the sentence. In the case of a tie, the words
+                  * should be sorted alphabetically.
+                  * V. IMP
+                  * https://stackoverflow.com/questions/30425836/java-8-stream-map-to-list-of-keys-sorted-by-values
+                  * https://stackoverflow.com/questions/53512537/java-stream-sort-map-by-key-and-value
+                  */
+// Sort the entries in the map in reverse order of 'value' and if there is a tie, then the sort the entries based on the key in natural order and finally collect the keys in a list
+My Code: E:\MyJava\IntellijProjects\collection-self-learn\src\main\java\org\example\puzzle\regex\SentenceAnalyser.java
+My GitHub URL: TBD
+----------------------------------------
+Topic: Remove all punctuation marks from a given sentence
+String replaceAll = sentence.replaceAll("[^a-zA-Z ]", "");
+See my Trial: E:\MyJava\IntellijProjects\collection-self-learn\src\main\java\org\example\puzzle\regex\SentenceAnalyser.java
+GitHub URL: TBD
+----------------------------------------
+Topic: Extract all the words from a sentence in an array
+Topic: Count the number of words in a sentence
+In the snippet code, we are taking into account that there might be multiple spaces between 2 words by using the regular expression while splitting.
+//https://www.java67.com/2016/09/3-ways-to-count-words-in-java-string.html#:~:text=You%20can%20count%20words%20in,words%20in%20a%20given%20String.
+    public String[] getWordAsArray(String input) {
+        //Create Empty array
+        String[] strings = {};
+        if (input == null || input.isEmpty()) { return strings; }
+        strings = input.split("\\s+");
+        return strings;
+        // System.out.println("Count: " + strings.length);
+    }
+----------------------------------------
+Topic: Convert an array to a list
+Topic: Convert an array to a List (resizable list)
+Following will be a mutable list.
+Method 1: List<String> wordList = new ArrayList<>(Arrays.asList(wordAsArray));
+https://www.geeksforgeeks.org/conversion-of-array-to-arraylist-in-java/
+Method 2: (UnmodifiableList)Arrays.asList(<ArrayObjectHere>)
+String[] geeks = {"Rahul", "Utkarsh",
+                          "Shubham", "Neelam"};
+
+        // Conversion of array to ArrayList
+        // using Arrays.asList
+        List al = Arrays.asList(geeks);
+Since returned List is fixed-size List, we can’t add more element(s). An attempt of adding more elements would cause UnsupportedOperationException.
+----------------------------------------
+Topic: Given a list of strings, convert them to lowercase, sort them in natural order and return the sorted list
+List<String> collect = wordList.stream().map(String::toLowerCase).sorted((Comparator.naturalOrder())).collect(Collectors.toList());
+My Code: E:\MyJava\IntellijProjects\collection-self-learn\src\main\java\org\example\puzzle\regex\SentenceAnalyser.java
+My GitHub URL: TBD
+----------------------------------------
