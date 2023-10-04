@@ -55,9 +55,45 @@ String[] geeks = {"Rahul", "Utkarsh",
         // using Arrays.asList
         List al = Arrays.asList(geeks);
 Since returned List is fixed-size List, we can’t add more element(s). An attempt of adding more elements would cause UnsupportedOperationException.
+
+Topic: Convert an int array to List<Integer>
+int[] priceList = new int[]{7, 1, 5, 3, 6};
+List<Integer> priceL = Arrays.stream(priceList).boxed().collect(toList());
 ----------------------------------------
 Topic: Given a list of strings, convert them to lowercase, sort them in natural order and return the sorted list
 List<String> collect = wordList.stream().map(String::toLowerCase).sorted((Comparator.naturalOrder())).collect(Collectors.toList());
 My Code: E:\MyJava\IntellijProjects\collection-self-learn\src\main\java\org\example\puzzle\regex\SentenceAnalyser.java
 My GitHub URL: TBD
+----------------------------------------
+Topic: Given a list of person objects having name and age (or a list of words), get the sum of all the ages
+Topic (To do): Given a list of words, get the sum of character count for all the words
+Code Snippet:
+final int totalAge_2ndMethod = people.stream()
+                .mapToInt(Person::getAge)
+                .sum();
+        System.out.println("totalAge_2ndMethod = " + totalAge_2ndMethod);
+See my Trial: E:\MyJava\IntellijProjects\MyJavaMixBagProject\src\main\java\java8practice\PersonDemoJava8.java
+GitHub URL: https://github.com/abhishekomp/MyJavaMixBagProject/blob/main/src/main/java/java8practice/PersonDemoJava8.java
+----------------------------------------
+Topic: Given a sentence get me the length of the word that has the maximum length
+Topic: Given a sentence get me the word that has the maximum length
+Topic: Given a list of person objects (name and age) get me the max age
+Topic: Given a list of person objects (name and age) get the person having maximum age
+Topic: (Hard) Given a list of person objects (name and age) get the person name having maximum age
+Topic: Get the person who has the maximum experience
+Topic: Get the person who has the least experience
+Code Snippet:
+For getting the max age from the list of persons
+Optional<Person> collect = people.stream()
+                .collect(maxBy(comparing(Person::getAge)));
+//Optional<Person> collect = people.stream().max(comparing(Person::getAge));
+----------------------------------------
+Topic: Min, Max from a list
+Topic: Given a list of integers, get the largest integer from the list
+Topic: Given a list of integers, get the index of the largest integer from the list
+Topic: Similarly get the smallest integer from the list and its index.
+
+Code Snippet:
+int minValIndex = integerList.indexOf(Collections.min(integerList));
+int minVal = Collections.min(integerList);
 ----------------------------------------

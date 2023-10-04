@@ -81,6 +81,11 @@ public class SentenceAnalyser {
         return new ArrayList<String>();
     }
 
+    //To do
+    public int getCharCount(String text) {
+        return -1;
+    }
+
     public static void main(String[] args) {
         String input = "The quick brown fox jumps over the lazy dog and the lazy pig.";
         //String input = "The bear quick bear brown dog jumps over the lazy dog";
@@ -95,7 +100,5 @@ public class SentenceAnalyser {
 //        System.out.println(strings);
 
         sentenceAnalyser.level3SortByOccurrences(input);
-
-
     }
 }
