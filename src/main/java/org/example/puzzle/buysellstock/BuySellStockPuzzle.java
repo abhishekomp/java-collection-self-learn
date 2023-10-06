@@ -3,8 +3,11 @@ package org.example.puzzle.buysellstock;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
+import java.util.Optional;
+import java.util.function.Function;
 import java.util.stream.Collectors;
 
+import static java.util.Comparator.comparing;
 import static java.util.stream.Collectors.*;
 
 /**
@@ -29,10 +32,11 @@ public class BuySellStockPuzzle {
         List<Integer> priceL = Arrays.stream(priceList).boxed().collect(toList());
 
         //Get the minimum element and its index from the list
-        int buyDayIndex = priceL.indexOf(Collections.min(priceL));
+        //int buyDayIndex = priceL.indexOf(Collections.min(priceL));
+        Optional<Integer> buyDayIndex = priceL.stream().min(comparing(Function.identity()));
         int minPrice = Collections.min(priceL);
 
-        return buyDayIndex;
+        return buyDayIndex.get();
     }
 
     /** Gets the Selling Day
@@ -60,8 +64,8 @@ public class BuySellStockPuzzle {
 
     public static void main(String[] args) {
         BuySellStockPuzzle buySellStockPuzzle = new BuySellStockPuzzle();
-        //int[] priceList = new int[]{7, 1, 5, 3, 6, 4};
-        int[] priceList = new int[]{7, 9, 5, 3, 6, 4, 1, 2, 3};
+        int[] priceList = new int[]{7, 1, 5, 3, 6, 4};  // buyDay = 2, sellDay = 5
+        //int[] priceList = new int[]{7, 9, 5, 3, 6, 4, 1, 2, 3}; // buyDay = 7, sellDay = 9
         //int[] priceList = new int[]{7, 6, 4, 3, 1};
         int buyDay = buySellStockPuzzle.getBuyDay(priceList);
         System.out.println("buyDay = " + buyDay);

@@ -1,0 +1,15 @@
+Topic: Given a map with key as fruit name (String) and value as the price (Integer) of the fruit
+a) Using Java Stream sort the map by key (fruit name) in ascending order
+b) Using Java Stream sort the map by key (fruit name) in descending order
+c) Using Java Stream sort the map by value (price) in ascending order
+d) Using Java Stream sort the map by value (price) in descending order
+--------------------------------------
+Topic: Given a map with key as person name (String) and value as person object (name, age, city)
+a) Using Java Stream sort by key in ascending order
+a) Using Java Stream sort by key in descending order
+a) Using Java Stream sort by value in ascending order
+a) Using Java Stream sort by value in descending order
+How to compare 2 persons?
+Person P1 with age 20 < Person P2 with age 30
+If P1's age = P2's age then the Person name should be used to compare them
+--------------------------------------

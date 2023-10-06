@@ -1,3 +1,12 @@
+Topic: Creating a integer stream using range
+https://stackoverflow.com/questions/57602096/convert-a-list-of-integers-into-a-comma-separated-string
+Method 1: System.out.println(i.stream().map(String::valueOf)
+        .collect(Collectors.joining(",")));
+Method 2: System.out.println(
+                  IntStream.range(1, 6).boxed().map(String::valueOf)
+                         .collect(Collectors.joining(","))
+          );
+----------------------------------------
 Topic: How to count the number of occurrences of an element in a List
 https://stackoverflow.com/questions/505928/how-to-count-the-number-of-occurrences-of-an-element-in-a-list
 ----------------------------------------
@@ -59,6 +68,7 @@ Since returned List is fixed-size List, we can’t add more element(s). An attem
 Topic: Convert an int array to List<Integer>
 int[] priceList = new int[]{7, 1, 5, 3, 6};
 List<Integer> priceL = Arrays.stream(priceList).boxed().collect(toList());
+https://stackoverflow.com/questions/1073919/how-to-convert-int-into-listinteger-in-java
 ----------------------------------------
 Topic: Given a list of strings, convert them to lowercase, sort them in natural order and return the sorted list
 List<String> collect = wordList.stream().map(String::toLowerCase).sorted((Comparator.naturalOrder())).collect(Collectors.toList());
@@ -96,4 +106,6 @@ Topic: Similarly get the smallest integer from the list and its index.
 Code Snippet:
 int minValIndex = integerList.indexOf(Collections.min(integerList));
 int minVal = Collections.min(integerList);
+Another way to get the min value from a list of integers
+Optional<Integer> minValue = integerList.stream().min(comparing(Function.identity()));
 ----------------------------------------

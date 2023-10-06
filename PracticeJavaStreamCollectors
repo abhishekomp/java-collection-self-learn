@@ -1,0 +1,116 @@
+WarmUp:
+Topic: Initialize a 1-D array of primitive int.
+int[] expectedArray = new int[] {9, 3, 5, 4, 7, 8, 2, 6, 1};
+Topic: Initialize a 2-D array of primitive int.
+Topic: Given a 2D array of primitive int, convert it into a 1D array of primitive int(flatMap)
+Arrays.stream(two_d_array).flatMapToInt(Arrays::stream).toArray();
+Topic: Extract all the words from a sentence in an array then into a list
+Topic: Given a List of integers, convert the list to an array of primitive integers
+int[] intArray = integerList.stream().mapToInt(i -> i).toArray();
+Topic: Given an array of primitive integers, convert it into a List of Integers
+List<Integer> integerList = Arrays.stream(integerArr).boxed().collect(toList());
+
+Topic: Display a 2D array
+Topic: Display an int array as a comma separated String (joining)
+------------------------------------
+filter, map, collect
+Topic: Given a list of integers, get me a list containing double of all the even numbers
+Given list  : [1, 2, 3, 4, 5]
+Output list : [4, 8]
+------------------------------------
+Flatmap:
+Topic: For every integer in given list, produce a list that contains (given integer - 1) and (given integer + 1)
+Example:
+Given list  : [1, 5, 9]
+Output list : [0, 2, 4, 6, 8, 10]
+For 1 in the input list, we are producing 0, 2
+Similarly, for element 5 in the input list, we are producing 4, 6 and so on
+------------------------------------
+Concept: creating a map from a list
+Topic: Given a list of persons (name, age), create a map with key as person's name and value as person object. All persons are unique in the initial list.
+Topic: Given a list of persons (name, age), create a map with key as person's name and value as person object. There are person in the list with same name. When you encounter 2 or more persons with same name, then keep the first person in the map.
+Topic: Given a list of persons (name, age), create a map with key as person's name and value as person object. There are person in the list with same name. When you encounter 2 or more persons with same name, then keep the first person in the map.
+You should also preserve the key order in this case.
+Ref: https://github.com/abhishekomp/MyJavaMixBagProject/blob/main/src/main/java/map_related/list_to_map/ListToHashMap.java
+------------------------------------
+Concept: Using Map.Entry
+Topic: TBD
+------------------------------------
+Topic: Given a list of integers, get an unmodifiable list out of it.
+Topic: Given a list of strings, get an unmodifiable list out of it.
+Topic: Given a list of person (name, age) get an unmodifiable list out of it.
+------------------------------------
+Concept: joining
+Topic: Given a list of person (name, age) get all the names separated by comma as a single String.
+Topic: Given a list of person (name, age) get all the names in uppercase separated by comma as a single String.
+Topic: Given an array of primitive integers, give all the elements in String format separated by comma.
+List<Integer> integerList = Arrays.stream(intArray).boxed().collect(toList());
+String integersJoinedAsString = integerList.stream()
+                .map(String::valueOf)
+                .collect(joining(", "));
+------------------------------------
+Concept: partitioningBy
+Topic: Given a list of person (name, age) get all the names in uppercase whose age is greater than 30
+Topic: Given a list of integers, get me a list containing all even numbers and another list containing all odd numbers
+------------------------------------
+Concept: partitioningBy
+Topic: Given a list of person (name, age) get a list of all those persons whose age is an even number and another list of persons whose age is an odd number
+Topic: Given a list of integers, get a list of all even numbers and another list of all odd numbers
+------------------------------------
+groupingBy
+Topic: Given a list of persons get me a map with key as person name and value as list of persons with that name
+------------------------------------
+groupingBy, mapping
+Topic: Given a list of persons (name, age) get me a map with key as person name and value as list of ages of persons with that name
+------------------------------------
+groupingBy, counting
+Topic: Given a list of persons (name, age) get me a map with key as person name and value as count(as Long) of all persons with that name
+Topic: Given an array of primitive integers, get me the count of each integer in the array.
+Topic: Given an array of primitive integers, detect if there are duplicate integer in the array.
+Topic: (IMP) (HARD) Given a List of Integer objects, get the index of the 1st duplicate element in the list (Note: The list may contain multiple different duplicate element but the program should return the index of the first duplicate element)
+//Tip: See my code for Sudoku where I find the index of first duplicate element by specifying LinkedHashMap. If we do not specify the LinkedHashMap then you might get the index of next duplicate element because default HashMap does not preserves the insertion order of the key. I actually got incorrect result in my unit testing and then fixed it by using LinkedHashMap instead which maintains the insertion order of the key.
+https://stackoverflow.com/questions/7414667/identify-duplicates-in-a-list
+List<Integer> collect = list.stream()
+                .collect(groupingBy(Function.identity(), LinkedHashMap::new, counting()))
+                .entrySet().stream()
+                .filter(e -> e.getValue() > 1)
+                .map(Map.Entry::getKey)
+                .collect(toList());
+To get the index of an element in a list: list.indexOf(element);
+
+counting, collectingAndThen
+Topic: Given a list of persons (name, age) get me a map with key as person name and value as count(as int) of all persons with that name
+------------------------------------
+sum
+Topic: Given a list of persons (name, age) get the sum of ages of all the persons in the list
+Topic: Given a sentence, get the sum of all the words in the sentence(remove the punctuation while counting the length)
+------------------------------------
+max
+Topic: Given a list of persons (name, age) get the max age value
+------------------------------------
+maxBy and possibly also max
+Topic: Given a list of persons (name, age) get the eldest Person itself (the person object)
+------------------------------------
+maxBy, collectingAndThen, comparing
+Topic: Given a list of persons (name, age) get the name of the eldest person
+------------------------------------
+convert a list to a map, comparingByValue, thenComparing, Map.Entry
+Reference:
+See SentenceAnalyser class here: https://github.com/abhishekomp/java-collection-self-learn/blob/main/src/main/java/org/example/puzzle/regex/SentenceAnalyser.java
+Topic: Take a sentence as input and sort the words in it by the number of times they appear in the sentence. In the case of a tie, the words should be sorted alphabetically.
+Return the output as a list of words in sorted in reverse order by the frequency of occurrence of the word in the sentence.
+Example: "The quick brown fox jumps over the lazy dog and the lazy pig."
+For the above sentence, occurrence list is as follows:
+{over=1, the=3, quick=1, and=1, lazy=2, jumps=1, brown=1, dog=1, fox=1, pig=1}
+Final Result: [the, lazy, and, brown, dog, fox, jumps, over, pig, quick]
+------------------------------------
+Coming up .. Sorting related scenarios, filtering, flatmapping
+
+
+------------------------------------
+
+
+------------------------------------
+************************************
+Given a sentence, give me a map with key as length of word and value as list of words with that length
+Given a sentence, give me a map with key as word and value as the count of that word in the sentence
