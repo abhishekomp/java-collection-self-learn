@@ -3,6 +3,7 @@ package org.example.puzzle.utils;
 import java.util.Arrays;
 import java.util.List;
 import java.util.function.Function;
+import java.util.stream.IntStream;
 
 import static java.util.stream.Collectors.joining;
 import static java.util.stream.Collectors.toList;
@@ -28,6 +29,7 @@ public class ArraySolver {
      */
     public int[] convertListToIntArray(List<Integer> integerList) {
         int[] toArray = integerList.stream().mapToInt(i -> i).toArray();
+        //int[] toArray = integerList.stream().mapToInt(Integer::intValue).toArray();
         return toArray;
     }
 
@@ -39,6 +41,11 @@ public class ArraySolver {
                     .collect(joining(", "));
             System.out.println(rowItemsAsCommaSeparatedString);
         }
+    }
+
+    int[] generateIntArray(int endValue) {
+        int[] ints = IntStream.range(1, endValue).toArray();
+        return ints;
     }
 
     public static void main(String[] args) {

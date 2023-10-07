@@ -6,9 +6,14 @@ Topic: Given a 2D array of primitive int, convert it into a 1D array of primitiv
 Arrays.stream(two_d_array).flatMapToInt(Arrays::stream).toArray();
 Topic: Extract all the words from a sentence in an array then into a list
 Topic: Given a List of integers, convert the list to an array of primitive integers
+https://stackoverflow.com/questions/718554/how-to-convert-an-arraylist-containing-integers-to-primitive-int-array
 int[] intArray = integerList.stream().mapToInt(i -> i).toArray();
 Topic: Given an array of primitive integers, convert it into a List of Integers
 List<Integer> integerList = Arrays.stream(integerArr).boxed().collect(toList());
+Topic: Generate an int array up to given end value.
+//IntStream.range(1, N).toArray()
+Topic: Generate a List of Integer up to a given end value.
+IntStream.range(1, N).boxed().collect(toList());
 
 Topic: Display a 2D array
 Topic: Display an int array as a comma separated String (joining)

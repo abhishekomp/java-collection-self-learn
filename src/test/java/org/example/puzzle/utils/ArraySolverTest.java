@@ -3,6 +3,7 @@ package org.example.puzzle.utils;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import java.util.Arrays;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -27,6 +28,13 @@ class ArraySolverTest {
         List<Integer> actualIntegerList = arraySolver.convertIntArrayToList(inputArr);
         //assertTrue(expectedList.size(), actualIntegerList.size(), "Sizes are same");
         assertIterableEquals(expectedList, actualIntegerList);
+    }
+
+    @Test
+    void generateIntArray() {
+        int finalValue = 10;
+        int[] ints = arraySolver.generateIntArray(finalValue);
+        System.out.println(Arrays.toString(ints));
     }
 
     //To do write test case for negative situation

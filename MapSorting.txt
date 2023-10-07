@@ -13,3 +13,21 @@ How to compare 2 persons?
 Person P1 with age 20 < Person P2 with age 30
 If P1's age = P2's age then the Person name should be used to compare them
 --------------------------------------
+Topic: Given a sentence get a map with key as the word and value as the count of that word in the sentence.
+Note: remove all punctuation marks and also consider that the sentence may have multiple blank spaces.
+
+Topic: Given a sentence, get the top 3 words that occurs the most in the sentence.
+
+Topic: Given a sentence, sort the words based on the number of times they appear in the sentence. If two or more words appear the same number of times, then sort those words alphabetically.
+Result should be a list of sorted words.
+---------------------------------------
+Topic: When key is a complex object.
+Topic: Given a map with key as person (name, age, city) and value as birth year
+a) Using Java Stream sort by key in ascending order
+a) Using Java Stream sort by key in descending order
+a) Using Java Stream sort by value in ascending order
+a) Using Java Stream sort by value in descending order
+How to compare 2 persons?
+Person P1 with age 20 < Person P2 with age 30
+If P1's age = P2's age then the Person name should be used to compare them
+And if P1's name is same as P2's name then compare P1's city to P2's city alphabetically.
