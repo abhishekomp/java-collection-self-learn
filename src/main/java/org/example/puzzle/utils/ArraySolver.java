@@ -1,12 +1,10 @@
 package org.example.puzzle.utils;
 
-import java.util.Arrays;
-import java.util.List;
+import java.util.*;
 import java.util.function.Function;
 import java.util.stream.IntStream;
 
-import static java.util.stream.Collectors.joining;
-import static java.util.stream.Collectors.toList;
+import static java.util.stream.Collectors.*;
 
 public class ArraySolver {
     boolean isDuplicatePresent(int[] arr) {
@@ -46,6 +44,28 @@ public class ArraySolver {
     int[] generateIntArray(int endValue) {
         int[] ints = IntStream.range(1, endValue).toArray();
         return ints;
+    }
+
+    /**
+     * Gets the first duplicate element in a given integer array
+     * @param inputArr an array of primitive ints
+     * @return the first duplicate element
+     */
+    public int getTheFirstDuplicateElement(int[] inputArr) {
+        Optional<Integer> firstDuplicate = Arrays.stream(inputArr)
+                .boxed()
+                .collect(groupingBy(Function.identity(), LinkedHashMap::new, counting()))
+                .entrySet().stream()
+                .filter(e -> e.getValue() > 1)
+                .map(Map.Entry::getKey)
+                .findFirst();
+        int result = firstDuplicate.orElse(Integer.MIN_VALUE);
+        System.out.println("First duplicate element is: " + result);
+        return result;
+    }
+
+    public int getIndexOfFirstRepeatingElement(int[] intArr) {
+        return -1;
     }
 
     public static void main(String[] args) {

@@ -1,7 +1,9 @@
 package org.example.puzzle.utils;
 
 import java.util.Arrays;
+import java.util.LinkedHashMap;
 import java.util.Map;
+import java.util.Optional;
 import java.util.function.Function;
 
 import static java.util.stream.Collectors.*;
@@ -32,5 +34,22 @@ public class StringUtils {
         Map<String, Integer> stringIntegerMap = Arrays.stream(input.split(""))
                 .collect(groupingBy(Function.identity(), collectingAndThen(counting(), Long::intValue)));
         return stringIntegerMap;
+    }
+
+    /**
+     * Extracts the first repeating (duplicate) word in a given sentence. Returns blank string if no duplicate exists.
+     * @param input String that may or may not contain any duplicate (repeating) words
+     * @return the first duplicate(repeating) word or else blank string
+     */
+    public String getFirstRepeatingWord(String input) {
+        Optional<String> first = Arrays.stream(input.split("\\s+"))
+                .collect(groupingBy(Function.identity(), LinkedHashMap::new, collectingAndThen(counting(), Long::intValue)))
+                .entrySet().stream()
+                .filter(e -> e.getValue() > 1)
+                .map(Map.Entry::getKey)
+                .findFirst();
+        String firstRepeatingWord = first.orElse("");
+        //System.out.println("first = " + firstRepeatingWord);
+        return firstRepeatingWord;
     }
 }

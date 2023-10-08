@@ -40,4 +40,26 @@ class StringUtilsTest {
         assertEquals(2, stringLongMap.get("c"));
 
     }
+
+    @Test
+    void test_getFirstRepeatingWord_should_return_the_first_repeating_word() {
+        String input = "Twinkle Twinkle little star";
+        stringUtils.getFirstRepeatingWord(input);
+    }
+
+    @Test
+    void test_getFirstRepeatingWord_should_return_blank_string_when_no_repeating_word_exists() {
+        String input = "The quick lazy dog is the black";
+        String firstRepeatingWord = stringUtils.getFirstRepeatingWord(input);
+        System.out.println("firstRepeatingWord = " + firstRepeatingWord);
+        assertEquals("", firstRepeatingWord);
+    }
+    @Test
+    void test_getFirstRepeatingWord_should_return_correct_repeating_repeating_word() {
+        String input = "The quick lazy dog is the black dog with quick tail";
+        String firstRepeatingWord = stringUtils.getFirstRepeatingWord(input);
+        System.out.println("firstRepeatingWord = " + firstRepeatingWord);
+        assertEquals("quick", firstRepeatingWord);
+    }
+
 }
