@@ -65,7 +65,11 @@ public class ArraySolver {
     }
 
     public int getIndexOfFirstRepeatingElement(int[] intArr) {
-        return -1;
+        int theFirstDuplicateElement = getTheFirstDuplicateElement(intArr);
+        List<Integer> integerList = Arrays.stream(intArr)
+                .boxed()
+                .collect(toList());
+        return integerList.indexOf(theFirstDuplicateElement);
     }
 
     public static void main(String[] args) {
