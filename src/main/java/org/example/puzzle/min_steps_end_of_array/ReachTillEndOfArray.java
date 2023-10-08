@@ -30,9 +30,9 @@ public class ReachTillEndOfArray {
      * @return  int value of minimum jumps to reach exactly the end of the array
      */
     int minNumberOfJumpsToReachEnd(int[] inputArr) {
-//        if(!canReachTillEndOfArray(inputArr)) {
-//            return -1;
-//        }
+        if(!canReachTillEndOfArray(inputArr)) {
+            return -1;
+        }
 
         // int[] inputArr = new int[] {2, 4, 1, 2, 3, 1, 1, 2} -> min jumps = 3
         int totalJumps = 0;
