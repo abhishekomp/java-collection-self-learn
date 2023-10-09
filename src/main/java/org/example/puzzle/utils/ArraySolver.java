@@ -41,9 +41,30 @@ public class ArraySolver {
         }
     }
 
+    /**
+     * Generate an array with primitive int value in contiguous(next or together in sequence) manner
+     * @param endValue The last int value in the array
+     * @return An array starting with first value as 1 and last value as endValue passed as input
+     */
     int[] generateIntArray(int endValue) {
         int[] ints = IntStream.range(1, endValue).toArray();
         return ints;
+    }
+
+    /**
+     * Generates an array of primitive int by taking the length and the maxValue it can have in the array. Uses Random class
+     * @param length the length of the array to create
+     * @param maxValue the maxValue the array should have starting from 0 till maxValue
+     * @return
+     */
+    int[] generateArrayOfRandomInt(int length, int maxValue) {
+        int[] arr = new int[length];
+        Random random = new Random();
+        for(int i = 0; i < arr.length; i++){
+            arr[i] = random.nextInt(maxValue);
+        }
+        //System.out.println(Arrays.toString(arr));
+        return arr;
     }
 
     /**

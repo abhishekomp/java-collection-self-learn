@@ -38,6 +38,14 @@ class ArraySolverTest {
     }
 
     @Test
+    void generateArrayOfRandomInt() {
+        int length = 5;
+        int maxValue  = 10;
+        int[] ints = arraySolver.generateArrayOfRandomInt(length, maxValue);
+        System.out.println("ints = " + Arrays.toString(ints));
+    }
+
+    @Test
     void test_getTheFirstDuplicateElement_should_return_first_duplicate_int_in_the_int_array() {
         int theFirstDuplicateElement = arraySolver.getTheFirstDuplicateElement(new int[]{1, 2, 3, 5, 3});
         System.out.println("theFirstDuplicateElement = " + theFirstDuplicateElement);
@@ -66,6 +74,8 @@ class ArraySolverTest {
         System.out.println("indexOfFirstRepeatingElement = " + indexOfFirstRepeatingElement);
         assertEquals(-1, indexOfFirstRepeatingElement);
     }
+
+
 
     //To do write test case for negative situation
 //    @Test
