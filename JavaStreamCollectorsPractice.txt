@@ -18,6 +18,16 @@ IntStream.range(1, N).boxed().collect(toList());
 Topic: Display a 2D array
 Topic: Display an int array as a comma separated String (joining)
 ------------------------------------
+Topic: List Related
+Topic: (Done) Generate a list of Integers given the start and end element.
+Topic: Get the first N elements from a List of Integers
+Topic: Get the first N elements from an array of integers
+Topic: Get the first N elements from a List of Strings
+Topic: Get the first N names from a List of person objects
+------------------------------------
+Topic: Creating a map from a list of complex object (Employee class)
+Topic: Create a map with key as Employee object and value as List of ages
+------------------------------------
 filter, map, collect
 Topic: Given a list of integers, get me a list containing double of all the even numbers
 Given list  : [1, 2, 3, 4, 5]
@@ -48,7 +58,7 @@ Topic: Given a list of person (name, age) get an unmodifiable list out of it.
 Concept: joining
 Topic: Given a list of person (name, age) get all the names separated by comma as a single String.
 Topic: Given a list of person (name, age) get all the names in uppercase separated by comma as a single String.
-Topic: Given an array of primitive integers, give all the elements in String format separated by comma.
+Topic (Done): Given an array of primitive integers, return a comma separated String containing all the integers.
 List<Integer> integerList = Arrays.stream(intArray).boxed().collect(toList());
 String integersJoinedAsString = integerList.stream()
                 .map(String::valueOf)
