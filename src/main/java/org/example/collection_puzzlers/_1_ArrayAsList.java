@@ -9,9 +9,9 @@ public class _1_ArrayAsList {
         String[] stringArray = {"one", "two", "three"};
         List<String> stringList = Arrays.asList(stringArray);
 
-        // Cannot add new items to this list returned by Arrays.asList()
-        // Cannot remove element from the list returned by Arrays.asList()
-        // Note: But possible to set the element by using set() method on the returned list reference.
+//         Cannot add new items to this list returned by Arrays.asList()
+//         Cannot remove element from the list returned by Arrays.asList()
+//         Note: But possible to set the element by using set() method on the returned list reference.
 //        stringList.add("four");
 //        List<String> stringList1 = List.of(stringArray);
 //        stringList1.add("four");
