@@ -5,8 +5,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-// Creating multi map in java. One key has multiple values in the form of a list.
-// Use computeIfAbsent() method to create such a multi map.
+// Creating multi-map in java. One key has multiple values in the form of a list.
+// Use computeIfAbsent() method to create such a multi-map.
 public class _4c_HashMap_multiMap {
     public static void main(String[] args) {
         List<Integer> numbers = List.of(-1, 0, 1);

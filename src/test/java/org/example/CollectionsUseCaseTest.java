@@ -11,7 +11,7 @@ public class CollectionsUseCaseTest {
 
     //computeIfAbsent
     @Test
-    void test_should_return_the_existing_mapped_value_if_key_is_associated_with_a_value() {
+    void test_computeIfAbsent_should_return_the_existing_mapped_value_if_key_is_associated_with_a_value() {
         Map<String, Integer> map = new HashMap<>();
         map.put("John", 5);
         Integer value = map.computeIfAbsent("John", String::length);
@@ -40,6 +40,28 @@ public class CollectionsUseCaseTest {
         assertEquals(map.get("John"), 4);
     }
 
+    @Test
+    void test_computeIfAbsent_will_return_current_value_if_key_has_non_null_value_associated_with_it(){
+        Map<String, Integer> stringLength = new HashMap<>();
+        stringLength.put("John", 5);
+        assertEquals(stringLength.computeIfAbsent("John", String::length), 5);
+    }
 
+    @Test
+    void test_computeIfAbsent_will_return_computed_value_if_key_has_null_value_associated_with_it(){
+        Map<String, Integer> stringLength = new HashMap<>();
+        stringLength.put("John", null);
+        assertEquals(stringLength.computeIfAbsent("John", String::length), 4);
+        System.out.println("stringLength = " + stringLength);
+        assertEquals(stringLength.get("John"), 4);
+    }
 
+    @Test
+    void test_computeIfAbsent_will_return_computed_value_if_key_is_not_present_in_the_map(){
+        Map<String, Integer> stringLength = new HashMap<>();
+        //stringLength.put("John", null);
+        assertEquals(stringLength.computeIfAbsent("John", String::length), 4);
+        System.out.println("stringLength = " + stringLength);
+        assertEquals(stringLength.get("John"), 4);
+    }
 }
