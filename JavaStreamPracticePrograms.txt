@@ -85,11 +85,13 @@ final int totalAge_2ndMethod = people.stream()
 See my Trial: E:\MyJava\IntellijProjects\MyJavaMixBagProject\src\main\java\java8practice\PersonDemoJava8.java
 GitHub URL: https://github.com/abhishekomp/MyJavaMixBagProject/blob/main/src/main/java/java8practice/PersonDemoJava8.java
 ----------------------------------------
+groupingBy, collectingAndThen, maxBy
 Topic: Given a sentence get me the length of the word that has the maximum length
 Topic: Given a sentence get me the word that has the maximum length
 Topic: Given a list of person objects (name and age) get me the max age
 Topic: Given a list of person objects (name and age) get the person having maximum age
 Topic: (Hard) Given a list of person objects (name and age) get the person name having maximum age
+Topic: (Hard) Given a list of dog objects (name, breed, age) group them by breed and get the max age for each breed.
 Topic: Get the person who has the maximum experience
 Topic: Get the person who has the least experience
 Code Snippet:

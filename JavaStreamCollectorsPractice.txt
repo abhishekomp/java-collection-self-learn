@@ -32,6 +32,7 @@ filter, map, collect
 Topic: Given a list of integers, get me a list containing double of all the even numbers
 Given list  : [1, 2, 3, 4, 5]
 Output list : [4, 8]
+Topic: Count the number of times a character appears in a String.
 ------------------------------------
 Flatmap:
 Topic: For every integer in given list, produce a list that contains (given integer - 1) and (given integer + 1)

@@ -1,13 +1,24 @@
 package org.example;
 
+import org.example.puzzle.utils.ArraySolver;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import java.util.HashMap;
-import java.util.Map;
+import java.util.*;
+import java.util.stream.IntStream;
 
+import static java.util.Comparator.comparing;
+import static java.util.stream.Collectors.*;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class CollectionsLambdaStreamTest {
+
+    private List<Dog> dogs;
+
+    @BeforeEach
+    void setUp() {
+        dogs = Dog.getDogs();
+    }
 
     //computeIfAbsent
     @Test
@@ -63,5 +74,72 @@ public class CollectionsLambdaStreamTest {
         assertEquals(stringLength.computeIfAbsent("John", String::length), 4);
         System.out.println("stringLength = " + stringLength);
         assertEquals(stringLength.get("John"), 4);
+    }
+    @Test
+    void test_should_sum_age_of_all_dogs(){
+        Integer sumOfAges = dogs.stream()
+                .map(Dog::getAge)
+                .reduce((total, age) -> total + age).orElse(0);
+        System.out.println("sumOfAges = " + sumOfAges);
+        assertEquals(sumOfAges, 51);
+    }
+
+    @Test
+    void test_sum_IntStream() {
+        //IntStream.of(1,2,3,4,5).sum();
+        assertEquals(IntStream.of(1,2,3,4,5).sum(), 15);
+    }
+
+    @Test
+    void test_reduce_using_identity_accumulator_as_lambda() {
+        List<Integer> numbers = Arrays.asList(1, 2, 3, 4, 5, 6);
+        int result = numbers
+                .stream()
+                .reduce(0, (subtotal, element) -> subtotal + element);
+        assertEquals(result, 21);
+    }
+
+    @Test
+    void test_reduce_using_identity_accumulator_as_method_reference() {
+        List<Integer> numbers = Arrays.asList(1, 2, 3, 4, 5, 6);
+        int result = numbers
+                .stream()
+                .reduce(0, Integer::sum);
+        assertEquals(result, 21);
+    }
+    @Test
+    void test_reduce_to_calculate_sum_of_ages_of_person_objects(){
+        List<Person> people = List.of(
+                new Person("Jack", 15),
+                new Person("Sara", 20),
+                new Person("Bob", 20),
+                new Person("Paula", 35)
+        );
+        Integer sumOfAges = people.stream()
+                .reduce(0, (partialResult, user) -> partialResult + user.getAge(), Integer::sum);
+        assertEquals(sumOfAges, 90);
+    }
+
+    @Test
+    void test_reduce_to_calculate_sum_of_ages_of_person_objects_using_sum(){
+        List<Person> people = List.of(
+                new Person("Jack", 15),
+                new Person("Sara", 20),
+                new Person("Bob", 20),
+                new Person("Paula", 35)
+        );
+        Integer sumOfAges = people.stream()
+                .mapToInt(Person::getAge)
+                .sum();
+        assertEquals(sumOfAges, 90);
+    }
+
+    // Given a list of dog objects (name, breed, age) group them by breed and get the max age for each breed.
+    @Test
+    void test_get_max_age_per_group_of_breed_of_dogs() {
+        dogs.forEach(System.out::println);
+        Map<String, Integer> maxAgeByBreed = dogs.stream()
+                .collect(groupingBy(Dog::getBreed, collectingAndThen(maxBy(comparing(Dog::getAge)), dog -> dog.map(Dog::getAge).orElse(0))));
+        System.out.println("maxAgeByBreed = " + maxAgeByBreed);
     }
 }
