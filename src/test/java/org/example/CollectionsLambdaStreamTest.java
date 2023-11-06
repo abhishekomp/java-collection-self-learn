@@ -10,6 +10,7 @@ import java.util.stream.IntStream;
 import static java.util.Comparator.comparing;
 import static java.util.stream.Collectors.*;
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class CollectionsLambdaStreamTest {
 
@@ -190,6 +191,9 @@ public class CollectionsLambdaStreamTest {
         Map<Food.Type, Integer> maxByFoodType = Food.menu.stream()
                 .collect(groupingBy(Food::getType, collectingAndThen(maxBy(comparing(Food::getCalories)), food -> food.map(Food::getCalories).orElse(0))));
         System.out.println("maxByFoodType = " + maxByFoodType);
+        assertTrue(maxByFoodType.containsKey(Food.Type.MEAT) && maxByFoodType.get(Food.Type.MEAT) == 7100);
+        assertTrue(maxByFoodType.containsKey(Food.Type.FISH) && maxByFoodType.get(Food.Type.FISH) == 4150);
+        assertTrue(maxByFoodType.containsKey(Food.Type.OTHER) && maxByFoodType.get(Food.Type.OTHER) == 5150);
     }
     //maxByFoodType = {FISH=4150, OTHER=5150, MEAT=7100}
 
@@ -200,5 +204,20 @@ public class CollectionsLambdaStreamTest {
                 .collect(groupingBy(Food::getType, collectingAndThen(maxBy(comparing(Food::getCalories)), food -> food.map(Food::getName).orElse(""))));
         System.out.println("foodByMaxCaloriesFoodType = " + foodByMaxCaloriesFoodType);
         //foodByMaxCaloriesFoodType = {FISH=salmon, OTHER=pizza, MEAT=beef}
+        assertTrue(foodByMaxCaloriesFoodType.containsKey(Food.Type.MEAT) && foodByMaxCaloriesFoodType.get(Food.Type.MEAT).equals("beef"));
+        assertTrue(foodByMaxCaloriesFoodType.containsKey(Food.Type.FISH) && foodByMaxCaloriesFoodType.get(Food.Type.FISH).equals("salmon"));
+        assertTrue(foodByMaxCaloriesFoodType.containsKey(Food.Type.OTHER) && foodByMaxCaloriesFoodType.get(Food.Type.OTHER).equals("pizza"));
     }
+
+    // Given a list of Food (name, vegetarian, calories, type), get a map displaying total calories per food type
+    @Test
+    void test_get_total_calories_per_food_type(){
+        Map<Food.Type, Integer> totalCaloriesByFoodType = Food.menu.stream()
+                .collect(groupingBy(Food::getType, summingInt(Food::getCalories)));
+        System.out.println("totalCaloriesByFoodType = " + totalCaloriesByFoodType);
+        assertTrue(totalCaloriesByFoodType.containsKey(Food.Type.MEAT) && totalCaloriesByFoodType.get(Food.Type.MEAT) == 10300);
+        assertTrue(totalCaloriesByFoodType.containsKey(Food.Type.FISH) && totalCaloriesByFoodType.get(Food.Type.FISH) == 5550);
+        assertTrue(totalCaloriesByFoodType.containsKey(Food.Type.OTHER) && totalCaloriesByFoodType.get(Food.Type.OTHER) == 11310);
+    }
+
 }
