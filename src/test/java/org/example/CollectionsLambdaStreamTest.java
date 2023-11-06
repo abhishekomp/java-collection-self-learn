@@ -142,4 +142,45 @@ public class CollectionsLambdaStreamTest {
                 .collect(groupingBy(Dog::getBreed, collectingAndThen(maxBy(comparing(Dog::getAge)), dog -> dog.map(Dog::getAge).orElse(0))));
         System.out.println("maxAgeByBreed = " + maxAgeByBreed);
     }
+
+    //https://www.baeldung.com/java-stream-reduce
+    @Test
+    void using_reduce_without_identity_returns_optional() {
+        List<Integer> numbers = Arrays.asList(1, 2, 3, 4, 5, 6);
+        Optional<Integer> optional = numbers.stream()
+                .reduce((partialResult, number) -> partialResult + number);
+        int sum = numbers.stream()
+                .reduce((partialResult, number) -> partialResult + number).orElse(0);
+        assertEquals(optional.get(), 21);
+        assertEquals(sum, 21);
+        int sumOfNumbers = numbers.stream()
+                .reduce(Integer::sum).orElse(0);
+        assertEquals(sumOfNumbers, 21);
+    }
+
+    @Test
+    void using_reduce_with_identity_returns_actual_value() {
+        List<Integer> numbers = Arrays.asList(1, 2, 3, 4, 5, 6);
+        int sum = numbers.stream()
+                .reduce(0, (partialResult, number) -> partialResult + number);
+        assertEquals(sum, 21);
+
+        int sumOfNumbers = numbers.stream()
+                .reduce(0, Integer::sum);
+        assertEquals(sumOfNumbers, 21);
+    }
+
+    //https://www.baeldung.com/java-stream-reduce
+    @Test
+    void using_reduce_with_identity_returns_actual_value_for_custom_objects() {
+        List<Person> people = List.of(
+                new Person("Jack", 15),
+                new Person("Sara", 20),
+                new Person("Bob", 20),
+                new Person("Paula", 35)
+        );
+        Integer sumOfAges = people.stream()
+                .reduce(0, (partialResult, person) -> partialResult + person.getAge(), Integer::sum);
+        assertEquals(sumOfAges, 90);
+    }
 }
