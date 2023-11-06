@@ -183,4 +183,22 @@ public class CollectionsLambdaStreamTest {
                 .reduce(0, (partialResult, person) -> partialResult + person.getAge(), Integer::sum);
         assertEquals(sumOfAges, 90);
     }
+    
+    // Given a list of Food (name, vegetarian, calories, type), get a map displaying max calories for each type of food
+    @Test
+    void test_get_max_Calories_per_group_by_food_type() {
+        Map<Food.Type, Integer> maxByFoodType = Food.menu.stream()
+                .collect(groupingBy(Food::getType, collectingAndThen(maxBy(comparing(Food::getCalories)), food -> food.map(Food::getCalories).orElse(0))));
+        System.out.println("maxByFoodType = " + maxByFoodType);
+    }
+    //maxByFoodType = {FISH=4150, OTHER=5150, MEAT=7100}
+
+    // Given a list of Food (name, vegetarian, calories, type), get a map displaying food name with max calories for each type of food
+    @Test
+    void test_get_food_name_with_max_Calories_per_group_of_food_type() {
+        Map<Food.Type, String> foodByMaxCaloriesFoodType = Food.menu.stream()
+                .collect(groupingBy(Food::getType, collectingAndThen(maxBy(comparing(Food::getCalories)), food -> food.map(Food::getName).orElse(""))));
+        System.out.println("foodByMaxCaloriesFoodType = " + foodByMaxCaloriesFoodType);
+        //foodByMaxCaloriesFoodType = {FISH=salmon, OTHER=pizza, MEAT=beef}
+    }
 }
