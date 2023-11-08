@@ -326,6 +326,53 @@ public class CollectionsLambdaStreamTest {
         inventories.forEach(System.out::println);
     }
 
+    //To do
+    @Test
+    void test_sort_students_using_lastName_and_if_lastName_matches_then_sort_using_firstName_but_if_there_are_nulls_in_firstName_they_should_come_before_nonNull_firstName(){
+        List<Student> students = new ArrayList<>(List.of(
+                new Student("John", "Blue", 'A', 90),
+                new Student("Johan", "Sorensson", 'A', 80),
+                new Student("Elsa", "Martisson", 'B', 70),
+                new Student("Abbey", "Martisson", 'C', 60),
+                new Student(null, "Martisson", 'A', 95),
+                new Student("Michael", "Jordan", 'A', 98)
+        ));
+        students.sort(Comparator.comparing(Student::getLastName).thenComparing(Comparator.nullsFirst(Comparator.comparing(Student::getFirstName))));
+        students.forEach(System.out::println);
+    }
+
+    // sort using date of birth of Employees
+    @Test
+    void test_should_sort_list_of_employees_using_dateOfBirth() {
+        List<Employee> employees = Employee.getEmployees();
+        employees.sort(Comparator.comparing(Employee::getDateOfBirth));
+        employees.forEach(System.out::println);
+    }
+
+    /*
+    There are two ways we can reverse sort.
+    Method 1: By using the call to reversed() it returns a new comparator which swaps the order in which it compares.
+     */
+    @Test
+    void test_should_sort_list_of_employees_using_dateOfBirth_reversed() {
+        List<Employee> employees = Employee.getEmployees();
+        employees.sort(Comparator.comparing(Employee::getDateOfBirth).reversed());
+        employees.forEach(System.out::println);
+    }
+
+    /*
+    There are two ways we can reverse sort.
+    Method 2: Pass an explicit comparator for comparing the keys extracted by the key extractor.
+    The second method is a bit interesting.
+    We use the two argument method of the comparing method, which accepts a key extracting function and an explicit comparator to compare the keys.
+     */
+    @Test
+    void test_should_sort_list_of_employees_using_dateOfBirth_reversed_method2() {
+        List<Employee> employees = Employee.getEmployees();
+        employees.sort(Comparator.comparing(Employee::getDateOfBirth, Comparator.reverseOrder()));
+        employees.forEach(System.out::println);
+    }
+
 
 
     // Sort a list of Person objects by first name
