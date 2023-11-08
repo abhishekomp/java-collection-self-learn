@@ -33,6 +33,14 @@ public class Person {
         return Objects.hash(getName(), getAge());
     }
 
+    @Override
+    public String toString() {
+        return "Person{" +
+                "name='" + name + '\'' +
+                ", age=" + age +
+                '}';
+    }
+
     public static List<Person> createPeople() {
         return List.of(
                 new Person("Jack", 15),

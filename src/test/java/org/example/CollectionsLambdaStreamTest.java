@@ -220,4 +220,115 @@ public class CollectionsLambdaStreamTest {
         assertTrue(totalCaloriesByFoodType.containsKey(Food.Type.OTHER) && totalCaloriesByFoodType.get(Food.Type.OTHER) == 11310);
     }
 
+    // We use a Comparator returned by the nullsFirst method and pass a natural ordering comparator as the underlying comparator it must use.
+    @Test
+    void test_nullsFirst_for_list_of_strings() {
+        List<String> fruits = Arrays.asList("pear", "apple", "grapes", null, "orange");
+        //fruits.sort(Comparator.naturalOrder());
+        fruits.sort(Comparator.nullsFirst(Comparator.naturalOrder()));
+        System.out.println(fruits); //  [null, apple, grapes, orange, pear]
+    }
+
+    @Test
+    void test_nullsFirst_for_list_of_strings_reverseOrder() {
+        List<String> fruits = Arrays.asList("pear", "apple", "grapes", null, "orange");
+        //fruits.sort(Comparator.naturalOrder());
+        fruits.sort(Comparator.nullsFirst(Comparator.reverseOrder()));
+        System.out.println(fruits); //  [null, pear, orange, grapes, apple]
+    }
+
+    @Test
+    void test_nullsFirst_should_place_the_objects_first_in_sorted_result(){
+        List<Person> list = new ArrayList<>(List.of(
+                new Person("Jack", 15),
+                new Person("Sara", 20),
+                new Person("Bob", 20),
+                new Person(null, 35),
+                new Person("", 40),
+                new Person("Bill", 25),
+                new Person("Jill", 50)
+        ));
+        Comparator<Person> comparing = comparing(Person::getName);
+
+        Comparator<Person> personComparator = comparing(Person::getName, Comparator.nullsFirst(String::compareTo));
+        list.sort(personComparator);
+        list.forEach(System.out::println);
+    }
+
+    //Sorting a list using old way of writing anonymous Comparator
+    @Test
+    void test_sort_list_of_inventories_using_old_way_of_Comparator() {
+        List<Inventory> inventories = Inventory.getInventories();
+        inventories.sort(new Comparator<Inventory>(){
+            @Override
+            public int compare(Inventory o1, Inventory o2) {
+                return Long.compare(o1.getInventoryId(), o2.getInventoryId());
+            }
+        });
+        inventories.forEach(System.out::println);
+    }
+
+    //Sorting a list using Comparator written as lambda expression
+    @Test
+    void test_sort_list_of_inventories_using_Comparator_as_lambda() {
+        List<Inventory> inventories = Inventory.getInventories();
+        inventories.sort((inv1, inv2) -> Long.compare(inv1.getInventoryId(), inv2.getInventoryId()));
+        inventories.forEach(System.out::println);
+    }
+    @Test
+    void test_sort_list_of_inventories_using_Comparator_dot_comparing() {
+        List<Inventory> inventories = Inventory.getInventories();
+        inventories.sort(Comparator.comparing(Inventory::getInventoryId));
+        inventories.forEach(System.out::println);
+    }
+
+    //This is performant as it does not require boxing to Long type in this case.
+    @Test
+    void test_sort_list_of_inventories_using_Comparator_dot_comparing_using_specialized_long_comparison() {
+        List<Inventory> inventories = Inventory.getInventories();
+        inventories.sort(Comparator.comparingLong(Inventory::getInventoryId));  // Since getInventory for an Inventory returns a long value.
+        inventories.forEach(System.out::println);
+    }
+
+    // sorting a list of inventories based on location (location field has type Location)
+    @Test
+    void test_sort_list_of_inventories_based_on_typed_field() {
+        List<Inventory> inventories = Inventory.getInventories();
+        //The function we have passed, maps an Inventory to a Location object. But a Location object is not Comparable.
+        // So, we need to pass Comparator to compare two Location instances as a second argument to comparing.
+        //inventories.sort(Comparator.comparing(Inventory::getLocation));
+        inventories.sort(Comparator.comparing(Inventory::getLocation, (loc1, loc2) -> loc1.getState().compareTo(loc2.getState())));
+        inventories.forEach(System.out::println);
+    }
+
+    // sorting a list of inventories based on location reversed (location field has type Location)
+    @Test
+    void test_sort_list_of_inventories_based_on_typed_field_version2() {
+        List<Inventory> inventories = Inventory.getInventories();
+        //The function we have passed, maps an Inventory to a Location object. But a Location object is not Comparable.
+        // So, we need to pass Comparator to compare two Location instances as a second argument to comparing.
+        //inventories.sort(Comparator.comparing(Inventory::getLocation));
+        inventories.sort(Comparator.comparing(Inventory::getLocation, Comparator.comparing(Inventory.Location::getState)).reversed());
+        inventories.forEach(System.out::println);
+    }
+
+    /*
+    We can chain Comparators easily. The Comparators next in the chain will be used to break ties if the first comparator determines the two objects are equal.
+    Let us now sort the list by the number of items in an inventory. If two inventories have the same number of items, we sort by the inventory id (the tie breaker).
+     */
+    @Test
+    void test_sort_list_of_inventories_based_on_items_count_but_if_count_matches_then_compare_using_inventoryId() {
+        List<Inventory> inventories = Inventory.getInventories();
+        inventories.sort(Comparator.comparing((Inventory i) -> i.getItems().size()).thenComparing(Inventory::getInventoryId));
+        inventories.sort(Comparator.comparing((Inventory i) -> i.getItems().size()).thenComparingLong(Inventory::getInventoryId));
+        // If we want to sort the inventory list by count of the items and if count matches then by inventory id reversed then use the following.
+        //inventories.sort(Comparator.comparing((Inventory i) -> i.getItems().size()).thenComparing(Comparator.comparingLong(Inventory::getInventoryId).reversed()));
+        inventories.forEach(System.out::println);
+    }
+
+
+
+    // Sort a list of Person objects by first name
+    // Name field in a few of Person objects may be null
+    // Or/And a few of the Person objects itself may be null
 }
