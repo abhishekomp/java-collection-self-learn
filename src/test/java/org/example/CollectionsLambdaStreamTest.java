@@ -4,6 +4,7 @@ import org.example.puzzle.utils.ArraySolver;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import java.time.LocalDate;
 import java.util.*;
 import java.util.stream.IntStream;
 
@@ -350,6 +351,7 @@ public class CollectionsLambdaStreamTest {
     }
 
     /*
+    V.IMP
     There are two ways we can reverse sort.
     Method 1: By using the call to reversed() it returns a new comparator which swaps the order in which it compares.
      */
@@ -361,6 +363,7 @@ public class CollectionsLambdaStreamTest {
     }
 
     /*
+    V.IMP
     There are two ways we can reverse sort.
     Method 2: Pass an explicit comparator for comparing the keys extracted by the key extractor.
     The second method is a bit interesting.
@@ -371,6 +374,104 @@ public class CollectionsLambdaStreamTest {
         List<Employee> employees = Employee.getEmployees();
         employees.sort(Comparator.comparing(Employee::getDateOfBirth, Comparator.reverseOrder()));
         employees.forEach(System.out::println);
+    }
+
+    /*
+    V.IMP
+    Using a Comparator with null in the collection
+    The employee list now has a couple of null values (i.e. null employee references)
+     */
+    @Test
+    void test_should_sort_when_null_elements_in_list() {
+        List<Employee> employees = Arrays.asList(
+                new Employee("Mike", LocalDate.of(2000, 5, 3), 50000.0),
+                new Employee("Sham", LocalDate.of(2000, 11, 10), 45000.0),
+                new Employee("Casi", LocalDate.of(2000, 7, 9), 60000.0),
+                null,
+                new Employee("Smith", LocalDate.of(1999, 7, 21), 80000.0)
+        );
+        employees.sort(Comparator.nullsFirst(Comparator.comparing(Employee::getDateOfBirth)));
+        employees.forEach(System.out::println);
+    }
+
+    /*
+    V.IMP
+    Using a Comparator when the field to compare with is null
+    Let us see what happens when one of the birthday fields is null for an Employee.
+     */
+    @Test
+    void test_should_sort_when_the_field_to_compare_is_null() {
+        List<Employee> employees = Arrays.asList(
+                new Employee("Mike", LocalDate.of(2000, 5, 3), 50000.0),
+                new Employee("Sham", LocalDate.of(2000, 11, 10), 45000.0),
+                new Employee("Casi", null, 60000.0),
+                new Employee("Smith", LocalDate.of(1999, 7, 21), 80000.0)
+        );
+        //employees.sort(Comparator.nullsFirst(Comparator.comparing(Employee::getDateOfBirth)));
+        employees.sort(Comparator.comparing(Employee::getDateOfBirth, Comparator.nullsFirst(Comparator.naturalOrder())));
+        employees.forEach(System.out::println);
+    }
+
+    /*
+    V.IMP
+    Using a Comparator when the field to compare with is null
+    Let us see what happens when one of the birthday fields is null for an Employee.
+ */
+    @Test
+    void test_should_sort_using_dateOfBirth_reversed_when_the_field_to_compare_is_null() {
+        List<Employee> employees = Arrays.asList(
+                new Employee("Mike", LocalDate.of(2000, 5, 3), 50000.0),
+                new Employee("Sham", LocalDate.of(2000, 11, 10), 45000.0),
+                new Employee("Casi", null, 60000.0),
+                new Employee("Smith", LocalDate.of(1999, 7, 21), 80000.0)
+        );
+        //employees.sort(Comparator.nullsFirst(Comparator.comparing(Employee::getDateOfBirth)));
+        employees.sort(Comparator.comparing(Employee::getDateOfBirth, Comparator.nullsFirst(Comparator.reverseOrder())));
+        employees.forEach(System.out::println);
+    }
+
+    /*
+    V.IMP
+    Using a Comparator when the field to compare with is null
+    Let us see what happens when one of the birthday fields is null for an Employee.
+    This is a mixture of 2 cases where the elements of the list can be null and the other case is that the field to be used for comparison can be null.
+    What it does is: Given a list of Employees:
+    a) There can be null employee elements in the list
+    b) We want to sort the employees based on the date of birth.
+    c) But there may exist employees that have null date of birth and for non-null date of birth sort them in reversed order
+    d) Added another twist that if the date of birth is same then use the name to compare and sort in ascending order based on name for those whose date of birth matches.
+    */
+    @Test
+    void test_should_sort_using_dateOfBirth_reversed_when_the_field_to_compare_is_null_and_there_are_null_in_the_list_as_well() {
+        List<Employee> employees = Arrays.asList(
+                new Employee("Mike", LocalDate.of(2000, 5, 3), 50000.0),
+                new Employee("Sham", LocalDate.of(2000, 11, 10), 45000.0),
+                new Employee("Casi", null, 60000.0),
+                null,
+                new Employee("Smith", LocalDate.of(1999, 7, 21), 80000.0),
+                new Employee("Blake", LocalDate.of(1999, 7, 21), 70000.0)
+        );
+        // below is for the condition a, b, c:
+        employees.sort(Comparator.nullsFirst(Comparator.comparing(Employee::getDateOfBirth, Comparator.nullsFirst(Comparator.reverseOrder()))));
+        // below is for the condition a, b, c, d:
+        //employees.sort(Comparator.nullsFirst(Comparator.comparing(Employee::getDateOfBirth, Comparator.nullsFirst(Comparator.reverseOrder()))).thenComparing(Employee::getName));
+        //employees.sort(Comparator.nullsFirst(Comparator.comparing(Employee::getDateOfBirth)));
+        //employees.sort(Comparator.comparing(Employee::getDateOfBirth, Comparator.nullsFirst(Comparator.reverseOrder())));
+        employees.forEach(System.out::println);
+        /*
+        For conditions a, b, c
+
+         */
+        /*
+        For conditions a, b, c, d
+        employees.sort(Comparator.nullsFirst(Comparator.comparing(Employee::getDateOfBirth, Comparator.nullsFirst(Comparator.reverseOrder()))).thenComparing(Employee::getName));
+        null
+        Employee{name='Casi', dateOfBirth=null, salary=60000.0}
+        Employee{name='Sham', dateOfBirth=2000-11-10, salary=45000.0}
+        Employee{name='Mike', dateOfBirth=2000-05-03, salary=50000.0}
+        Employee{name='Blake', dateOfBirth=1999-07-21, salary=70000.0}
+        Employee{name='Smith', dateOfBirth=1999-07-21, salary=80000.0}
+         */
     }
 
 
