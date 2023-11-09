@@ -3,3 +3,6 @@ Given a list of Students(firstName, lastName), we want to sort them based on
 a) firstName in ascending order
 b) and if firstName for 2 or more student matches, then we will sort those students using lastName descending
 c) but there is a catch, there may be some students whose lastName is missed out(is null). Hence, such students should come at the end when sorted by lastName.
+//students.sort(Comparator.comparing(Student::getFirstName).thenComparing(Student::getLastName, Comparator.nullsLast(reverseOrder())));
+//test_sort_students_using_firstName_and_if_firstName_matches_then_sort_using_lastName_but_if_there_are_nulls_in_lastName_they_should_come_after_nonNull_lastName_students
+===================================
