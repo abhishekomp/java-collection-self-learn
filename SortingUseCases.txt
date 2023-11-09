@@ -1,0 +1,5 @@
+UseCase 1:
+Given a list of Students(firstName, lastName), we want to sort them based on
+a) firstName in ascending order
+b) and if firstName for 2 or more student matches, then we will sort those students using lastName descending
+c) but there is a catch, there may be some students whose lastName is missed out(is null). Hence, such students should come at the end when sorted by lastName.

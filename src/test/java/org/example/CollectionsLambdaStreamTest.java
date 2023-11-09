@@ -9,6 +9,7 @@ import java.util.*;
 import java.util.stream.IntStream;
 
 import static java.util.Comparator.comparing;
+import static java.util.Comparator.reverseOrder;
 import static java.util.stream.Collectors.*;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
@@ -474,7 +475,35 @@ public class CollectionsLambdaStreamTest {
          */
     }
 
+    @Test
+    void test_sort_students_using_firstName_and_if_firstName_matches_then_sort_using_lastName_but_if_there_are_nulls_in_lastName_they_should_come_after_nonNull_lastName_students(){
+        List<Student> students = new ArrayList<>(List.of(
+                new Student("John", "Sorensson", 'A', 80),
+                new Student("Elsa", "Martisson", 'B', 70),
+                new Student("Abbey", "Martisson", 'C', 60),
+                new Student("John", "Blue", 'A', 90),
+                new Student("John", null, 'A', 95),
+                new Student("Michael", "Jordan", 'A', 98)
+        ));
+        //when sorting by first name
+        //students.sort(Comparator.comparing(Student::getFirstName));
 
+        //when sorting by first name and if first name matches then by last name
+        students.sort(Comparator.comparing(Student::getFirstName).thenComparing(Student::getLastName, Comparator.nullsLast(reverseOrder())));
+        /* Result ->
+        Student{firstName='Abbey', lastName='Martisson', grade=C, score=60}
+        Student{firstName='Elsa', lastName='Martisson', grade=B, score=70}
+        Student{firstName='John', lastName='Sorensson', grade=A, score=80}
+        Student{firstName='John', lastName='Blue', grade=A, score=90}
+        Student{firstName='John', lastName='null', grade=A, score=95}
+        Student{firstName='Michael', lastName='Jordan', grade=A, score=98}
+         */
+        students.forEach(System.out::println);
+        Student e1 = new Student("Abbey", "Martisson", 'C', 60);
+        Student e4 = new Student("John", null, 'A', 95);
+        assertEquals(e1, students.get(0));
+        assertEquals(e4, students.get(4));
+    }
 
     // Sort a list of Person objects by first name
     // Name field in a few of Person objects may be null
