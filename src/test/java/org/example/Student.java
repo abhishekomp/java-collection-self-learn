@@ -47,7 +47,8 @@ public class Student {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Student student = (Student) o;
-        return getGrade() == student.getGrade() && getScore() == student.getScore() && getFirstName().equals(student.getFirstName()) && Objects.equals(getLastName(), student.getLastName());
+        //return getGrade() == student.getGrade() && getScore() == student.getScore() && getFirstName().equals(student.getFirstName()) && Objects.equals(getLastName(), student.getLastName());
+        return getGrade() == student.getGrade() && getScore() == student.getScore() && Objects.equals(getFirstName(), student.getFirstName()) && Objects.equals(getLastName(), student.getLastName());
     }
 
     @Override

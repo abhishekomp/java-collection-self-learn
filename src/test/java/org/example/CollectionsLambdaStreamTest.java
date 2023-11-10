@@ -8,11 +8,9 @@ import java.time.LocalDate;
 import java.util.*;
 import java.util.stream.IntStream;
 
-import static java.util.Comparator.comparing;
-import static java.util.Comparator.reverseOrder;
+import static java.util.Comparator.*;
 import static java.util.stream.Collectors.*;
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.*;
 
 public class CollectionsLambdaStreamTest {
 
@@ -227,7 +225,7 @@ public class CollectionsLambdaStreamTest {
     void test_nullsFirst_for_list_of_strings() {
         List<String> fruits = Arrays.asList("pear", "apple", "grapes", null, "orange");
         //fruits.sort(Comparator.naturalOrder());
-        fruits.sort(Comparator.nullsFirst(Comparator.naturalOrder()));
+        fruits.sort(nullsFirst(Comparator.naturalOrder()));
         System.out.println(fruits); //  [null, apple, grapes, orange, pear]
     }
 
@@ -235,7 +233,7 @@ public class CollectionsLambdaStreamTest {
     void test_nullsFirst_for_list_of_strings_reverseOrder() {
         List<String> fruits = Arrays.asList("pear", "apple", "grapes", null, "orange");
         //fruits.sort(Comparator.naturalOrder());
-        fruits.sort(Comparator.nullsFirst(Comparator.reverseOrder()));
+        fruits.sort(nullsFirst(Comparator.reverseOrder()));
         System.out.println(fruits); //  [null, pear, orange, grapes, apple]
     }
 
@@ -252,7 +250,7 @@ public class CollectionsLambdaStreamTest {
         ));
         Comparator<Person> comparing = comparing(Person::getName);
 
-        Comparator<Person> personComparator = comparing(Person::getName, Comparator.nullsFirst(String::compareTo));
+        Comparator<Person> personComparator = comparing(Person::getName, nullsFirst(String::compareTo));
         list.sort(personComparator);
         list.forEach(System.out::println);
     }
@@ -328,7 +326,6 @@ public class CollectionsLambdaStreamTest {
         inventories.forEach(System.out::println);
     }
 
-    //To do
     @Test
     void test_sort_students_using_lastName_and_if_lastName_matches_then_sort_using_firstName_but_if_there_are_nulls_in_firstName_they_should_come_before_nonNull_firstName(){
         List<Student> students = new ArrayList<>(List.of(
@@ -339,7 +336,7 @@ public class CollectionsLambdaStreamTest {
                 new Student(null, "Martisson", 'A', 95),
                 new Student("Michael", "Jordan", 'A', 98)
         ));
-        students.sort(Comparator.comparing(Student::getLastName).thenComparing(Comparator.nullsFirst(Comparator.comparing(Student::getFirstName))));
+        students.sort(Comparator.comparing(Student::getLastName).thenComparing(Student::getFirstName, nullsFirst(naturalOrder())));
         students.forEach(System.out::println);
     }
 
@@ -391,7 +388,7 @@ public class CollectionsLambdaStreamTest {
                 null,
                 new Employee("Smith", LocalDate.of(1999, 7, 21), 80000.0)
         );
-        employees.sort(Comparator.nullsFirst(Comparator.comparing(Employee::getDateOfBirth)));
+        employees.sort(nullsFirst(Comparator.comparing(Employee::getDateOfBirth)));
         employees.forEach(System.out::println);
     }
 
@@ -409,7 +406,7 @@ public class CollectionsLambdaStreamTest {
                 new Employee("Smith", LocalDate.of(1999, 7, 21), 80000.0)
         );
         //employees.sort(Comparator.nullsFirst(Comparator.comparing(Employee::getDateOfBirth)));
-        employees.sort(Comparator.comparing(Employee::getDateOfBirth, Comparator.nullsFirst(Comparator.naturalOrder())));
+        employees.sort(Comparator.comparing(Employee::getDateOfBirth, nullsFirst(Comparator.naturalOrder())));
         employees.forEach(System.out::println);
     }
 
@@ -427,7 +424,7 @@ public class CollectionsLambdaStreamTest {
                 new Employee("Smith", LocalDate.of(1999, 7, 21), 80000.0)
         );
         //employees.sort(Comparator.nullsFirst(Comparator.comparing(Employee::getDateOfBirth)));
-        employees.sort(Comparator.comparing(Employee::getDateOfBirth, Comparator.nullsFirst(Comparator.reverseOrder())));
+        employees.sort(Comparator.comparing(Employee::getDateOfBirth, nullsFirst(Comparator.reverseOrder())));
         employees.forEach(System.out::println);
     }
 
@@ -453,7 +450,7 @@ public class CollectionsLambdaStreamTest {
                 new Employee("Blake", LocalDate.of(1999, 7, 21), 70000.0)
         );
         // below is for the condition a, b, c:
-        employees.sort(Comparator.nullsFirst(Comparator.comparing(Employee::getDateOfBirth, Comparator.nullsFirst(Comparator.reverseOrder()))));
+        employees.sort(nullsFirst(Comparator.comparing(Employee::getDateOfBirth, nullsFirst(Comparator.reverseOrder()))));
         // below is for the condition a, b, c, d:
         //employees.sort(Comparator.nullsFirst(Comparator.comparing(Employee::getDateOfBirth, Comparator.nullsFirst(Comparator.reverseOrder()))).thenComparing(Employee::getName));
         //employees.sort(Comparator.nullsFirst(Comparator.comparing(Employee::getDateOfBirth)));
@@ -475,6 +472,7 @@ public class CollectionsLambdaStreamTest {
          */
     }
 
+    // Two level sort Use case discussed in Stuart Marks video https://www.youtube.com/watch?v=q6zF3vf114M&t=1363s
     @Test
     void test_sort_students_using_firstName_and_if_firstName_matches_then_sort_using_lastName_but_if_there_are_nulls_in_lastName_they_should_come_after_nonNull_lastName_students(){
         List<Student> students = new ArrayList<>(List.of(
@@ -503,6 +501,41 @@ public class CollectionsLambdaStreamTest {
         Student e4 = new Student("John", null, 'A', 95);
         assertEquals(e1, students.get(0));
         assertEquals(e4, students.get(4));
+    }
+
+    // Two level sort Use case discussed in Stuart Marks video https://www.youtube.com/watch?v=q6zF3vf114M&t=1363s
+    @Test
+    void test_sort_students_using_lastName_if_lastName_is_equal_sort_by_firstName_but_for_null_fastNames_students_with_null_firstName_should_come_before_nonNull_firstName(){
+        List<Student> students = new ArrayList<>(List.of(
+                new Student("John", "Sorensson", 'A', 80),
+                new Student("Elsa", "Martisson", 'B', 70),
+                new Student("Abbey", "Martisson", 'C', 60),
+                new Student("John", "Blue", 'A', 90),
+                new Student(null, "Martisson", 'A', 95),
+                new Student("Michael", "Jordan", 'A', 98)
+        ));
+        //students.sort(comparing(Student::getLastName));
+        //students.sort(comparing(Student::getLastName).thenComparing(Student::getFirstName));    //NullPointerException
+        students.sort(comparing(Student::getLastName).thenComparing(Student::getFirstName, nullsFirst(Comparator.naturalOrder())));
+
+        students.forEach(System.out::println);
+
+        Student e1 = new Student("John", "Blue", 'A', 90);
+        Student e2 = new Student(null, "Martisson", 'A', 95);
+        assertEquals(e1, students.get(0));
+        //System.out.println(students.get(2));
+        assertEquals(e2, students.get(2));
+    }
+
+    @Test
+    void test_Object_equals(){
+        String str1 = "Hello";
+        String str2 = null;
+        System.out.println(Objects.equals(str1, str2));
+        System.out.println(Objects.equals(str2, str1));
+        System.out.println(str1.equals(str2));
+        //System.out.println(str2.equals(str1));
+        assertThrows(NullPointerException.class, () -> str2.equals(str1));
     }
 
     // Sort a list of Person objects by first name
