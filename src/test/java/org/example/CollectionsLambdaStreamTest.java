@@ -538,6 +538,77 @@ public class CollectionsLambdaStreamTest {
         assertThrows(NullPointerException.class, () -> str2.equals(str1));
     }
 
+    @Test
+    void test_max_should_return_the_max_value(){
+        List<Person> people = List.of(
+                new Person("Jack", 15),
+                new Person("Paula", 35),
+                new Person("Nancy", 40),
+                new Person("Bill", 25),
+                new Person("Tom", 70),
+                new Person("Tom", 60)
+                );
+        int maxAge = people.stream()
+                .mapToInt(Person::getAge)
+                .max()
+                .orElse(-1);
+        System.out.println("maxAge = " + maxAge);
+        assertEquals(70, maxAge);
+    }
+
+    @Test
+    void test_min_should_return_the_max_value(){
+        List<Person> people = List.of(
+                new Person("Jack", 15),
+                new Person("Paula", 35),
+                new Person("Nancy", 40),
+                new Person("Bill", 25),
+                new Person("Tom", 70),
+                new Person("Tom", 60)
+        );
+        int minAge = people.stream()
+                .mapToInt(Person::getAge)
+                .min()
+                .orElse(-1);
+        System.out.println("maxAge = " + minAge);
+        assertEquals(15, minAge);
+    }
+
+    //Given a list of persons (name, age) get the eldest Person itself (the person object)
+    @Test
+    void test_maxBy_should_give_the_oldest_person() {
+        List<Person> people = List.of(
+                new Person("Jack", 15),
+                new Person("Paula", 35),
+                new Person("Nancy", 40),
+                new Person("Bill", 25),
+                new Person("Tom", 70),
+                new Person("Tom", 60)
+        );
+        Optional<Person> optionalPerson1 = people.stream()
+                .collect(maxBy(comparing(Person::getAge)));
+        System.out.println(optionalPerson1);
+        //Optional<Person> optionalPerson = people.stream().max(comparing(Person::getAge));
+    }
+
+    @Test
+    void test_get_the_name_of_the_oldest_person_in_the_list() {
+        List<Person> people = List.of(
+                new Person("Jack", 15),
+                new Person("Paula", 35),
+                new Person("Nancy", 40),
+                new Person("Bill", 25),
+                new Person("Tom", 70),
+                new Person("Tom", 60)
+        );
+        String name = people.stream()
+                .collect(collectingAndThen(maxBy(comparing(Person::getAge)), person -> person.map(Person::getName).orElse("")));
+        System.out.println("name = " + name);
+        assertEquals("Tom", name);
+    }
+
+
+
     // Sort a list of Person objects by first name
     // Name field in a few of Person objects may be null
     // Or/And a few of the Person objects itself may be null

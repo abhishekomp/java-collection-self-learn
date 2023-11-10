@@ -1,3 +1,8 @@
+Topic: Given a list of Strings (this list contains blank and null elements), get a list of all the non-null strings
+Example Source:
+Input : ["foo", "", "bar"]
+Result: ["FOO", "BAR"]
+----------------------------------------
 Topic: Creating a integer stream using range
 https://stackoverflow.com/questions/57602096/convert-a-list-of-integers-into-a-comma-separated-string
 Method 1: System.out.println(i.stream().map(String::valueOf)

@@ -102,13 +102,20 @@ Topic: Given a list of persons (name, age) get the sum of ages of all the person
 Topic: Given a sentence, get the sum of all the words in the sentence(remove the punctuation while counting the length)
 ------------------------------------
 max
-Topic: Given a list of persons (name, age) get the max age value
+Topic: Given a list of persons (name, age) get the max age value.
+Topic: Given a list of employees, find maximum experience.
 ------------------------------------
 maxBy and possibly also max
 Topic: Given a list of persons (name, age) get the eldest Person itself (the person object)
+Topic: Given a list of employees, find the employee with maximum experience.
+Topic: Given a list of food items, find the food item with maximum calories.
+Topic: Given a list of fruits, find the fruit with maximum nutritional value.
+Topic: (To do) Given a list of movies and each movie in turn having a list of actors, find the actor that has acted in max number of movies.
+Topic: Given a list of employees, get the person with the highest salary.
+Topic: Given a list of employees, give me the person who has worked the longest in a particular department.
 ------------------------------------
 maxBy, collectingAndThen, comparing
-Topic: Given a list of persons (name, age) get the name of the eldest person
+Topic: Given a list of persons (name, age) get the name of the eldest person.
 ------------------------------------
 convert a list to a map, comparingByValue, thenComparing, Map.Entry
 Reference:
