@@ -94,6 +94,19 @@ List<Integer> collect = list.stream()
                 .collect(toList());
 To get the index of an element in a list: list.indexOf(element);
 
+Topic: Find repeated words in a given sentence and count the repetitions using stream API, collection in Java
+Example: today is is is a sunny sunny day today today is a sunny.
+Display the result as follows:
+a) As a map of words and their count. (Done)
+b) As a map which is sorted based on the word as key. (Done)
+c) As a map which is sorted based on the count of the word. (Done)
+d) As a map which is sorted in decreasing order based on the count of the word. (Done)
+e) As a map which is sorted based on the length of the word as key and value as count of that word. (Done)
+f) As a map of word and its count but only those words which are of length 3 characters and more. (Done)
+g) As a map which is sorted based on the count of the word and when count is same then those entries sorted based on the word itself. (Done) (V. IMP)
+
+
+
 counting, collectingAndThen
 Topic: Given a list of persons (name, age) get me a map with key as person name and value as count(as int) of all persons with that name
 ------------------------------------

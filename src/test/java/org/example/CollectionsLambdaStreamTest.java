@@ -6,6 +6,7 @@ import org.junit.jupiter.api.Test;
 
 import java.time.LocalDate;
 import java.util.*;
+import java.util.function.Function;
 import java.util.stream.IntStream;
 
 import static java.util.Comparator.*;
@@ -605,6 +606,165 @@ public class CollectionsLambdaStreamTest {
                 .collect(collectingAndThen(maxBy(comparing(Person::getAge)), person -> person.map(Person::getName).orElse("")));
         System.out.println("name = " + name);
         assertEquals("Tom", name);
+    }
+
+    // Topic: Find repeated words in a given sentence and count the repetitions using stream API, collection in Java.
+    // Example: today is is is a sunny sunny day today today is a sunny.
+    // Result: As a map of words and their count.
+    @Test
+    void test_get_repeated_words_in_a_sentence_and_their_count() {
+        String sentence = "today is is is a sunny sunny day today today is a sunny";
+        // split the sentence and get the words
+        String[] split = sentence.split("\\s+");
+        Map<String, Long> collect = Arrays.asList(split).stream().
+                collect(groupingBy(Function.identity(), counting()));
+        System.out.println(collect);
+
+        Map<String, Long> expectedMap = Map.of("a", 2L, "is", 4L, "today", 3L, "day", 1L, "sunny", 3L);
+        assertEquals(expectedMap, collect);
+        //collect.forEach((k, v) -> System.out.println(k + "->" + v));
+    }
+
+    //Topic: Find repeated words in a given sentence and count the repetitions using stream API, collection in Java.
+    //Example: today is is is a sunny sunny day today today is a sunny.
+    // Result: As a map which is sorted based on the word as key.
+    @Test
+    void test_get_repeated_words_in_a_sentence_and_their_count_with_key_sorted() {
+        String sentence = "today is is is a sunny sunny day today today is a sunny";
+        // split the sentence and get the words
+        String[] split = sentence.split("\\s+");
+        Map<String, Long> collect = Arrays.stream(split)
+                .collect(groupingBy(Function.identity(), counting()))
+                .entrySet().stream()
+                .sorted(Map.Entry.comparingByKey())
+                .collect(toMap(Map.Entry::getKey, Map.Entry::getValue, (a, b) -> a, LinkedHashMap::new));
+        collect.forEach((k, v) -> System.out.println(k + "->" + v));
+        //ArrayList<String> keysList = new ArrayList<>(collect.keySet());
+        //keysList.forEach(System.out::println);
+        List<String> expectedKeysList = List.of("a", "day", "is", "sunny", "today");
+        //List<String> expectedKeysList = List.of("a", "day", "today", "sunny", "is");    //org.opentest4j.AssertionFailedError: iterable contents differ at index [2],
+        assertIterableEquals(new ArrayList<>(collect.keySet()), expectedKeysList);
+    }
+
+    //Topic: Find repeated words in a given sentence and count the repetitions using stream API, collection in Java
+    //Example: today is is is a sunny sunny day today today is a sunny.
+    // Result: As a map which is sorted based on the count of the word.
+    @Test
+    void test_get_repeated_words_in_a_sentence_and_their_count_with_count_sorted() {
+        String sentence = "today is is is a sunny sunny day today today is a sunny";
+        // split the sentence and get the words
+        String[] split = sentence.split("\\s+");
+        Map<String, Long> collect = Arrays.stream(split)
+                .collect(groupingBy(Function.identity(), counting()))
+                .entrySet().stream()
+                .sorted(Map.Entry.comparingByValue())
+                .collect(toMap(Map.Entry::getKey, Map.Entry::getValue, (a, b) -> a, LinkedHashMap::new));
+        System.out.println(collect);
+        //collect.forEach((k, v) -> System.out.println(k + "->" + v));
+        List<String> expectedKeysList = List.of("day", "a", "today", "sunny", "is");
+        assertIterableEquals(new ArrayList<>(collect.keySet()), expectedKeysList);
+        // Result of sorted map entries: {day=1, a=2, today=3, sunny=3, is=4}
+        // What if we want the map to be sorted by values and if the value is same then we want to sort by the key so the final result will be
+        // {day=1, a=2, sunny=3, today=3, is=4}
+    }
+
+    //Topic: Find repeated words in a given sentence and count the repetitions using stream API, collection in Java
+    //Example: today is is is a sunny sunny day today today is a sunny.
+    // Result: As a map which is sorted based on the count of the word and when count is same then those entries sorted based on the word itself.
+    @Test
+    void test_get_repeated_words_in_a_sentence_and_their_count_with_count_sorted_if_same_value_then_by_the_word() {
+        String sentence = "today is is is a sunny sunny day today today is a sunny";
+        // split the sentence and get the words
+        String[] split = sentence.split("\\s+");
+        Map<String, Long> collect = Arrays.stream(split)
+                .collect(groupingBy(Function.identity(), counting()))
+                .entrySet().stream()
+                .sorted(Map.Entry.<String, Long>comparingByValue().thenComparing(Map.Entry.comparingByKey(naturalOrder())))
+                .collect(toMap(Map.Entry::getKey, Map.Entry::getValue, (a, b) -> a, LinkedHashMap::new));
+        System.out.println(collect);
+        //collect.forEach((k, v) -> System.out.println(k + "->" + v));
+        List<String> expectedKeysList = List.of("day", "a", "sunny", "today", "is");
+        assertIterableEquals(new ArrayList<>(collect.keySet()), expectedKeysList);
+
+        //this works -> .sorted(Map.Entry.<String, Long>comparingByValue().thenComparing(Map.Entry.comparingByKey(naturalOrder())))
+        //this does not work -> .sorted(Map.Entry.comparingByValue().thenComparing(Map.Entry.comparingByKey(naturalOrder())))
+    }
+
+    //Topic: Find repeated words in a given sentence and count the repetitions using stream API, collection in Java
+    //Example: today is is is a sunny sunny day today today is a sunny.
+    // Result: As a map which is sorted in decreasing order based on the count of the word.
+    @Test
+    void test_get_repeated_words_in_a_sentence_and_their_count_in_reversed_order() {
+        String sentence = "today is is is a sunny sunny day today today is a sunny";
+        // split the sentence and get the words
+        String[] split = sentence.split("\\s+");
+        LinkedHashMap<String, Long> collect = Arrays.asList(split).stream()
+                .collect(groupingBy(Function.identity(), counting()))
+                .entrySet().stream()
+                .sorted(Map.Entry.<String, Long>comparingByValue().reversed())
+                .collect(toMap(Map.Entry::getKey, Map.Entry::getValue, (v1, v2) -> v1, LinkedHashMap::new));
+        System.out.println(collect);
+        //collect.forEach((k, v) -> System.out.println(k + "->" + v));
+        List<String> expectedKeysList = List.of("is", "today", "sunny", "a", "day");
+        assertIterableEquals(new ArrayList<>(collect.keySet()), expectedKeysList);
+        // {is=4, today=3, sunny=3, a=2, day=1}
+    }
+
+    //Topic: Find repeated words in a given sentence and count the repetitions using stream API, collection in Java
+    //Example: today is is is a sunny sunny day today today is a sunny.
+    // Result: As a map which is sorted based on the length of the word as key and value as count of that word.
+    @Test
+    void test_get_repeated_words_in_a_sentence_and_their_count_with_key_as_word_length_and_value_as_such_word_count() {
+        String sentence = "today is is is a sunny sunny day today today is a sunny";
+        // split the sentence and get the words
+        String[] split = sentence.split("\\s+");
+        LinkedHashMap<Integer, Long> collect = Arrays.asList(split).stream()
+                .map(String::length)
+                .collect(groupingBy(Function.identity(), counting()))
+                .entrySet().stream()
+                .sorted(Map.Entry.comparingByKey())
+                .collect(toMap(Map.Entry::getKey, Map.Entry::getValue, (v1, v2) -> v1, LinkedHashMap::new));
+        System.out.println(collect);
+        //collect.forEach((k, v) -> System.out.println(k + "->" + v));
+        List<Integer> expectedKeysList = List.of(1, 2, 3, 5);
+        assertIterableEquals(new ArrayList<>(collect.keySet()), expectedKeysList);
+        // {1=2, 2=4, 3=1, 5=6}
+    }
+
+    //Topic: Find repeated words in a given sentence and count the repetitions using stream API, collection in Java
+    //Example: today is is is a sunny sunny day today today is a sunny.
+    // Result: As a map of word and its count but only those words which are of length 3 characters and more.
+    @Test
+    void test_get_a_map_of_word_and_its_count_but_only_those_words_that_are_of_length_3_or_more() {
+        String sentence = "today is is is a sunny sunny day today today is a sunny";
+        // split the sentence and get the words
+        String[] split = sentence.split("\\s+");
+        Map<String, Long> collect = Arrays.asList(split).stream()
+                .filter(word -> word.length() >= 3)
+                .collect(groupingBy(Function.identity(), counting()));
+        System.out.println(collect);
+        //collect.forEach((k, v) -> System.out.println(k + "->" + v));
+        List<String> expectedKeysList = List.of("today", "sunny", "day");
+        assertIterableEquals(new ArrayList<>(collect.keySet()), expectedKeysList);
+        // {today=3, sunny=3, day=1}
+    }
+
+    @Test
+    void test_map_merge() {
+        var words = List.of("Foo", "Bar", "Foo", "Buzz", "Foo", "Buzz", "Fizz", "Fizz");
+        var map = new HashMap<String, Integer>();
+        words.forEach(word -> {
+            var prev = map.get(word);
+            if (prev == null) {
+                map.put(word, 1);
+            } else {
+                map.put(word, prev + 1);
+            }
+        });
+        System.out.println(map);
+        Map<String, Integer> expectedMap = Map.of("Bar", 1, "Fizz", 2, "Foo", 3, "Buzz", 2);
+        expectedMap.forEach((k, v) -> System.out.println(k + " -> " + v));
+        assertEquals(map, expectedMap);
     }
 
 
