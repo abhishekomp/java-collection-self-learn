@@ -1,0 +1,70 @@
+package org.example.puzzle.max_possible_jumps_squirrel;
+
+public class Solution {
+    private APICaller api;
+
+    public Solution(APICaller api) {
+        this.api = api;
+        System.out.println("Press run code to see this in the console!");
+        // You can initiate and calculate things here
+    }
+
+    private List<Integer> getBarList() {
+        int barsCnt = api.getNumberOfBars();
+        //System.out.println("Count of bars: " +  barsCnt);
+        //Prepare bar list
+        List<Integer> barsList = new ArrayList<>();
+        for(int i = 0; i <barsCnt; i++) {
+            barsList.add(api.getBarHeight(i));
+        }
+        System.out.println("barsList: " +  barsList);
+        return barsList;
+    }
+
+    private int[] getBarListAsArray(List<Integer> inputList) {
+        return inputList.stream().mapToInt(i -> i).toArray();
+        // [6, 4, 14, 12, 10, 8, 6, 4, 6, 10, 14]
+        // [4, 14, 8, 12, 3, 10, 8, 6, 14, 4]
+        // [4, 5, 6, 8, 5, 10, 8, 12, 9, 14, 10, 9]
+        // [5, 4, 6, 11, 7, 10, 8, 9, 9, 10, 5, 4, 5]
+
+    }
+
+    public int getLongestDecSeq(int[] data) {
+        int currentSeq = 1, longestSeq = 1;
+        for (int i = 1; i < data.length; i++) {
+            currentSeq = (data[i] < data[i - 1]) ? currentSeq + 1 : 1;
+            if (currentSeq > longestSeq)
+                longestSeq = currentSeq;
+        }
+        return longestSeq;
+    }
+
+    /**
+     * Return the maximum number of jumps possible.
+     */
+    public int maxNumberOfJumps() {
+        // Write your code here
+        int maxJumps = 0;
+        List<Integer> barsList = getBarList();
+        int[] barsArr = getBarListAsArray(barsList);
+        System.out.println(Arrays.toString(barsArr));
+        if(barsArr.length == 1) {
+            return maxJumps;
+        }
+        int longestBarSeqLength = getLongestDecSeq(barsArr);
+        System.out.println("Longest bar length: " + longestBarSeqLength);
+
+        return longestBarSeqLength;
+    }
+
+    /**
+     * Return the squirrel's position at the step asked for. The initial
+     * position is step zero, the position after the first jump is step 1 and
+     * so forth.
+     */
+    public int positionAtStep(int step) {
+        // Write your code here
+        return -2;
+    }
+}

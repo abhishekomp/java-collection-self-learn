@@ -767,6 +767,26 @@ public class CollectionsLambdaStreamTest {
         assertEquals(map, expectedMap);
     }
 
+    // Given an array of primitive int, get their absolute distance from zero (consider a list of temperature values in integers)
+    // Assumption: the array has unique values.
+    // converting an array to a map
+    // Sorting a map
+    @Test
+    void test_convert_array_to_map() {
+        int[] temperatureArr = new int[]{-16, -10, -6, 4, 5, 8};
+        Map<Integer, Integer> temperatureMap = Arrays.stream(temperatureArr).boxed()
+                .collect(toMap(Function.identity(), Math::abs));
+//        Map<Integer, Integer> temperatureMap = Arrays.stream(temperatureArr).boxed()
+//                .collect(toMap(Function.identity(), Math::abs))
+//                .entrySet().stream()
+//                .sorted(Map.Entry.comparingByValue())
+//                .collect(toMap(Map.Entry::getKey, Map.Entry::getValue, (v1, v2) -> v1, LinkedHashMap::new));
+        temperatureMap.forEach((k, v) -> System.out.println(k + "->" + v));
+        assertIterableEquals(List.of(4, 5, 6, 8, 10, 16), temperatureMap.values().stream().sorted().collect(toList()));
+        //assertArrayEquals(new int[]{4, 5, 6, 8, 10, 16}, temperatureMap.values().stream().mapToInt(i -> i).toArray());
+        //assertEquals(new int[]{4, 6, 5, 8, 10, 16}, temperatureMap.values().toArray(Integer[]::new));
+    }
+
 
 
     // Sort a list of Person objects by first name

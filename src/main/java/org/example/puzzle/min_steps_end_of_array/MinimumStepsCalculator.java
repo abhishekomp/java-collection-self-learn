@@ -3,7 +3,7 @@ package org.example.puzzle.min_steps_end_of_array;
 // Java program to count Minimum number
 // of jumps to reach end
 //https://www.geeksforgeeks.org/minimum-number-jumps-reach-endset-2on-solution/
-
+//This program is from their website
 class MinimumStepsCalculator {
     static int minJumps(int arr[])
     {
