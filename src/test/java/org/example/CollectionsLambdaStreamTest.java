@@ -787,6 +787,33 @@ public class CollectionsLambdaStreamTest {
         //assertEquals(new int[]{4, 6, 5, 8, 10, 16}, temperatureMap.values().toArray(Integer[]::new));
     }
 
+    // Topic: Extract all integers from a String representing the integers
+    // For example, given a string = 1234, get all the integers in a list from this string.
+    // For example, given a string = 1234, get all the integers in an array from this string
+    // Convert a stream of Strings to an array of String
+    // Convert a stream of integers into an array of String representing those integers
+    @Test
+    void test_extract_all_integers_from_string_representing_integers(){
+       String input = "12345";
+       String[] split = input.split("\\s+");
+        List<Integer> collect = Arrays.stream(split)
+                .map(Integer::parseInt)
+                .collect(toList());
+        collect.forEach(System.out::println);
+        for(Integer i : collect){
+            System.out.println(i);
+        }
+        //get all the integers in an array from this string
+        Integer[] integers = Arrays.stream(split)
+                .map(Integer::parseInt)
+                .toArray(Integer[]::new);
+//        IntStream intStream = Arrays.stream(split)
+//                .mapToInt(Integer::parseInt);
+
+        //Convert a stream of integers into an array of String representing those integers
+        String[] integersAsString= IntStream.range(0, 10).mapToObj(String::valueOf).toArray(String[]::new);
+    }
+
 
 
     // Sort a list of Person objects by first name

@@ -116,3 +116,8 @@ int minVal = Collections.min(integerList);
 Another way to get the min value from a list of integers
 Optional<Integer> minValue = integerList.stream().min(comparing(Function.identity()));
 ----------------------------------------
+Topic: Extract all integers from a String representing the integers
+For example, given a string = 1234, get all the integers in a list from this string.
+Convert a stream of integers into an array of String representing those integers
+Convert a stream of Strings to an array of String
+----------------------------------------
