@@ -814,6 +814,18 @@ public class CollectionsLambdaStreamTest {
         String[] integersAsString= IntStream.range(0, 10).mapToObj(String::valueOf).toArray(String[]::new);
     }
 
+    @Test
+    void test_reverse_a_sentence(){
+        String input = "Dog bites man";
+        String result;
+
+        List<String> collect = Arrays.stream(input.split("\\s+")).collect(toList());
+        System.out.println("collect = " + collect);
+        Collections.reverse(collect);
+        System.out.println("collect = " + collect);
+        //assertTrue("man bites Dog".equals(result));
+    }
+
 
 
     // Sort a list of Person objects by first name
