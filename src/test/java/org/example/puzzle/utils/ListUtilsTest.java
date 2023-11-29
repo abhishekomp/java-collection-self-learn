@@ -18,6 +18,7 @@ class ListUtilsTest {
         List<String> reverseList = ListUtils.reverse(stringList);
         System.out.println("stringList = " + stringList);
         System.out.println("reverseList = " + reverseList);
+        assertIterableEquals(List.of("Hello", "World"), reverseList);
     }
 
     @Test
@@ -33,5 +34,6 @@ class ListUtilsTest {
 
         System.out.println("input = " + input);
         System.out.println("reversedString = " + reversedString);
+        assertEquals(expectedResult, reversedString);
     }
 }
