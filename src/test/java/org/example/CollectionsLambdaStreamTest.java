@@ -826,8 +826,6 @@ public class CollectionsLambdaStreamTest {
         //assertTrue("man bites Dog".equals(result));
     }
 
-
-
     // Sort a list of Person objects by first name
     // Name field in a few of Person objects may be null
     // Or/And a few of the Person objects itself may be null
