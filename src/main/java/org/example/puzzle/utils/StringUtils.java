@@ -11,17 +11,40 @@ import static java.util.stream.Collectors.*;
 public class StringUtils {
     /**
      * Get the count of each character from a string in the form of a map with key as character and value as its count(in Long)
+     * Topic: Given a String, create a Map with key as the Character and value as the count of the Character. (String to Map)
      *
      * @param input String input
      * @return a map with key as character and value as count of the character(as String) in the input string
      */
-    public Map<String, Long> charToCount(String input) {
-        Map<String, Long> stringLongMap = Arrays.stream(input.split(""))
+    public Map<String, Long> stringToCount(String input) {
+        Map<String, Long> charCountMap = Arrays.stream(input.split(""))
                 .collect(groupingBy(Function.identity(), counting()));
-        return stringLongMap;
-//        Map<Integer, Long> collect = input.chars()
+
+//        Map<Integer, Long> charCountMap = input.chars()
 //                .boxed()
 //                .collect(groupingBy(Function.identity(), counting()));
+
+        return charCountMap;
+    }
+
+    /**
+     * Topic: Given a String, create a Map with key as the Character and value as the count of the Character. (String to Map)
+     *
+     * @param input String input
+     * @return a map with key as character and value as count of the character(as String) in the input string
+     */
+    public Map<Character, Long> charToCount(String input) {
+//        Map<String, Long> charCountMap = Arrays.stream(input.split(""))
+//                .collect(groupingBy(Function.identity(), counting()));
+
+//        Map<Integer, Long> charCountMap = input.chars()
+//                .boxed()
+//                .collect(groupingBy(Function.identity(), counting()));
+
+        LinkedHashMap<Character, Long> charCountMap = input.chars().mapToObj(i -> (char) i)
+                .collect(groupingBy(Function.identity(), LinkedHashMap::new, counting()));
+
+        return charCountMap;
     }
 
     /**

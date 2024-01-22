@@ -29,12 +29,15 @@ Main Topic: Converting an array into a Map
 Topic: Given an array of primitive int, get their absolute distance from zero (consider a list of temperature values in integers)
 Topic: Creating a map from a list of complex object (Employee class)
 Topic: Create a map with key as Employee object and value as List of ages
+Topic: Given a String, create a Map with key as the Character and value as the count of the Character. (String to Map)
 ------------------------------------
 filter, map, collect
 Topic: Given a list of integers, get me a list containing double of all the even numbers
 Given list  : [1, 2, 3, 4, 5]
 Output list : [4, 8]
 Topic: Count the number of times a character appears in a String.
+Topic: Given an array of integers, get a map of integers and their frequency (key should be the integer and value should be its frequency)
+Topic: [IMP] Given an array of integers, get a map of frequency and the list of integers with that frequency (key should be frequency and value should be list of integers with that frequency)
 ------------------------------------
 Flatmap:
 Topic: For every integer in given list, produce a list that contains (given integer - 1) and (given integer + 1)

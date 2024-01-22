@@ -12,7 +12,7 @@ class StringUtilsTest {
     @Test
     void test_should_return_correct_char_count() {
         String input = "abc";
-        Map<String, Long> stringLongMap = stringUtils.charToCount(input);
+        Map<String, Long> stringLongMap = stringUtils.stringToCount(input);
         System.out.println("stringLongMap = " + stringLongMap);
         assertEquals(1L, stringLongMap.get("a"));
         assertEquals(1L, stringLongMap.get("b"));
@@ -22,12 +22,21 @@ class StringUtilsTest {
     @Test
     void test_should_return_correct_char_count_for_abcc() {
         String input = "abcc";
-        Map<String, Long> stringLongMap = stringUtils.charToCount(input);
+        Map<String, Long> stringLongMap = stringUtils.stringToCount(input);
         System.out.println("stringLongMap = " + stringLongMap);
         assertEquals(1L, stringLongMap.get("a"));
         assertEquals(1L, stringLongMap.get("b"));
         assertEquals(2L, stringLongMap.get("c"));
+    }
 
+    @Test
+    void test_should_return_correct_char_countMap_for_abcc() {
+        String input = "abcc";
+        Map<Character, Long> stringLongMap = stringUtils.charToCount(input);
+        System.out.println("stringLongMap = " + stringLongMap);
+        assertEquals(1L, stringLongMap.get('a'));
+        assertEquals(1L, stringLongMap.get('a'));
+        assertEquals(2L, stringLongMap.get('c'));
     }
 
     @Test
