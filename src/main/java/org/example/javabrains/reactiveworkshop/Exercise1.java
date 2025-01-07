@@ -54,6 +54,8 @@ public class Exercise1 {
 
         // Print first names in userStream for users that have IDs from number stream
         // TODO: Write code here
+        StreamSource.userStream()
+                .filter(user -> StreamSource.intNumbersStream().anyMatch(id -> id == user.getId()))
+                .forEach(user -> System.out.println(user.getFirstName()));
     }
-
 }
