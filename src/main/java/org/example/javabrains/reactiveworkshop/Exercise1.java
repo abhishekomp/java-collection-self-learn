@@ -1,5 +1,8 @@
 package org.example.javabrains.reactiveworkshop;
 
+import java.util.Optional;
+import java.util.stream.Stream;
+
 /**
  * @author : abhishekomprakash
  * @since : Mon, 2025-Jan-06
@@ -57,5 +60,24 @@ public class Exercise1 {
         StreamSource.userStream()
                 .filter(user -> StreamSource.intNumbersStream().anyMatch(id -> id == user.getId()))
                 .forEach(user -> System.out.println(user.getFirstName()));
+        System.out.println("************************");
+
+        // Another way
+        System.out.println("Another way");
+        StreamSource.intNumbersStream()
+                .flatMap(num -> StreamSource.userStream()
+                        .filter(user -> num == user.getId()))
+                .forEach(user -> System.out.println(user.getFirstName()));
+        System.out.println("************************");
+
+        // Yet Another way to fetch only one record from the user list if there exists multiple entries with matching id
+        System.out.println("Yet Another way");
+        StreamSource.intNumbersStream()
+                .map(id -> StreamSource.userStream()
+                        .filter(user -> id == user.getId()).findFirst())
+                .filter(Optional::isPresent)
+                .forEach(op -> System.out.println(op.get().getFirstName()));
+        System.out.println("************************");
+        //.map(op -> op.get().getFirstName())
     }
 }
