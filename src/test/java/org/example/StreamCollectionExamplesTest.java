@@ -6,6 +6,7 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
+import java.util.stream.Collectors;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
@@ -17,7 +18,7 @@ public class StreamCollectionExamplesTest {
         Set<Character> set = new HashSet<>();
         //String inputStr = "app";
         //int expectedResult = 1;
-        String inputStr = "roller";
+        String inputStr = "rollerl";
         int expectedResult = 2;
 
         int sum = inputStr.chars()
@@ -28,5 +29,15 @@ public class StreamCollectionExamplesTest {
         int actualResult = inputStr.length() - sum;
         System.out.println("Number of repeating characters: " + actualResult);
         assertEquals(expectedResult, actualResult);
+    }
+
+    @Test
+    void test2 () {
+        // "The quick brown fox jumped over the lazy dog."
+        Map<String, Long> collect = "sheep"
+                .chars()
+                .mapToObj(i -> (char) i)
+                .collect(Collectors.groupingBy(Object::toString, Collectors.counting()));
+        collect.forEach((k, v) -> System.out.println(k + "->" + v));
     }
 }
