@@ -1,10 +1,7 @@
 package org.example.in28Minutes.funcInterfaces01;
 
 import java.util.List;
-import java.util.function.BinaryOperator;
-import java.util.function.Consumer;
-import java.util.function.Function;
-import java.util.function.Predicate;
+import java.util.function.*;
 
 public class BinaryOperatorFuncInterface {
     public static void main(String[] args) {
@@ -58,5 +55,10 @@ public class BinaryOperatorFuncInterface {
                 .reduce(0, binaryOperatorSum2);
 
         System.out.println(sum);
+
+
+        // UnaryOperator is a special type of Function that takes an input of type T and returns a result of the same type.
+        UnaryOperator<Integer> unaryOperator = (x) -> 10 * x;
+        System.out.println("UnaryOperator's apply method returns result of the same type as the argument, in this case: " + unaryOperator.apply(100));   // should print 1000
     }
 }
