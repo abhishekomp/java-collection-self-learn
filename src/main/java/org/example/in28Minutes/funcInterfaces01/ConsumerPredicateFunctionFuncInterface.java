@@ -26,6 +26,13 @@ public class ConsumerPredicateFunctionFuncInterface {
         //Consumer<String> sysOutConsumer = str -> System.out.println(str);
         Consumer<String> sysOutConsumer = System.out::println;
 
+        Consumer<Integer> sysOutConsumerImpl = new Consumer<Integer>() {
+            @Override
+            public void accept(Integer integer) {
+                System.out.println(integer);
+            }
+        };
+
 //        numbers.stream()
 //                .filter(x -> x % 2 == 0)
 //                .map(x -> x * x)
@@ -34,6 +41,6 @@ public class ConsumerPredicateFunctionFuncInterface {
         numbers.stream()
                 .filter(isEvenNumber)
                 .map(squared)
-                .forEach(System.out::println);
+                .forEach(sysOutConsumerImpl);
     }
 }
