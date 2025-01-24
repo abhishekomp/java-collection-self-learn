@@ -80,4 +80,12 @@ public class EmployeeService {
                         ))
                 .collect(toList());
     }
+
+    List<Employee> sortByZipCode(List<Employee> employees){
+        Function<Employee, Employee.Address> addressExtractor = Employee::getAddress;
+        Function<Employee.Address, Integer> zipCodeExtractor = adder -> Integer.valueOf(adder.getZipcode());
+        return employees.stream()
+                .sorted(Comparator.comparing(addressExtractor, Comparator.comparing(zipCodeExtractor)))
+                .collect(toList());
+    }
 }

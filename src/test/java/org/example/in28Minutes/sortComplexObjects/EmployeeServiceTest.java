@@ -68,4 +68,13 @@ class EmployeeServiceTest {
         assertIterableEquals(collectedDobs, List.of("1972-07-20","1986-04-09","1987-02-12","1987-04-20","1987-04-22","1987-09-29"));
         //assertIterableEquals(collectedDobs, List.of("1972-07-20","1987-02-12", "1986-04-09","1987-04-20","1987-04-22","1987-09-29"));
     }
+
+    @Test
+    void sortByZipCode() {
+        System.out.println("Before sorting using zipCode");
+        employees.forEach(System.out::println);
+        List<Employee> sorted = employeeService.sortByZipCode(employees);
+        System.out.println("After sorting using zipCode");
+        sorted.forEach(System.out::println);
+    }
 }
