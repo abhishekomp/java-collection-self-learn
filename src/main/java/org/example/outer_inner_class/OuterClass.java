@@ -13,6 +13,9 @@ public class OuterClass {
         public void printOuterVariable() {
             // Accessing outer class variable directly
             System.out.println(outerVariable);
+
+            // `OuterClass.this` refers to the OuterClass instance
+            System.out.println("Outer variable: " + OuterClass.this.outerVariable);
         }
 
         public void printInnerVariable() {
@@ -39,6 +42,13 @@ public class OuterClass {
     Access Modifiers: The access level of the outer class variable does not restrict the inner class from accessing it, even if it is private. This is because the inner class is part of the outer class.
     Instantiation: To create an instance of the inner class, you must first have an instance of the outer class. Then, use the outer class object to instantiate the inner class using outer.new InnerClass() syntax.
     This approach makes it convenient to use inner classes when they need direct access to their enclosing class's data.
+ */
+
+/*
+Key Points about using this keyword in Inner Classes:
+    * this Keyword in Inner Class: In InnerClass, using this.innerVariable accesses the instance variables of the inner class.
+    * Referencing Outer Class: OuterClass.this is used to reference the outer class instance. This allows access to the outer class's members even when there's a variable name conflict between the inner and outer classes.
+    * Resolution: This approach helps in disambiguating which class’s instance variable or method you are referring to when both the outer and inner classes have similar members.
  */
 
 
