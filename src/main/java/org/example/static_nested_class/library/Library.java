@@ -1,6 +1,11 @@
 package org.example.static_nested_class.library;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Library {
+
+    private final List<Book> books = new ArrayList<>();
 
     // Static nested class for Book
     public static class Book {
@@ -46,6 +51,12 @@ public class Library {
 
     public void addBook(String title, String author, String isbn) {
         Book book = new Book(title, author, isbn);
+        books.add(book);
         System.out.println("Added: " + book);
+    }
+
+    // Method to get all books
+    public List<Book> getBooks() {
+        return new ArrayList<>(books);
     }
 }

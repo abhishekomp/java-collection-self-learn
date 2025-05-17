@@ -17,5 +17,11 @@ public class Main {
 
         comparisonResult = Library.BookComparator.compareByAuthor(book1, book2);
         System.out.println("Comparison by author: " + (comparisonResult < 0 ? "First" : "Second") + " book is earlier in alphabetical order.");
+
+        // Displaying all books in the library
+        System.out.println("Books in the library:");
+        for (Library.Book book : library.getBooks()) {
+            System.out.println(book);
+        }
     }
 }
