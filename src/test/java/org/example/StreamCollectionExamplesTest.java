@@ -40,4 +40,80 @@ public class StreamCollectionExamplesTest {
                 .collect(Collectors.groupingBy(Object::toString, Collectors.counting()));
         collect.forEach((k, v) -> System.out.println(k + "->" + v));
     }
+
+    //Given a List<String> of words, create a list of lengths of words that start with the letter "a".
+    @Test
+    void test3() {
+        Set<String> words = Set.of("apple", "banana", "avocado", "grape", "apricot", "kiwi");
+        Set<Integer> lengths = words.stream()
+                .filter(word -> word.startsWith("a"))
+                .map(String::length)
+                .collect(Collectors.toSet());
+        System.out.println("Lengths of words starting with 'a': " + lengths);
+        Set<Integer> expectedLengths = Set.of(5, 7, 8); // "apple", "avocado", "apricot"
+        assertEquals(expectedLengths, lengths);
+    }
+
+    //Given a list of Person objects (with name and age), create a map of name to age for all persons older than 18.
+    @Test
+    void test4() {
+        Set<Person> persons = Set.of(
+                new Person("Alice", 25),
+                new Person("Bob", 17),
+                new Person("Charlie", 20),
+                new Person("David", 15)
+        );
+
+        Map<String, Integer> nameToAgeMap = persons.stream()
+                .filter(person -> person.getAge() > 18)
+                .collect(Collectors.toMap(Person::getName, Person::getAge));
+
+        System.out.println("Name to age map for persons older than 18: " + nameToAgeMap);
+        Map<String, Integer> expectedMap = Map.of("Alice", 25, "Charlie", 20);
+        assertEquals(expectedMap, nameToAgeMap);
+    }
+
+    //Given a list of integers, create a set of their squares.
+    @Test
+    void test5() {
+        Set<Integer> integers = Set.of(1, 2, 3, 4, 5);
+        Set<Integer> squares = integers.stream()
+                .map(i -> i * i)
+                .collect(Collectors.toSet());
+        System.out.println("Set of squares: " + squares);
+        Set<Integer> expectedSquares = Set.of(1, 4, 9, 16, 25);
+        assertEquals(expectedSquares, squares);
+
+        //Using reduce to solve the same problem
+        Set<Integer> squaresUsingReduce = integers.stream()
+                .map(i -> i * i)
+                .reduce(new HashSet<>(), (set, square) -> {
+                    set.add(square);
+                    return set;
+                }, (set1, set2) -> {
+                    set1.addAll(set2);
+                    return set1;
+                });
+    }
+
+    @Test
+    void test6() {
+        // Given a list of strings, use reduce to concatenate them all into a single
+        Set<String> words = Set.of("apple", "banana", "avocado", "grape", "apricot", "kiwi");
+        String concatenated = words.stream()
+                .reduce("", (partialString, element) -> partialString + element + " ");
+
+        // Trim the result to remove the trailing space
+        concatenated = concatenated.trim();
+        System.out.println("Concatenated string: " + concatenated);
+        String expectedConcatenated = "apple banana avocado grape apricot kiwi";
+        assertEquals(expectedConcatenated, concatenated);
+
+        // Solve the same problem using collect
+        String concatenatedUsingCollect = words.stream()
+                .collect(Collectors.joining(" "));
+        System.out.println("Concatenated string using collect: " + concatenatedUsingCollect);
+        assertEquals(expectedConcatenated, concatenatedUsingCollect);
+    }
+
 }
