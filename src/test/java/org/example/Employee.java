@@ -41,9 +41,11 @@ public class Employee {
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Employee employee = (Employee) o;
-        return Double.compare(employee.getSalary(), getSalary()) == 0 && getName().equals(employee.getName()) && Objects.equals(getDateOfBirth(), employee.getDateOfBirth());
+        // JDK 16+ pattern matching for instanceof: combines type check + cast in one step
+        if (!(o instanceof Employee employee)) return false;
+        return Double.compare(employee.salary, salary) == 0
+                && Objects.equals(name, employee.name)
+                && Objects.equals(dateOfBirth, employee.dateOfBirth);
     }
 
     @Override

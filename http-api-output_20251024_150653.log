@@ -1,0 +1,277 @@
+METHOD: POST
+REQUEST URL: https://boost.uts-dev01.tenant1.dev.evinova.com/userpod/jwt/v1
+REQUEST BODY: {"tenantId":"dmdp-tenant","zoneId":"Europe/Stockholm","expireTimeSecs":3600}
+RESPONSE METHOD: POST
+RESPONSE URL: https://boost.uts-dev01.tenant1.dev.evinova.com/userpod/jwt/v1
+STATUS CODE: 200
+----------------------------------------
+METHOD: GET
+REQUEST URL: https://boost.uts-dev01.tenant1.dev.evinova.com/userpod/idp/light/v1/register?email=tenant_admin_jxtkfspqax@s3testmail.dmdp2.aws.intelpharma.net
+RESPONSE METHOD: GET
+RESPONSE URL: https://boost.uts-dev01.tenant1.dev.evinova.com/userpod/idp/light/v1/register?email=tenant_admin_jxtkfspqax@s3testmail.dmdp2.aws.intelpharma.net
+STATUS CODE: 200
+----------------------------------------
+METHOD: GET
+REQUEST URL: https://boost.uts-dev01.tenant1.dev.evinova.com/userpod/idp/light/v1?email=tenant_admin_jxtkfspqax@s3testmail.dmdp2.aws.intelpharma.net&pwd=qwerty
+RESPONSE METHOD: GET
+RESPONSE URL: https://boost.uts-dev01.tenant1.dev.evinova.com/userpod/idp/light/v1?email=tenant_admin_jxtkfspqax@s3testmail.dmdp2.aws.intelpharma.net&pwd=qwerty
+STATUS CODE: 200
+----------------------------------------
+METHOD: GET
+REQUEST URL: https://boost.uts-dev01.tenant1.dev.evinova.com/userpod/user/info/v1/mine?limit=500
+RESPONSE METHOD: GET
+RESPONSE URL: https://boost.uts-dev01.tenant1.dev.evinova.com/userpod/user/info/v1/mine?limit=500
+STATUS CODE: 200
+RESPONSE BODY: {"users":[]}
+----------------------------------------
+METHOD: POST
+REQUEST URL: https://boost.uts-dev01.tenant1.dev.evinova.com/userpod/user/register/v1/tenant/dmdp_cu_BIOSAMPLING_SUPPLY_JxtkFSpQAX
+REQUEST BODY: {"idpAccounts":[{"provider":"userpod.idp.light","email":"tenant_admin_jxtkfspqax@s3testmail.dmdp2.aws.intelpharma.net"}],"localization":{"countryCode":"se","langCode":"sv"},"contactPoints":[{"system":"EMAIL","value":"tenant_admin_jxtkfspqax@s3testmail.dmdp2.aws.intelpharma.net","primary":true}],"humanName":{"given":"TENANT_ADMIN","family":"tenant_admin_jxtkfspqax@s3testmail.dmdp2.aws.intelpharma.net"},"externalIds":[{"key":"TEST_REFERENCE","value":"TENANT_ADMIN"}],"roleAccessRefs":[{"accessRefs":[],"role":"TENANT_ADMIN"}]}
+RESPONSE METHOD: POST
+RESPONSE URL: https://boost.uts-dev01.tenant1.dev.evinova.com/userpod/user/register/v1/tenant/dmdp_cu_BIOSAMPLING_SUPPLY_JxtkFSpQAX
+STATUS CODE: 200
+RESPONSE BODY: {"userId":"68fb6d5e7118bec590a141ec","eventId":7564760249593233419,"status":"REGISTERED","statusTimestamp":1761307998498,"previousStatuses":[],"idpAccounts":[{"provider":"userpod.idp.light","identity":"tenant_admin_jxtkfspqax@s3testmail.dmdp2.aws.intelpharma.net","idpSubject":"tenant_admin_jxtkfspqax@s3testmail.dmdp2.aws.intelpharma.net","flowType":"USER_REGISTRATION","idpStatus":{"status":"EXISTING","lastModified":1761307998498},"verified":false}],"audit":{"createdAt":"2025-10-24T12:13:18.498Z[UTC]","createdBy":"66c3a29b7319e64a92ce5da5","lastModified":"2025-10-24T12:13:18.498Z[UTC]","modifiedBy":"66c3a29b7319e64a92ce5da5"},"localization":{"countryCode":"se","langCode":"sv"},"roleAccessRefs":[{"accessRefs":[],"role":"TENANT_ADMIN"}],"projects":[],"metas":[],"tags":[],"occasions":[],"customStatuses":[],"contactPoints":[{"contactPointId":"68fb6d5e7118bec590a141eb","system":"EMAIL","value":"tenant_admin_jxtkfspqax@s3testmail.dmdp2.aws.intelpharma.net","primary":true}],"humanName":{"given":"TENANT_ADMIN","family":"tenant_admin_jxtkfspqax@s3testmail.dmdp2.aws.intelpharma.net"},"externalIds":[{"key":"TEST_REFERENCE","value":"TENANT_ADMIN"}],"personal":{"gender":"UNKNOWN","createdAt":"2025-10-24T12:13:18.498Z","createdBy":"66c3a29b7319e64a92ce5da5"},"preferences":{},"metrics":{},"provisionedDevices":[]}
+----------------------------------------
+METHOD: POST
+REQUEST URL: https://boost.uts-dev01.tenant1.dev.evinova.com/userpod/jwt/v1
+REQUEST BODY: {"tenantId":"dmdp_cu_BIOSAMPLING_SUPPLY_JxtkFSpQAX","zoneId":"Europe/Stockholm","expireTimeSecs":3600,"version":"v1"}
+RESPONSE METHOD: POST
+RESPONSE URL: https://boost.uts-dev01.tenant1.dev.evinova.com/userpod/jwt/v1
+STATUS CODE: 200
+----------------------------------------
+METHOD: PUT
+REQUEST URL: https://boost.uts-dev01.tenant1.dev.evinova.com/userpod/user/activate/v1
+RESPONSE METHOD: PUT
+RESPONSE URL: https://boost.uts-dev01.tenant1.dev.evinova.com/userpod/user/activate/v1
+STATUS CODE: 200
+----------------------------------------
+METHOD: POST
+REQUEST URL: https://boost.uts-dev01.tenant1.dev.evinova.com/userpod/jwt/v1
+REQUEST BODY: {"tenantId":"dmdp_cu_BIOSAMPLING_SUPPLY_JxtkFSpQAX","zoneId":"Europe/Stockholm","expireTimeSecs":3600,"version":"v1"}
+RESPONSE METHOD: POST
+RESPONSE URL: https://boost.uts-dev01.tenant1.dev.evinova.com/userpod/jwt/v1
+STATUS CODE: 200
+----------------------------------------
+METHOD: GET
+REQUEST URL: https://boost.uts-dev01.tenant1.dev.evinova.com/userpod/user/v1/mine
+RESPONSE METHOD: GET
+RESPONSE URL: https://boost.uts-dev01.tenant1.dev.evinova.com/userpod/user/v1/mine
+STATUS CODE: 200
+RESPONSE BODY: {"userId":"68fb6d5e7118bec590a141ec","eventId":7564760249593233471,"status":"ACTIVE","statusTimestamp":1761307998778,"previousStatuses":[{"status":"REGISTERED","time":1761307998498},{"status":"VERIFIED","time":1761307998622}],"idpAccounts":[{"provider":"userpod.idp.light","identity":"tenant_admin_jxtkfspqax@s3testmail.dmdp2.aws.intelpharma.net","idpSubject":"tenant_admin_jxtkfspqax@s3testmail.dmdp2.aws.intelpharma.net","flowType":"USER_REGISTRATION","idpStatus":{"status":"EXISTING","lastModified":1761307998498},"verified":true}],"audit":{"createdAt":"2025-10-24T12:13:18.498Z[UTC]","createdBy":"66c3a29b7319e64a92ce5da5","lastModified":"2025-10-24T12:13:18.778Z[UTC]","modifiedBy":"68fb6d5e7118bec590a141ec"},"localization":{"countryCode":"se","langCode":"sv"},"roleAccessRefs":[{"accessRefs":[],"role":"TENANT_ADMIN"}],"projects":[],"metas":[],"tags":[],"occasions":[],"customStatuses":[],"contactPoints":[{"contactPointId":"68fb6d5e7118bec590a141eb","system":"EMAIL","value":"tenant_admin_jxtkfspqax@s3testmail.dmdp2.aws.intelpharma.net","primary":true}],"humanName":{"given":"TENANT_ADMIN","family":"tenant_admin_jxtkfspqax@s3testmail.dmdp2.aws.intelpharma.net"},"externalIds":[{"key":"TEST_REFERENCE","value":"TENANT_ADMIN"}],"personal":{"gender":"UNKNOWN","createdAt":"2025-10-24T12:13:18.498Z","createdBy":"66c3a29b7319e64a92ce5da5","previousPersonals":[]},"preferences":{},"metrics":{"previousMetrics":[]},"provisionedDevices":[]}
+----------------------------------------
+METHOD: PUT
+REQUEST URL: https://boost.uts-dev01.tenant1.dev.evinova.com/userpod/config/tenant/v1/userpod-user-mgmt-config/
+REQUEST BODY: {"version":1,"data":{"sendInvitationEmailEnabled":false,"sendWithdrawEmailEnabled":false,"sendRegistrationEmailEnabled":false}}
+RESPONSE METHOD: PUT
+RESPONSE URL: https://boost.uts-dev01.tenant1.dev.evinova.com/userpod/config/tenant/v1/userpod-user-mgmt-config/
+STATUS CODE: 200
+----------------------------------------
+METHOD: GET
+REQUEST URL: https://boost.uts-dev01.tenant1.dev.evinova.com/userpod/idp/light/v1/register?email=product_admin@s3testmail.dmdp2.aws.intelpharma.net
+RESPONSE METHOD: GET
+RESPONSE URL: https://boost.uts-dev01.tenant1.dev.evinova.com/userpod/idp/light/v1/register?email=product_admin@s3testmail.dmdp2.aws.intelpharma.net
+STATUS CODE: 200
+----------------------------------------
+METHOD: GET
+REQUEST URL: https://boost.uts-dev01.tenant1.dev.evinova.com/userpod/idp/light/v1?email=product_admin@s3testmail.dmdp2.aws.intelpharma.net&pwd=qwerty
+RESPONSE METHOD: GET
+RESPONSE URL: https://boost.uts-dev01.tenant1.dev.evinova.com/userpod/idp/light/v1?email=product_admin@s3testmail.dmdp2.aws.intelpharma.net&pwd=qwerty
+STATUS CODE: 200
+----------------------------------------
+METHOD: GET
+REQUEST URL: https://boost.uts-dev01.tenant1.dev.evinova.com/userpod/user/info/v1/mine?limit=500
+RESPONSE METHOD: GET
+RESPONSE URL: https://boost.uts-dev01.tenant1.dev.evinova.com/userpod/user/info/v1/mine?limit=500
+STATUS CODE: 200
+RESPONSE BODY: {"paging":{"prev":"66fd17f6d3bc0c705805065b","next":"66fd17f6d3bc0c705805065b","limit":500,"count":0},"users":[{"userId":"66fd17f6d3bc0c705805065a","tenantId":"dmdp-tenant","status":"ACTIVE","roleAccessRefs":[{"accessRefs":[],"role":"PRODUCT_ADMIN"}],"localization":{"countryCode":"se","langCode":"sv"}}]}
+----------------------------------------
+METHOD: POST
+REQUEST URL: https://boost.uts-dev01.tenant1.dev.evinova.com/userpod/jwt/v1
+REQUEST BODY: {"tenantId":"dmdp-tenant","zoneId":"Europe/Stockholm","expireTimeSecs":3600,"version":"v1"}
+RESPONSE METHOD: POST
+RESPONSE URL: https://boost.uts-dev01.tenant1.dev.evinova.com/userpod/jwt/v1
+STATUS CODE: 200
+----------------------------------------
+METHOD: PUT
+REQUEST URL: https://boost.uts-dev01.tenant1.dev.evinova.com/userpod/user/activate/v1
+RESPONSE METHOD: PUT
+RESPONSE URL: https://boost.uts-dev01.tenant1.dev.evinova.com/userpod/user/activate/v1
+STATUS CODE: 200
+----------------------------------------
+METHOD: POST
+REQUEST URL: https://boost.uts-dev01.tenant1.dev.evinova.com/userpod/jwt/v1
+REQUEST BODY: {"tenantId":"dmdp-tenant","zoneId":"Europe/Stockholm","expireTimeSecs":3600,"version":"v1"}
+RESPONSE METHOD: POST
+RESPONSE URL: https://boost.uts-dev01.tenant1.dev.evinova.com/userpod/jwt/v1
+STATUS CODE: 200
+----------------------------------------
+METHOD: GET
+REQUEST URL: https://boost.uts-dev01.tenant1.dev.evinova.com/userpod/user/v1/mine
+RESPONSE METHOD: GET
+RESPONSE URL: https://boost.uts-dev01.tenant1.dev.evinova.com/userpod/user/v1/mine
+STATUS CODE: 200
+RESPONSE BODY: {"userId":"66fd17f6d3bc0c705805065a","eventId":7421114114895773710,"status":"ACTIVE","statusTimestamp":1727862776587,"previousStatuses":[{"status":"REGISTERED","time":1727862774045},{"status":"VERIFIED","time":1727862776261}],"idpAccounts":[{"provider":"userpod.idp.light","identity":"product_admin@s3testmail.dmdp2.aws.intelpharma.net","idpSubject":"product_admin@s3testmail.dmdp2.aws.intelpharma.net","flowType":"USER_REGISTRATION","idpStatus":{"status":"EXISTING","lastModified":1727862774040},"verified":true}],"audit":{"createdAt":"2024-10-02T09:52:54.04Z[UTC]","createdBy":"66c3a29b7319e64a92ce5da5","lastModified":"2024-10-02T09:52:56.588Z[UTC]","modifiedBy":"66fd17f6d3bc0c705805065a"},"localization":{"countryCode":"se","langCode":"sv"},"roleAccessRefs":[{"accessRefs":[],"role":"PRODUCT_ADMIN"}],"projects":[],"metas":[],"tags":[],"occasions":[],"customStatuses":[],"contactPoints":[{"contactPointId":"66fd17f6d3bc0c7058050659","system":"EMAIL","value":"product_admin@s3testmail.dmdp2.aws.intelpharma.net","primary":true}],"humanName":{"given":"PRODUCT_ADMIN","family":"product_admin@s3testmail.dmdp2.aws.intelpharma.net"},"externalIds":[{"key":"TEST_REFERENCE","value":"PRODUCT_ADMIN"}],"personal":{"gender":"THIRD","previousPersonals":[]},"preferences":{},"metrics":{"previousMetrics":[]},"provisionedDevices":[]}
+----------------------------------------
+METHOD: POST
+REQUEST URL: https://boost.uts-dev01.tenant1.dev.evinova.com/userpod/organization/v1/query
+REQUEST BODY: {"criterion":{"operator":"AND","criteria":[{"fieldCriterion":{"field":"EXTERNAL_ID_KEY","type":"EQ","values":["TEST_REFERENCE"]}},{"fieldCriterion":{"field":"EXTERNAL_ID_VALUE","type":"EQ","values":["TREE"]}}]}}
+RESPONSE METHOD: POST
+RESPONSE URL: https://boost.uts-dev01.tenant1.dev.evinova.com/userpod/organization/v1/query
+STATUS CODE: 200
+RESPONSE BODY: {"paging":{"prev":"000000007118bec5909de35c","next":"000000007118bec5909de35c","limit":5000},"orgs":[]}
+----------------------------------------
+METHOD: POST
+REQUEST URL: https://boost.uts-dev01.tenant1.dev.evinova.com/userpod/organization/v1/tree
+REQUEST BODY: {"name":"BaseTree","status":"ACTIVE","test":false}
+RESPONSE METHOD: POST
+RESPONSE URL: https://boost.uts-dev01.tenant1.dev.evinova.com/userpod/organization/v1/tree
+STATUS CODE: 200
+RESPONSE BODY: {"orgId":"68fb6d5f7118bec590a141fc","eventId":7564760253888200720,"type":"TREE","name":"BaseTree","status":"ACTIVE","parentId":"68fb6d5f7118bec590a141fc","branchParentIds":[],"metas":[],"test":false,"externalIds":[],"customStatuses":[]}
+----------------------------------------
+METHOD: POST
+REQUEST URL: https://boost.uts-dev01.tenant1.dev.evinova.com/userpod/organization/v1/query
+REQUEST BODY: {"criterion":{"operator":"AND","criteria":[{"fieldCriterion":{"field":"EXTERNAL_ID_KEY","type":"EQ","values":["TEST_REFERENCE"]}},{"fieldCriterion":{"field":"EXTERNAL_ID_VALUE","type":"EQ","values":["SWEDEN"]}}]}}
+RESPONSE METHOD: POST
+RESPONSE URL: https://boost.uts-dev01.tenant1.dev.evinova.com/userpod/organization/v1/query
+STATUS CODE: 200
+RESPONSE BODY: {"paging":{"prev":"000000004dc5c943fd13153d","next":"000000004dc5c943fd13153d","limit":5000},"orgs":[]}
+----------------------------------------
+METHOD: POST
+REQUEST URL: https://boost.uts-dev01.tenant1.dev.evinova.com/userpod/organization/v1/country
+REQUEST BODY: {"countryCode":"se","langCodes":["sv"],"name":"Sweden","status":"ACTIVE","parentId":"68fb6d5f7118bec590a141fc","test":false,"details":{}}
+RESPONSE METHOD: POST
+RESPONSE URL: https://boost.uts-dev01.tenant1.dev.evinova.com/userpod/organization/v1/country
+STATUS CODE: 200
+RESPONSE BODY: {"orgId":"68fb6d5f5452e66c8a8478ba","eventId":7564760253888200731,"type":"COUNTRY","name":"Sweden","status":"ACTIVE","parentId":"68fb6d5f7118bec590a141fc","branchParentIds":["68fb6d5f7118bec590a141fc"],"metas":[],"test":false,"details":{"contacts":[],"contactPoints":[]},"country":{"countryCode":"se","langCodes":["sv"]},"externalIds":[],"customStatuses":[]}
+----------------------------------------
+METHOD: POST
+REQUEST URL: https://boost.uts-dev01.tenant1.dev.evinova.com/userpod/organization/v1/query
+REQUEST BODY: {"criterion":{"operator":"AND","criteria":[{"fieldCriterion":{"field":"EXTERNAL_ID_KEY","type":"EQ","values":["TEST_REFERENCE"]}},{"fieldCriterion":{"field":"EXTERNAL_ID_VALUE","type":"EQ","values":["REGION"]}}]}}
+RESPONSE METHOD: POST
+RESPONSE URL: https://boost.uts-dev01.tenant1.dev.evinova.com/userpod/organization/v1/query
+STATUS CODE: 200
+RESPONSE BODY: {"paging":{"prev":"00000000276f27e95faac8f6","next":"00000000276f27e95faac8f6","limit":5000},"orgs":[]}
+----------------------------------------
+METHOD: POST
+REQUEST URL: https://boost.uts-dev01.tenant1.dev.evinova.com/userpod/organization/v1/region
+REQUEST BODY: {"name":"Västra Götaland","status":"ACTIVE","parentId":"68fb6d5f5452e66c8a8478ba","test":false,"details":{}}
+RESPONSE METHOD: POST
+RESPONSE URL: https://boost.uts-dev01.tenant1.dev.evinova.com/userpod/organization/v1/region
+STATUS CODE: 200
+RESPONSE BODY: {"orgId":"68fb6d5faf38a3f466bb7fb0","eventId":7564760253888200742,"type":"REGION","name":"Västra Götaland","status":"ACTIVE","parentId":"68fb6d5f5452e66c8a8478ba","branchParentIds":["68fb6d5f5452e66c8a8478ba","68fb6d5f7118bec590a141fc"],"metas":[],"test":false,"details":{"contacts":[],"contactPoints":[]},"region":{},"externalIds":[],"customStatuses":[]}
+----------------------------------------
+METHOD: POST
+REQUEST URL: https://boost.uts-dev01.tenant1.dev.evinova.com/userpod/organization/v1/query
+REQUEST BODY: {"criterion":{"operator":"AND","criteria":[{"fieldCriterion":{"field":"EXTERNAL_ID_KEY","type":"EQ","values":["TEST_REFERENCE"]}},{"fieldCriterion":{"field":"EXTERNAL_ID_VALUE","type":"EQ","values":["SAHLGRENSKA"]}}]}}
+RESPONSE METHOD: POST
+RESPONSE URL: https://boost.uts-dev01.tenant1.dev.evinova.com/userpod/organization/v1/query
+STATUS CODE: 200
+RESPONSE BODY: {"paging":{"prev":"0000000004751d2391296e49","next":"0000000004751d2391296e49","limit":5000},"orgs":[]}
+----------------------------------------
+METHOD: POST
+REQUEST URL: https://boost.uts-dev01.tenant1.dev.evinova.com/userpod/organization/v1/practice
+REQUEST BODY: {"practiceType":"REGULAR","name":"Sahlgrenska","status":"ACTIVE","parentId":"68fb6d5faf38a3f466bb7fb0","test":false,"details":{}}
+RESPONSE METHOD: POST
+RESPONSE URL: https://boost.uts-dev01.tenant1.dev.evinova.com/userpod/organization/v1/practice
+STATUS CODE: 200
+RESPONSE BODY: {"orgId":"68fb6d604dc5c943fd168636","eventId":7564760258183168010,"type":"PRACTICE","name":"Sahlgrenska","status":"ACTIVE","parentId":"68fb6d5faf38a3f466bb7fb0","branchParentIds":["68fb6d5faf38a3f466bb7fb0","68fb6d5f5452e66c8a8478ba","68fb6d5f7118bec590a141fc"],"metas":[],"test":false,"details":{"contacts":[],"contactPoints":[]},"practice":{"practiceType":"REGULAR","addresses":[],"locations":[]},"externalIds":[],"customStatuses":[]}
+----------------------------------------
+METHOD: POST
+REQUEST URL: https://boost.uts-dev01.tenant1.dev.evinova.com/userpod/user/v1/query
+REQUEST BODY: {"criterion":{"operator":"AND","criteria":[{"fieldCriterion":{"field":"EXTERNAL_ID_KEY","type":"EQ","values":["TEST_REFERENCE"]}},{"fieldCriterion":{"field":"EXTERNAL_ID_VALUE","type":"EQ","values":["SAHLGRENSKA_PI"]}}]}}
+RESPONSE METHOD: POST
+RESPONSE URL: https://boost.uts-dev01.tenant1.dev.evinova.com/userpod/user/v1/query
+STATUS CODE: 200
+RESPONSE BODY: {"paging":{"prev":"000000005452e66c8a8111e6","next":"000000005452e66c8a8111e6","limit":5000},"users":[]}
+----------------------------------------
+METHOD: POST
+REQUEST URL: https://boost.uts-dev01.tenant1.dev.evinova.com/userpod/user/register/v1
+REQUEST BODY: {"idpAccounts":[{"provider":"userpod.idp.light","email":"sahlgrenska_pi_jxtkfspqax@s3testmail.dmdp2.aws.intelpharma.net"}],"localization":{"countryCode":"se","langCode":"sv"},"contactPoints":[{"system":"EMAIL","value":"sahlgrenska_pi_jxtkfspqax@s3testmail.dmdp2.aws.intelpharma.net","primary":true}],"humanName":{"given":"SAHLGRENSKA_PI","family":"sahlgrenska_pi_jxtkfspqax@s3testmail.dmdp2.aws.intelpharma.net"},"externalIds":[{"key":"TEST_REFERENCE","value":"SAHLGRENSKA_PI"}],"roleAccessRefs":[{"accessRefs":[{"type":"ORG","ref":"68fb6d604dc5c943fd168636"}],"role":"PI"}]}
+RESPONSE METHOD: POST
+RESPONSE URL: https://boost.uts-dev01.tenant1.dev.evinova.com/userpod/user/register/v1
+STATUS CODE: 200
+RESPONSE BODY: {"userId":"68fb6d6004751d23912cf8e1","eventId":7564760258183168023,"status":"REGISTERED","statusTimestamp":1761308000267,"previousStatuses":[],"idpAccounts":[{"provider":"userpod.idp.light","identity":"sahlgrenska_pi_jxtkfspqax@s3testmail.dmdp2.aws.intelpharma.net","idpSubject":"sahlgrenska_pi_jxtkfspqax@s3testmail.dmdp2.aws.intelpharma.net","flowType":"USER_REGISTRATION","idpStatus":{"status":"REGISTERED","lastModified":1761308000267},"verified":false}],"audit":{"createdAt":"2025-10-24T12:13:20.267Z[UTC]","createdBy":"68fb6d5e7118bec590a141ec","lastModified":"2025-10-24T12:13:20.267Z[UTC]","modifiedBy":"68fb6d5e7118bec590a141ec"},"localization":{"countryCode":"se","langCode":"sv"},"roleAccessRefs":[{"accessRefs":[{"accessRefId":"68fb6d6004751d23912cf8df","partOf":["68fb6d5faf38a3f466bb7fb0","68fb6d5f5452e66c8a8478ba","68fb6d5f7118bec590a141fc"],"type":"ORG","ref":"68fb6d604dc5c943fd168636","fromUtc":1761308000267}],"role":"PI"}],"projects":[],"metas":[],"tags":[],"occasions":[],"customStatuses":[],"contactPoints":[{"contactPointId":"68fb6d6004751d23912cf8e0","system":"EMAIL","value":"sahlgrenska_pi_jxtkfspqax@s3testmail.dmdp2.aws.intelpharma.net","primary":true}],"humanName":{"given":"SAHLGRENSKA_PI","family":"sahlgrenska_pi_jxtkfspqax@s3testmail.dmdp2.aws.intelpharma.net"},"externalIds":[{"key":"TEST_REFERENCE","value":"SAHLGRENSKA_PI"}],"personal":{"gender":"UNKNOWN","createdAt":"2025-10-24T12:13:20.267Z","createdBy":"68fb6d5e7118bec590a141ec"},"preferences":{},"metrics":{},"provisionedDevices":[]}
+----------------------------------------
+METHOD: PUT
+REQUEST URL: https://boost.uts-dev01.tenant1.dev.evinova.com/biosampling-supply/config/tenant/v1/biosampling-supply-tenant-config
+REQUEST BODY: {"version":1,"data":{"dCode":"D4903413","dataHub":{"enableSync":"TRUE","overrideDeploymentConfig":{"enableOverrideConfig":"TRUE","clientId":"systest-client","clientSecret":"systest-s3cr3t","baseUrl":"https://boost.uts-dev01.tenant1.dev.evinova.com/wiremockpod-systemtest/api/ts-exp-unify-hbs-api/1"}}}}
+RESPONSE METHOD: PUT
+RESPONSE URL: https://boost.uts-dev01.tenant1.dev.evinova.com/biosampling-supply/config/tenant/v1/biosampling-supply-tenant-config
+STATUS CODE: 200
+----------------------------------------
+METHOD: POST
+REQUEST URL: https://boost.uts-dev01.tenant1.dev.evinova.com/biosampling-supply/bio-sampling-supply/v1/containers:resync
+REQUEST BODY: {"syncFrom":"2025-10-24T14:13:20.917095+02:00[Europe/Stockholm]"}
+RESPONSE METHOD: POST
+RESPONSE URL: https://boost.uts-dev01.tenant1.dev.evinova.com/biosampling-supply/bio-sampling-supply/v1/containers:resync
+STATUS CODE: 202
+----------------------------------------
+METHOD: GET
+REQUEST URL: https://boost.uts-dev01.tenant1.dev.evinova.com/biosampling-supply/bio-sampling-supply/v1/syncresults
+RESPONSE METHOD: GET
+RESPONSE URL: https://boost.uts-dev01.tenant1.dev.evinova.com/biosampling-supply/bio-sampling-supply/v1/syncresults
+STATUS CODE: 200
+RESPONSE BODY: {"syncResults":[]}
+----------------------------------------
+METHOD: GET
+REQUEST URL: https://boost.uts-dev01.tenant1.dev.evinova.com/biosampling-supply/bio-sampling-supply/v1/syncresults
+RESPONSE METHOD: GET
+RESPONSE URL: https://boost.uts-dev01.tenant1.dev.evinova.com/biosampling-supply/bio-sampling-supply/v1/syncresults
+STATUS CODE: 200
+RESPONSE BODY: {"syncResults":[{"syncFromTimestamp":"2025-10-24T12:13:20.917Z[UTC]","syncToTimestamp":"2025-10-24T12:13:20.986Z[UTC]","errorMessage":"Synced kit amount: 10, Sync completed with status SUCCESS","lastSuccessfulPage":"https://boost.uts-dev01.tenant1.dev.evinova.com/wiremockpod-systemtest/api/ts-exp-unify-hbs-api/1/studies/D4903413/kits?from_date=2025-10-24T12:13:20Z&to_date=2025-10-24T12:13:20Z","triggerType":"MANUAL","status":"SUCCESS"}]}
+----------------------------------------
+METHOD: GET
+REQUEST URL: https://boost.uts-dev01.tenant1.dev.evinova.com/userpod/idp/light/v1/register?email=sahlgrenska_pi_jxtkfspqax@s3testmail.dmdp2.aws.intelpharma.net
+RESPONSE METHOD: GET
+RESPONSE URL: https://boost.uts-dev01.tenant1.dev.evinova.com/userpod/idp/light/v1/register?email=sahlgrenska_pi_jxtkfspqax@s3testmail.dmdp2.aws.intelpharma.net
+STATUS CODE: 200
+----------------------------------------
+METHOD: GET
+REQUEST URL: https://boost.uts-dev01.tenant1.dev.evinova.com/userpod/idp/light/v1?email=sahlgrenska_pi_jxtkfspqax@s3testmail.dmdp2.aws.intelpharma.net&pwd=qwerty
+RESPONSE METHOD: GET
+RESPONSE URL: https://boost.uts-dev01.tenant1.dev.evinova.com/userpod/idp/light/v1?email=sahlgrenska_pi_jxtkfspqax@s3testmail.dmdp2.aws.intelpharma.net&pwd=qwerty
+STATUS CODE: 200
+----------------------------------------
+METHOD: POST
+REQUEST URL: https://boost.uts-dev01.tenant1.dev.evinova.com/userpod/jwt/v1
+REQUEST BODY: {"tenantId":"dmdp_cu_BIOSAMPLING_SUPPLY_JxtkFSpQAX","zoneId":"Europe/Stockholm","expireTimeSecs":3600,"version":"v1c"}
+RESPONSE METHOD: POST
+RESPONSE URL: https://boost.uts-dev01.tenant1.dev.evinova.com/userpod/jwt/v1
+STATUS CODE: 200
+----------------------------------------
+METHOD: PUT
+REQUEST URL: https://boost.uts-dev01.tenant1.dev.evinova.com/userpod/user/activate/v1
+RESPONSE METHOD: PUT
+RESPONSE URL: https://boost.uts-dev01.tenant1.dev.evinova.com/userpod/user/activate/v1
+STATUS CODE: 200
+----------------------------------------
+METHOD: POST
+REQUEST URL: https://boost.uts-dev01.tenant1.dev.evinova.com/userpod/jwt/v1
+REQUEST BODY: {"tenantId":"dmdp_cu_BIOSAMPLING_SUPPLY_JxtkFSpQAX","zoneId":"Europe/Stockholm","expireTimeSecs":3600,"version":"v1c"}
+RESPONSE METHOD: POST
+RESPONSE URL: https://boost.uts-dev01.tenant1.dev.evinova.com/userpod/jwt/v1
+STATUS CODE: 200
+----------------------------------------
+METHOD: POST
+REQUEST URL: https://boost.uts-dev01.tenant1.dev.evinova.com/biosampling-supply/bio-sampling-supply/v1/containers:query
+REQUEST BODY: {}
+RESPONSE METHOD: POST
+RESPONSE URL: https://boost.uts-dev01.tenant1.dev.evinova.com/biosampling-supply/bio-sampling-supply/v1/containers:query
+STATUS CODE: 200
+RESPONSE BODY: {"paging":{"prev":"68fb6d612cd0e52db27790bc","next":"68fb6d612cd0e52db27790d1","limit":5000},"containers":[{"containerId":"68fb6d612cd0e52db27790bb","dCode":"D4903413","practiceCode":"6004","kitCode":"1111111111","kitType":"T-1","kitDescription":"Archival Tumour","kitExpirationDate":"2050-12-31","containerCode":"660165285315","containerType":"S25P","containerNumber":"15","containerDescription":"JPN, TUBE,FALSE BOT,5mL CLEAR, FOR SERUM","sampleType":"Serum, SST","labelInformation":"FERRITIN","groupDescription":"FERRITIN","sampleRequired":false,"returnType":"D","audit":{"createdAt":"2025-10-24T12:13:21.014Z[UTC]","createdBy":"68fb6d5e7118bec590a141ec","lastModified":"2025-10-24T12:13:21.014Z[UTC]","modifiedBy":"68fb6d5e7118bec590a141ec"},"eventId":"7564760262478135297"},{"containerId":"68fb6d612cd0e52db27790bd","dCode":"D4903413","practiceCode":"6004","kitCode":"6601657677","kitType":"T-1","kitDescription":"Archival Tumour","kitExpirationDate":"2019-09-30","containerType":"CV2L","containerNumber":"18","containerDescription":"Cryovial,2ml,screw cap w/o-ring sterile","sampleType":"Whole Blood","labelInformation":"HEMATOLOGY PANEL","groupDescription":"BNHEMATOLOGY&DIFFERENTIAL PANEL|HEMOGLOBIN A1CP","sampleRequired":true,"returnType":"NT","audit":{"createdAt":"2025-10-24T12:13:21.015Z[UTC]","createdBy":"68fb6d5e7118bec590a141ec","lastModified":"2025-10-24T12:13:21.015Z[UTC]","modifiedBy":"68fb6d5e7118bec590a141ec"},"eventId":"7564760262478135298"},{"containerId":"68fb6d612cd0e52db27790c0","dCode":"D4903413","practiceCode":"6004","kitCode":"6601652852","kitType":"T-1","kitDescription":"Archival Tumour","kitExpirationDate":"2050-12-31","containerType":"AD00","containerNumber":"0","containerDescription":"Cryovial,2ml,screw cap w/o-ring sterile","sampleType":"Urine, no preservative","labelInformation":"OPTURINEBIOMRKR A1","groupDescription":"OPTURINEBIOMRKR A1","audit":{"createdAt":"2025-10-24T12:13:21.017Z[UTC]","createdBy":"68fb6d5e7118bec590a141ec","lastModified":"2025-10-24T12:13:21.017Z[UTC]","modifiedBy":"68fb6d5e7118bec590a141ec"},"eventId":"7564760262478135299"},{"containerId":"68fb6d612cd0e52db27790c2","dCode":"D4903413","practiceCode":"6004","kitCode":"6601652855","kitType":"T-1","kitDescription":"Archival Tumour","kitExpirationDate":"2019-08-02","containerCode":"660165285503","containerType":"AD00","containerNumber":"3","containerDescription":"TUBE, 10ML, GLASS W/ EDTA, CELLSAVE, PS","sampleType":"Whole Blood","labelInformation":"HEMATOLOGY PANEL","groupDescription":"BNHEMATOLOGY&DIFFERENTIAL PANEL|HEMOGLOBIN A1CP","sampleRequired":true,"returnType":"D","audit":{"createdAt":"2025-10-24T12:13:21.018Z[UTC]","createdBy":"68fb6d5e7118bec590a141ec","lastModified":"2025-10-24T12:13:21.018Z[UTC]","modifiedBy":"68fb6d5e7118bec590a141ec"},"eventId":"7564760262478135300"},{"containerId":"68fb6d612cd0e52db27790c4","dCode":"D4903413","practiceCode":"6001","kitCode":"6601652782","kitType":"T-1","kitDescription":"Archival Tumour","kitExpirationDate":"2019-11-30","containerType":"LD06","containerNumber":"1","containerDescription":"Lavender Top, Plastic, K2 EDTA, 6mL","sampleType":"Whole Blood","labelInformation":"HEMATOLOGY PANEL","groupDescription":"BNHEMATOLOGY&DIFFERENTIAL PANEL|HEMOGLOBIN A1CP","sampleRequired":true,"returnType":"NT","audit":{"createdAt":"2025-10-24T12:13:21.019Z[UTC]","createdBy":"68fb6d5e7118bec590a141ec","lastModified":"2025-10-24T12:13:21.019Z[UTC]","modifiedBy":"68fb6d5e7118bec590a141ec"},"eventId":"7564760262478135301"},{"containerId":"68fb6d612cd0e52db27790bf","dCode":"D4903413","practiceCode":"6004","kitCode":"6601652851","kitType":"T-1","kitDescription":"Archival Tumour","kitExpirationDate":"2050-12-31","containerCode":"660165285104","containerType":"S25P","containerNumber":"4","containerDescription":"EmptySolid plastic box,25 slides-AP BAR","sampleType":"Whole Blood","labelInformation":"HEMATOLOGY PANEL","groupDescription":"BNHEMATOLOGY&DIFFERENTIAL PANEL|HEMOGLOBIN A1CP","sampleRequired":true,"returnType":"NT","audit":{"createdAt":"2025-10-24T12:13:21.017Z[UTC]","createdBy":"68fb6d5e7118bec590a141ec","lastModified":"2025-10-24T12:13:21.017Z[UTC]","modifiedBy":"68fb6d5e7118bec590a141ec"},"eventId":"7564760262478135304"},{"containerId":"68fb6d612cd0e52db27790c6","dCode":"D4903413","practiceCode":"6002","kitCode":"6601657676","kitType":"T-1","kitDescription":"Archival Tumour","kitExpirationDate":"2019-09-30","containerType":"CV2L","containerNumber":"24","containerDescription":"Cryovial,2ml,screw cap w/o-ring sterile","sampleType":"Whole Blood","labelInformation":"HEMATOLOGY PANEL","groupDescription":"BNHEMATOLOGY&DIFFERENTIAL PANEL|HEMOGLOBIN A1CP","sampleRequired":true,"returnType":"NT","audit":{"createdAt":"2025-10-24T12:13:21.02Z[UTC]","createdBy":"68fb6d5e7118bec590a141ec","lastModified":"2025-10-24T12:13:21.02Z[UTC]","modifiedBy":"68fb6d5e7118bec590a141ec"},"eventId":"7564760262478135305"},{"containerId":"68fb6d612cd0e52db27790c9","dCode":"D4903413","practiceCode":"6004","kitCode":"6601652862","kitType":"T-1","kitDescription":"Archival Tumour","kitExpirationDate":"2019-11-10","containerCode":"660165286203","containerType":"CV2L","containerNumber":"3","containerDescription":"Cryovial,2ml,screw cap w/o-ring sterile","sampleType":"Whole Blood","labelInformation":"HEMATOLOGY PANEL","groupDescription":"BNHEMATOLOGY&DIFFERENTIAL PANEL|HEMOGLOBIN A1CP","sampleRequired":false,"returnType":"NT","audit":{"createdAt":"2025-10-24T12:13:21.021Z[UTC]","createdBy":"68fb6d5e7118bec590a141ec","lastModified":"2025-10-24T12:13:21.021Z[UTC]","modifiedBy":"68fb6d5e7118bec590a141ec"},"eventId":"7564760262478135302"},{"containerId":"68fb6d612cd0e52db27790cd","dCode":"D4903413","practiceCode":"6004","kitCode":"6601652850","kitType":"T-1","kitDescription":"Archival Tumour 2nd Gen","kitExpirationDate":"2019-10-01","containerCode":"660165285005","containerType":"CV2L","containerNumber":"5","containerDescription":"Cryovial,2ml,screw cap w/o-ring sterile","sampleType":"Whole Blood","labelInformation":"HEMATOLOGY PANEL","groupDescription":"BNHEMATOLOGY&DIFFERENTIAL PANEL|HEMOGLOBIN A1CP","sampleRequired":false,"returnType":"NT","audit":{"createdAt":"2025-10-24T12:13:21.022Z[UTC]","createdBy":"68fb6d5e7118bec590a141ec","lastModified":"2025-10-24T12:13:21.022Z[UTC]","modifiedBy":"68fb6d5e7118bec590a141ec"},"eventId":"7564760262478135303"},{"containerId":"68fb6d612cd0e52db27790d0","dCode":"D4903413","practiceCode":"6002","kitCode":"6601652839","kitType":"ABC-123","kitDescription":"DAY 1","kitExpirationDate":"2019-08-02","containerCode":"660165283903","containerType":"LBEL","containerNumber":"3","containerDescription":"Loose Barcode Label","sampleType":"Whole Blood","labelInformation":"HEMATOLOGY PANEL","groupDescription":"BNHEMATOLOGY&DIFFERENTIAL PANEL|HEMOGLOBIN A1CP","sampleRequired":true,"returnType":"NT","audit":{"createdAt":"2025-10-24T12:13:21.051Z[UTC]","createdBy":"68fb6d5e7118bec590a141ec","lastModified":"2025-10-24T12:13:21.051Z[UTC]","modifiedBy":"68fb6d5e7118bec590a141ec"},"eventId":"7564760262478135306"}]}
+----------------------------------------
+METHOD: POST
+REQUEST URL: https://boost.uts-dev01.tenant1.dev.evinova.com/biosampling-supply/bio-sampling-supply/v1/containers:query
+REQUEST BODY: {}
+RESPONSE METHOD: POST
+RESPONSE URL: https://boost.uts-dev01.tenant1.dev.evinova.com/biosampling-supply/bio-sampling-supply/v1/containers:query
+STATUS CODE: 200
+RESPONSE BODY: {"paging":{"prev":"68fb6d612cd0e52db27790bc","next":"68fb6d612cd0e52db27790d1","limit":5000},"containers":[{"containerId":"68fb6d612cd0e52db27790bb","dCode":"D4903413","practiceCode":"6004","kitCode":"1111111111","kitType":"T-1","kitDescription":"Archival Tumour","kitExpirationDate":"2050-12-31","containerCode":"660165285315","containerType":"S25P","containerNumber":"15","containerDescription":"JPN, TUBE,FALSE BOT,5mL CLEAR, FOR SERUM","sampleType":"Serum, SST","labelInformation":"FERRITIN","groupDescription":"FERRITIN","sampleRequired":false,"returnType":"D","audit":{"createdAt":"2025-10-24T12:13:21.014Z[UTC]","createdBy":"68fb6d5e7118bec590a141ec","lastModified":"2025-10-24T12:13:21.014Z[UTC]","modifiedBy":"68fb6d5e7118bec590a141ec"},"eventId":"7564760262478135297"},{"containerId":"68fb6d612cd0e52db27790bd","dCode":"D4903413","practiceCode":"6004","kitCode":"6601657677","kitType":"T-1","kitDescription":"Archival Tumour","kitExpirationDate":"2019-09-30","containerType":"CV2L","containerNumber":"18","containerDescription":"Cryovial,2ml,screw cap w/o-ring sterile","sampleType":"Whole Blood","labelInformation":"HEMATOLOGY PANEL","groupDescription":"BNHEMATOLOGY&DIFFERENTIAL PANEL|HEMOGLOBIN A1CP","sampleRequired":true,"returnType":"NT","audit":{"createdAt":"2025-10-24T12:13:21.015Z[UTC]","createdBy":"68fb6d5e7118bec590a141ec","lastModified":"2025-10-24T12:13:21.015Z[UTC]","modifiedBy":"68fb6d5e7118bec590a141ec"},"eventId":"7564760262478135298"},{"containerId":"68fb6d612cd0e52db27790c0","dCode":"D4903413","practiceCode":"6004","kitCode":"6601652852","kitType":"T-1","kitDescription":"Archival Tumour","kitExpirationDate":"2050-12-31","containerType":"AD00","containerNumber":"0","containerDescription":"Cryovial,2ml,screw cap w/o-ring sterile","sampleType":"Urine, no preservative","labelInformation":"OPTURINEBIOMRKR A1","groupDescription":"OPTURINEBIOMRKR A1","audit":{"createdAt":"2025-10-24T12:13:21.017Z[UTC]","createdBy":"68fb6d5e7118bec590a141ec","lastModified":"2025-10-24T12:13:21.017Z[UTC]","modifiedBy":"68fb6d5e7118bec590a141ec"},"eventId":"7564760262478135299"},{"containerId":"68fb6d612cd0e52db27790c2","dCode":"D4903413","practiceCode":"6004","kitCode":"6601652855","kitType":"T-1","kitDescription":"Archival Tumour","kitExpirationDate":"2019-08-02","containerCode":"660165285503","containerType":"AD00","containerNumber":"3","containerDescription":"TUBE, 10ML, GLASS W/ EDTA, CELLSAVE, PS","sampleType":"Whole Blood","labelInformation":"HEMATOLOGY PANEL","groupDescription":"BNHEMATOLOGY&DIFFERENTIAL PANEL|HEMOGLOBIN A1CP","sampleRequired":true,"returnType":"D","audit":{"createdAt":"2025-10-24T12:13:21.018Z[UTC]","createdBy":"68fb6d5e7118bec590a141ec","lastModified":"2025-10-24T12:13:21.018Z[UTC]","modifiedBy":"68fb6d5e7118bec590a141ec"},"eventId":"7564760262478135300"},{"containerId":"68fb6d612cd0e52db27790c4","dCode":"D4903413","practiceCode":"6001","kitCode":"6601652782","kitType":"T-1","kitDescription":"Archival Tumour","kitExpirationDate":"2019-11-30","containerType":"LD06","containerNumber":"1","containerDescription":"Lavender Top, Plastic, K2 EDTA, 6mL","sampleType":"Whole Blood","labelInformation":"HEMATOLOGY PANEL","groupDescription":"BNHEMATOLOGY&DIFFERENTIAL PANEL|HEMOGLOBIN A1CP","sampleRequired":true,"returnType":"NT","audit":{"createdAt":"2025-10-24T12:13:21.019Z[UTC]","createdBy":"68fb6d5e7118bec590a141ec","lastModified":"2025-10-24T12:13:21.019Z[UTC]","modifiedBy":"68fb6d5e7118bec590a141ec"},"eventId":"7564760262478135301"},{"containerId":"68fb6d612cd0e52db27790bf","dCode":"D4903413","practiceCode":"6004","kitCode":"6601652851","kitType":"T-1","kitDescription":"Archival Tumour","kitExpirationDate":"2050-12-31","containerCode":"660165285104","containerType":"S25P","containerNumber":"4","containerDescription":"EmptySolid plastic box,25 slides-AP BAR","sampleType":"Whole Blood","labelInformation":"HEMATOLOGY PANEL","groupDescription":"BNHEMATOLOGY&DIFFERENTIAL PANEL|HEMOGLOBIN A1CP","sampleRequired":true,"returnType":"NT","audit":{"createdAt":"2025-10-24T12:13:21.017Z[UTC]","createdBy":"68fb6d5e7118bec590a141ec","lastModified":"2025-10-24T12:13:21.017Z[UTC]","modifiedBy":"68fb6d5e7118bec590a141ec"},"eventId":"7564760262478135304"},{"containerId":"68fb6d612cd0e52db27790c6","dCode":"D4903413","practiceCode":"6002","kitCode":"6601657676","kitType":"T-1","kitDescription":"Archival Tumour","kitExpirationDate":"2019-09-30","containerType":"CV2L","containerNumber":"24","containerDescription":"Cryovial,2ml,screw cap w/o-ring sterile","sampleType":"Whole Blood","labelInformation":"HEMATOLOGY PANEL","groupDescription":"BNHEMATOLOGY&DIFFERENTIAL PANEL|HEMOGLOBIN A1CP","sampleRequired":true,"returnType":"NT","audit":{"createdAt":"2025-10-24T12:13:21.02Z[UTC]","createdBy":"68fb6d5e7118bec590a141ec","lastModified":"2025-10-24T12:13:21.02Z[UTC]","modifiedBy":"68fb6d5e7118bec590a141ec"},"eventId":"7564760262478135305"},{"containerId":"68fb6d612cd0e52db27790c9","dCode":"D4903413","practiceCode":"6004","kitCode":"6601652862","kitType":"T-1","kitDescription":"Archival Tumour","kitExpirationDate":"2019-11-10","containerCode":"660165286203","containerType":"CV2L","containerNumber":"3","containerDescription":"Cryovial,2ml,screw cap w/o-ring sterile","sampleType":"Whole Blood","labelInformation":"HEMATOLOGY PANEL","groupDescription":"BNHEMATOLOGY&DIFFERENTIAL PANEL|HEMOGLOBIN A1CP","sampleRequired":false,"returnType":"NT","audit":{"createdAt":"2025-10-24T12:13:21.021Z[UTC]","createdBy":"68fb6d5e7118bec590a141ec","lastModified":"2025-10-24T12:13:21.021Z[UTC]","modifiedBy":"68fb6d5e7118bec590a141ec"},"eventId":"7564760262478135302"},{"containerId":"68fb6d612cd0e52db27790cd","dCode":"D4903413","practiceCode":"6004","kitCode":"6601652850","kitType":"T-1","kitDescription":"Archival Tumour 2nd Gen","kitExpirationDate":"2019-10-01","containerCode":"660165285005","containerType":"CV2L","containerNumber":"5","containerDescription":"Cryovial,2ml,screw cap w/o-ring sterile","sampleType":"Whole Blood","labelInformation":"HEMATOLOGY PANEL","groupDescription":"BNHEMATOLOGY&DIFFERENTIAL PANEL|HEMOGLOBIN A1CP","sampleRequired":false,"returnType":"NT","audit":{"createdAt":"2025-10-24T12:13:21.022Z[UTC]","createdBy":"68fb6d5e7118bec590a141ec","lastModified":"2025-10-24T12:13:21.022Z[UTC]","modifiedBy":"68fb6d5e7118bec590a141ec"},"eventId":"7564760262478135303"},{"containerId":"68fb6d612cd0e52db27790d0","dCode":"D4903413","practiceCode":"6002","kitCode":"6601652839","kitType":"ABC-123","kitDescription":"DAY 1","kitExpirationDate":"2019-08-02","containerCode":"660165283903","containerType":"LBEL","containerNumber":"3","containerDescription":"Loose Barcode Label","sampleType":"Whole Blood","labelInformation":"HEMATOLOGY PANEL","groupDescription":"BNHEMATOLOGY&DIFFERENTIAL PANEL|HEMOGLOBIN A1CP","sampleRequired":true,"returnType":"NT","audit":{"createdAt":"2025-10-24T12:13:21.051Z[UTC]","createdBy":"68fb6d5e7118bec590a141ec","lastModified":"2025-10-24T12:13:21.051Z[UTC]","modifiedBy":"68fb6d5e7118bec590a141ec"},"eventId":"7564760262478135306"}]}
+----------------------------------------
+METHOD: PUT
+REQUEST URL: https://boost.uts-dev01.tenant1.dev.evinova.com/biosampling-supply/config/tenant/v1/biosampling-supply-tenant-config
+REQUEST BODY: {"version":1,"data":{"dCode":"D4903413","dataHub":{"enableSync":"FALSE"}}}
+RESPONSE METHOD: PUT
+RESPONSE URL: https://boost.uts-dev01.tenant1.dev.evinova.com/biosampling-supply/config/tenant/v1/biosampling-supply-tenant-config
+STATUS CODE: 200
+----------------------------------------

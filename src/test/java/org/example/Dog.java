@@ -38,9 +38,9 @@ public class Dog {
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Dog dog = (Dog) o;
-        return getAge() == dog.getAge() && getName().equals(dog.getName()) && getBreed().equals(dog.getBreed());
+        // JDK 16+ pattern matching for instanceof
+        if (!(o instanceof Dog dog)) return false;
+        return age == dog.age && Objects.equals(name, dog.name) && Objects.equals(breed, dog.breed);
     }
 
     @Override

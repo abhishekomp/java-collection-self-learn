@@ -5,35 +5,85 @@
     <modelVersion>4.0.0</modelVersion>
 
     <properties>
-        <maven.compiler.source>11</maven.compiler.source>
-        <maven.compiler.target>11</maven.compiler.target>
+        <!-- ─── Java 21 (LTS) ─────────────────────────────────────────────────── -->
+        <!-- 'release' enforces cross-compilation: source, target AND boot-classpath -->
+        <maven.compiler.release>21</maven.compiler.release>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+
+        <!-- ─── Dependency versions ───────────────────────────────────────────── -->
+        <junit.jupiter.version>5.11.4</junit.jupiter.version>
+        <assertj.version>3.26.3</assertj.version>
+
+        <!-- ─── Plugin versions ───────────────────────────────────────────────── -->
+        <maven.compiler.plugin.version>3.13.0</maven.compiler.plugin.version>
+        <maven.surefire.plugin.version>3.5.2</maven.surefire.plugin.version>
+        <maven.clean.plugin.version>3.4.0</maven.clean.plugin.version>
     </properties>
 
     <groupId>org.example</groupId>
     <artifactId>collection-self-learn</artifactId>
     <version>1.0-SNAPSHOT</version>
+
     <dependencies>
+        <!-- ─── Testing ───────────────────────────────────────────────────────── -->
+        <!--
+            junit-jupiter is an aggregator that pulls in:
+              - junit-jupiter-api    (write tests)
+              - junit-jupiter-params (parameterised tests)
+              - junit-jupiter-engine (run tests on the JUnit Platform)
+        -->
         <dependency>
             <groupId>org.junit.jupiter</groupId>
             <artifactId>junit-jupiter</artifactId>
-            <version>5.10.0</version>
+            <version>${junit.jupiter.version}</version>
             <scope>test</scope>
         </dependency>
+
+        <!--
+            AssertJ 3.x is the actively maintained branch.
+            AssertJ 2.x (used previously) is end-of-life and does not support Java 21.
+        -->
         <dependency>
             <groupId>org.assertj</groupId>
             <artifactId>assertj-core</artifactId>
-            <!-- use version 2.1.0 or higher -->
-            <version>2.1.0</version>
+            <version>${assertj.version}</version>
             <scope>test</scope>
         </dependency>
     </dependencies>
 
     <build>
         <plugins>
+            <!-- ─── Compiler ──────────────────────────────────────────────────── -->
+            <!--
+                Explicitly pin the compiler plugin so Maven does not fall back to an
+                old bundled version.  The 'release' property above sets the language
+                level; no need to repeat source/target here.
+            -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>${maven.compiler.plugin.version}</version>
+            </plugin>
+
+            <!-- ─── Test runner ───────────────────────────────────────────────── -->
+            <!--
+                Surefire 3.x is required to run JUnit 5 (Jupiter) tests properly.
+                It discovers tests via the JUnit Platform Launcher.
+            -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <version>${maven.surefire.plugin.version}</version>
+            </plugin>
+
+            <!-- ─── Clean ─────────────────────────────────────────────────────── -->
+            <!--
+                Auto-clean at the 'initialize' phase so stale class files are never
+                mixed with freshly compiled ones during a build.
+            -->
             <plugin>
                 <artifactId>maven-clean-plugin</artifactId>
-                <version>3.3.2</version>
+                <version>${maven.clean.plugin.version}</version>
                 <executions>
                     <execution>
                         <id>auto-clean</id>

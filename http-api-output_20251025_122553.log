@@ -1,0 +1,34 @@
+METHOD: POST
+REQUEST URL (line: 1): https://boost.uts-dev01.tenant1.dev.evinova.com/userpod/jwt/v7
+Authorization Header (line: 2): Basic ZG1kcC1wbGF0Zm9ybS1hZG1pbjpFdVVVRGkwQVM0YnFYRkxs
+REQUEST BODY (line: 4): {"tenantId":"dmdp-tenant","zoneId":"Europe/Stockholm","expireTimeSecs":3600}
+RESPONSE METHOD: POST
+RESPONSE URL (line: 5): https://boost.uts-dev01.tenant1.dev.evinova.com/userpod/jwt/v1
+STATUS CODE: 200
+----------------------------------------
+METHOD: GET
+REQUEST URL (line: 7): https://boost.uts-dev01.tenant1.dev.evinova.com/userpod/idp/light/v1/register?email=tenant_admin_ptjlaibqhz@s3testmail.dmdp2.aws.intelpharma.net
+Authorization Header: None
+RESPONSE METHOD: GET
+RESPONSE URL (line: 10): https://boost.uts-dev01.tenant1.dev.evinova.com/userpod/idp/light/v1/register?email=tenant_admin_ptjlaibqhz@s3testmail.dmdp2.aws.intelpharma.net
+STATUS CODE: 200
+----------------------------------------
+METHOD: GET
+REQUEST URL (line: 12): https://boost.uts-dev01.tenant1.dev.evinova.com/userpod/idp/light/v1?email=tenant_admin_ptjlaibqhz@s3testmail.dmdp2.aws.intelpharma.net&pwd=qwerty
+Authorization Header: None
+RESPONSE METHOD: GET
+RESPONSE URL (line: 15): https://boost.uts-dev01.tenant1.dev.evinova.com/userpod/idp/light/v1?email=tenant_admin_ptjlaibqhz@s3testmail.dmdp2.aws.intelpharma.net&pwd=blahblah
+STATUS CODE: 200
+----------------------------------------
+METHOD: GET
+REQUEST URL (line: 17): https://boost.uts-dev01.tenant1.dev.evinova.com/userpod/user/info/v1/mine?limit=500
+Authorization Header (line: 18): Bearer 555c4465-479f-4f93-91c9-ac27025a49ce
+RESPONSE METHOD: GET
+RESPONSE URL (line: 20): https://boost.uts-dev01.tenant1.dev.evinova.com/userpod/user/info/v1/mine?limit=500
+STATUS CODE: 200
+RESPONSE BODY (line: 22): {"users":[]}
+----------------------------------------
+METHOD: POST
+REQUEST URL (line: 23): https://boost.uts-dev01.tenant1.dev.evinova.com/userpod/user/register/v1/tenant/dmdp_cu_STUDY_PTJLaiBQhZ
+Authorization Header: None
+----------------------------------------

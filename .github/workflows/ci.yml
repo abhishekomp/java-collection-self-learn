@@ -1,0 +1,125 @@
+# ─────────────────────────────────────────────────────────────────────────────
+# GitHub Actions CI Workflow
+# ─────────────────────────────────────────────────────────────────────────────
+#
+# PURPOSE
+#   Automatically build and test the project on every push to the main branch
+#   and on every pull request targeting main.
+#   This is a "self-learning" project, so the workflow is intentionally simple
+#   and heavily commented to explain every section.
+#
+# TRIGGER EVENTS
+#   push    → runs whenever commits are pushed to 'main'
+#   pull_request → runs on PRs targeting 'main', giving early feedback before merge
+#
+# HOW IT WORKS
+#   1. GitHub spins up a fresh virtual machine (ubuntu-latest).
+#   2. The workflow checks out your code.
+#   3. It sets up the correct Java version (JDK 21 LTS).
+#   4. Maven's local repository is cached so dependencies are not re-downloaded
+#      on every run (significantly speeds up subsequent builds).
+#   5. Maven compiles the project and runs all JUnit 5 tests.
+#   6. The test report is uploaded as a workflow artifact so you can inspect
+#      results even after the runner is gone.
+# ─────────────────────────────────────────────────────────────────────────────
+
+name: CI – Build & Test
+
+# ── When to run ───────────────────────────────────────────────────────────────
+on:
+  push:
+    branches:
+      - main          # run on every direct push to main
+  pull_request:
+    branches:
+      - main          # run on every PR that targets main
+
+# ── Permissions ───────────────────────────────────────────────────────────────
+# Minimal permissions: only read access to the repository content.
+# Explicitly setting permissions is a security best practice (principle of
+# least privilege) — the job cannot accidentally write back to the repo.
+permissions:
+  contents: read
+
+# ── Jobs ──────────────────────────────────────────────────────────────────────
+# A workflow has one or more jobs. Jobs run in parallel by default.
+# Here we have a single job called 'build'.
+jobs:
+  build:
+    # ── Runner ────────────────────────────────────────────────────────────────
+    # 'ubuntu-latest' picks the most recent Ubuntu LTS image provided by GitHub.
+    # It is free for public repositories and fast to start up.
+    runs-on: ubuntu-latest
+
+    # ── Strategy matrix ───────────────────────────────────────────────────────
+    # A matrix lets you run the same job with different configurations.
+    # Here we test against a single JDK version, but it is easy to add more
+    # (e.g. [21, 23]) to verify compatibility across releases.
+    strategy:
+      matrix:
+        java-version: [ '21' ]
+
+    steps:
+      # ── Step 1: Check out source code ───────────────────────────────────────
+      # 'actions/checkout' clones the repository into the runner's workspace.
+      # Without this step, the runner has no access to your code.
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      # ── Step 2: Set up the JDK ───────────────────────────────────────────────
+      # 'actions/setup-java' installs the requested Java version and configures
+      # JAVA_HOME + PATH so that subsequent steps can use 'java' and 'mvn'.
+      #
+      # distribution options: 'temurin' (Eclipse Adoptium – open, widely used),
+      #                        'corretto' (Amazon), 'zulu', 'microsoft', etc.
+      - name: Set up JDK ${{ matrix.java-version }}
+        uses: actions/setup-java@v4
+        with:
+          java-version: ${{ matrix.java-version }}
+          distribution: 'temurin'        # Eclipse Temurin = the recommended open build
+
+      # ── Step 3: Cache Maven dependencies ────────────────────────────────────
+      # Maven downloads all dependencies into ~/.m2/repository.
+      # Caching this directory between runs avoids re-downloading artifacts on
+      # every build, cutting typical build times from ~2 min to ~20 sec.
+      #
+      # The cache key includes a hash of pom.xml — if the file changes (new or
+      # updated dependency), the cache is invalidated and rebuilt automatically.
+      - name: Cache Maven local repository
+        uses: actions/cache@v4
+        with:
+          path: ~/.m2/repository
+          key: ${{ runner.os }}-maven-${{ hashFiles('**/pom.xml') }}
+          restore-keys: |
+            ${{ runner.os }}-maven-
+
+      # ── Step 4: Build and run tests ──────────────────────────────────────────
+      # 'mvn verify' runs the full lifecycle up to and including integration tests:
+      #   clean → compile → test → package → verify
+      #
+      # Flags explained:
+      #   --batch-mode (-B)         : non-interactive output, no ANSI colour codes
+      #                               (cleaner logs in GitHub Actions)
+      #   --fail-at-end (-fae)      : run ALL tests even if some fail, so you get
+      #                               a complete picture of failures in one run
+      #   -Dsurefire.failIfNoSpecifiedTests=false
+      #                             : prevents a build failure if no tests are found
+      #                               (useful when test classes are still being written)
+      - name: Build and run tests with Maven
+        run: mvn --batch-mode --fail-at-end verify
+
+      # ── Step 5: Upload test reports ──────────────────────────────────────────
+      # Maven Surefire writes XML and HTML test reports to target/surefire-reports/.
+      # Uploading them as a GitHub Actions artifact means you can download and
+      # inspect them directly from the Actions UI even after the job completes.
+      #
+      # 'if: always()' ensures reports are uploaded even when the build fails —
+      # that is exactly when you need them most!
+      - name: Upload Surefire test reports
+        if: always()   # upload reports even when tests fail
+        uses: actions/upload-artifact@v4
+        with:
+          name: surefire-reports-jdk${{ matrix.java-version }}
+          path: target/surefire-reports/
+          retention-days: 14    # keep artifacts for 14 days to save storage quota
+

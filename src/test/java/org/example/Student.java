@@ -45,10 +45,12 @@ public class Student {
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Student student = (Student) o;
-        //return getGrade() == student.getGrade() && getScore() == student.getScore() && getFirstName().equals(student.getFirstName()) && Objects.equals(getLastName(), student.getLastName());
-        return getGrade() == student.getGrade() && getScore() == student.getScore() && Objects.equals(getFirstName(), student.getFirstName()) && Objects.equals(getLastName(), student.getLastName());
+        // JDK 16+ pattern matching for instanceof
+        if (!(o instanceof Student student)) return false;
+        return grade == student.grade
+                && score == student.score
+                && Objects.equals(firstName, student.firstName)
+                && Objects.equals(lastName, student.lastName);
     }
 
     @Override

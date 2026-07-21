@@ -1,0 +1,29 @@
+METHOD: POST
+REQUEST URL (line: 1): https://boost.uts-dev01.tenant1.dev.evinova.com/userpod/jwt/v7
+REQUEST BODY (line: 3): {"tenantId":"dmdp-tenant","zoneId":"Europe/Stockholm","expireTimeSecs":3600}
+RESPONSE METHOD: POST
+RESPONSE URL (line: 4): https://boost.uts-dev01.tenant1.dev.evinova.com/userpod/jwt/v1
+STATUS CODE: 200
+----------------------------------------
+METHOD: GET
+REQUEST URL (line: 6): https://boost.uts-dev01.tenant1.dev.evinova.com/userpod/idp/light/v1/register?email=tenant_admin_ptjlaibqhz@s3testmail.dmdp2.aws.intelpharma.net
+RESPONSE METHOD: GET
+RESPONSE URL (line: 8): https://boost.uts-dev01.tenant1.dev.evinova.com/userpod/idp/light/v1/register?email=tenant_admin_ptjlaibqhz@s3testmail.dmdp2.aws.intelpharma.net
+STATUS CODE: 200
+----------------------------------------
+METHOD: GET
+REQUEST URL (line: 10): https://boost.uts-dev01.tenant1.dev.evinova.com/userpod/idp/light/v1?email=tenant_admin_ptjlaibqhz@s3testmail.dmdp2.aws.intelpharma.net&pwd=qwerty
+RESPONSE METHOD: GET
+RESPONSE URL (line: 12): https://boost.uts-dev01.tenant1.dev.evinova.com/userpod/idp/light/v1?email=tenant_admin_ptjlaibqhz@s3testmail.dmdp2.aws.intelpharma.net&pwd=blahblah
+STATUS CODE: 200
+----------------------------------------
+METHOD: GET
+REQUEST URL (line: 14): https://boost.uts-dev01.tenant1.dev.evinova.com/userpod/user/info/v1/mine?limit=500
+RESPONSE METHOD: GET
+RESPONSE URL (line: 16): https://boost.uts-dev01.tenant1.dev.evinova.com/userpod/user/info/v1/mine?limit=500
+STATUS CODE: 200
+RESPONSE BODY (line: 18): {"users":[]}
+----------------------------------------
+METHOD: POST
+REQUEST URL (line: 19): https://boost.uts-dev01.tenant1.dev.evinova.com/userpod/user/register/v1/tenant/dmdp_cu_STUDY_PTJLaiBQhZ
+----------------------------------------

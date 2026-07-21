@@ -4,88 +4,90 @@ import java.util.Comparator;
 import java.util.List;
 import java.util.function.Function;
 
-import static java.util.stream.Collectors.toList;
-
 public class EmployeeService {
 
-    // create a single employee
-    Employee createNewEmployee(EmployeeRequest employeeRequest){
-       Employee emp = new Employee(employeeRequest.getName(),
-               employeeRequest.getDob());
-       Employee.Address newAddress = new Employee.Address(
+    // ── Create a single employee from a request DTO ───────────────────────────
+    Employee createNewEmployee(EmployeeRequest employeeRequest) {
+        Employee emp = new Employee(employeeRequest.getName(),
+                employeeRequest.getDob());
+        Employee.Address newAddress = new Employee.Address(
                 employeeRequest.getEmployeeStreet(),
                 employeeRequest.getEmployeeCity(),
                 employeeRequest.getEmployeeZip());
-
-       emp.setAddress(newAddress);
-       return emp;
+        emp.setAddress(newAddress);
+        return emp;
     }
 
-    // create employees
-    void createNewEmployees(List<EmployeeRequest> employeeRequests){
-        employeeRequests.stream()
-                .forEach(employeeRequest -> this.createNewEmployee(employeeRequest));
+    // ── Create employees from a list of request DTOs ──────────────────────────
+    // Fix: stream().forEach() creates a stream unnecessarily; use Iterable.forEach() directly.
+    void createNewEmployees(List<EmployeeRequest> employeeRequests) {
+        employeeRequests.forEach(this::createNewEmployee);
     }
 
-    static List<Employee> getEmployees(){
+    static List<Employee> getEmployees() {
         return Employee.employees();
     }
 
-    // default sort a list of employees. By default, sort happens using the year of birth. The one who is youngest should be the first in the result.
+    // ── Sort youngest-first (by year only) ───────────────────────────────────
+    // Fix: Integer.parseInt() is preferred over Integer.valueOf() for primitive extraction.
+    // Fix: Stream.toList() (Java 16+) replaces the verbose collect(Collectors.toList()).
     List<Employee> sortByYearOfBirth(List<Employee> objects) {
-        Function<Employee, Integer> yearExtractor = emp -> Integer.valueOf(emp.getDob().substring(0, 4));
-
-//        Function<Employee, Integer> yearExtractor = emp -> {
-//            return Integer.valueOf(emp.getDob().substring(0, 4));
-//        };
+        // Key extractor: parse the 4-digit year from "YYYY-MM-DD"
+        Function<Employee, Integer> yearExtractor =
+                emp -> Integer.parseInt(emp.getDob().substring(0, 4));
 
         return objects.stream()
                 .sorted(Comparator.comparing(yearExtractor).reversed())
-                .collect(toList());
+                .toList(); // Java 16+: returns an unmodifiable list
     }
 
-    // sort a list of employees in the reverse order of their year of birth. the one who is oldest should be the first in the result.
+    // ── Sort oldest-first (by year only) ─────────────────────────────────────
     List<Employee> sortByYearOfBirthReversed(List<Employee> objects) {
-        Function<Employee, Integer> yearExtractor = emp -> Integer.valueOf(emp.getDob().substring(0, 4));
+        Function<Employee, Integer> yearExtractor =
+                emp -> Integer.parseInt(emp.getDob().substring(0, 4));
+
         return objects.stream()
                 .sorted(Comparator.comparing(yearExtractor))
-                .collect(toList());
+                .toList();
     }
 
-    // sort employees by date of birth. The one who is youngest should be the first in the result.
+    // ── Sort by full date-of-birth, youngest first ────────────────────────────
+    // The DOB string format is "YYYY-MM-DD".
     List<Employee> sortByDateOfBirthYoungestFirst(List<Employee> objects) {
-        Function<Employee, Integer> yearExtractor = emp -> Integer.valueOf(emp.getDob().substring(0, 4));
-        //1985-01-01
-        Function<Employee, Integer> monthExtractor = emp -> Integer.valueOf(emp.getDob().substring(5, 7));
-        Function<Employee, Integer> dateExtractor = emp -> Integer.valueOf(emp.getDob().substring(8));
+        Function<Employee, Integer> yearExtractor  = emp -> Integer.parseInt(emp.getDob().substring(0, 4));
+        Function<Employee, Integer> monthExtractor = emp -> Integer.parseInt(emp.getDob().substring(5, 7));
+        Function<Employee, Integer> dayExtractor   = emp -> Integer.parseInt(emp.getDob().substring(8));
+
         return objects.stream()
                 .sorted(Comparator.comparing(yearExtractor)
-                                .thenComparing(Comparator.comparing(monthExtractor)
-                                                .thenComparing(Comparator.comparing(dateExtractor))
-                                        )
+                        .thenComparing(monthExtractor)
+                        .thenComparing(dayExtractor)
                         .reversed())
-                .collect(toList());
+                .toList();
     }
 
-    // sort employees by date of birth. The one who is oldest should be the first in the result.
+    // ── Sort by full date-of-birth, oldest first ──────────────────────────────
     List<Employee> sortByDateOfBirthOldestFirst(List<Employee> objects) {
-        Function<Employee, Integer> yearExtractor = emp -> Integer.valueOf(emp.getDob().substring(0, 4));
-        //1985-01-01
-        Function<Employee, Integer> monthExtractor = emp -> Integer.valueOf(emp.getDob().substring(5, 7));
-        Function<Employee, Integer> dateExtractor = emp -> Integer.valueOf(emp.getDob().substring(8));
+        Function<Employee, Integer> yearExtractor  = emp -> Integer.parseInt(emp.getDob().substring(0, 4));
+        Function<Employee, Integer> monthExtractor = emp -> Integer.parseInt(emp.getDob().substring(5, 7));
+        Function<Employee, Integer> dayExtractor   = emp -> Integer.parseInt(emp.getDob().substring(8));
+
         return objects.stream()
                 .sorted(Comparator.comparing(yearExtractor)
-                        .thenComparing(Comparator.comparing(monthExtractor)
-                                .thenComparing(Comparator.comparing(dateExtractor))
-                        ))
-                .collect(toList());
+                        .thenComparing(monthExtractor)
+                        .thenComparing(dayExtractor))
+                .toList();
     }
 
-    List<Employee> sortByZipCode(List<Employee> employees){
-        Function<Employee, Employee.Address> addressExtractor = Employee::getAddress;
-        Function<Employee.Address, Integer> zipCodeExtractor = adder -> Integer.valueOf(adder.getZipcode());
+    // ── Sort by zip code (ascending) ──────────────────────────────────────────
+    List<Employee> sortByZipCode(List<Employee> employees) {
+        Function<Employee, Employee.Address>  addressExtractor  = Employee::getAddress;
+        Function<Employee.Address, Integer>   zipCodeExtractor  =
+                addr -> Integer.parseInt(addr.getZipcode());
+
         return employees.stream()
-                .sorted(Comparator.comparing(addressExtractor, Comparator.comparing(zipCodeExtractor)))
-                .collect(toList());
+                .sorted(Comparator.comparing(addressExtractor,
+                        Comparator.comparing(zipCodeExtractor)))
+                .toList();
     }
 }

@@ -1,0 +1,154 @@
+METHOD: POST
+REQUEST URL (line: 1): https://boost.uts-dev01.tenant1.dev.evinova.com/userpod/jwt/v1
+Authorization Header (line: 2): Basic ZG1kcC1wbGF0Zm9ybS1hZG1pbjpFdVVVRGkwQVM0YnFYRkxs
+REQUEST BODY (line: 4): {"tenantId":"dmdp-tenant","zoneId":"Europe/Stockholm","expireTimeSecs":3600}
+RESPONSE METHOD: POST
+RESPONSE URL (line: 5): https://boost.uts-dev01.tenant1.dev.evinova.com/userpod/jwt/v1
+STATUS CODE: 200
+----------------------------------------
+METHOD: GET
+REQUEST URL (line: 7): https://boost.uts-dev01.tenant1.dev.evinova.com/userpod/idp/light/v1/register?email=tenant_admin_iytbdtimvl@s3testmail.dmdp2.aws.intelpharma.net
+Authorization Header: None
+RESPONSE METHOD: GET
+RESPONSE URL (line: 10): https://boost.uts-dev01.tenant1.dev.evinova.com/userpod/idp/light/v1/register?email=tenant_admin_iytbdtimvl@s3testmail.dmdp2.aws.intelpharma.net
+STATUS CODE: 200
+----------------------------------------
+METHOD: GET
+REQUEST URL (line: 12): https://boost.uts-dev01.tenant1.dev.evinova.com/userpod/idp/light/v1?email=tenant_admin_iytbdtimvl@s3testmail.dmdp2.aws.intelpharma.net&pwd=qwerty
+Authorization Header: None
+RESPONSE METHOD: GET
+RESPONSE URL (line: 15): https://boost.uts-dev01.tenant1.dev.evinova.com/userpod/idp/light/v1?email=tenant_admin_iytbdtimvl@s3testmail.dmdp2.aws.intelpharma.net&pwd=qwerty
+STATUS CODE: 200
+----------------------------------------
+METHOD: GET
+REQUEST URL (line: 17): https://boost.uts-dev01.tenant1.dev.evinova.com/userpod/user/info/v1/mine?limit=500
+Authorization Header (line: 18): Bearer 6d1d07a3-da36-461f-b233-92496781e61a
+RESPONSE METHOD: GET
+RESPONSE URL (line: 20): https://boost.uts-dev01.tenant1.dev.evinova.com/userpod/user/info/v1/mine?limit=500
+STATUS CODE: 200
+RESPONSE BODY (line: 22): {"users":[]}
+----------------------------------------
+METHOD: POST
+REQUEST URL (line: 23): https://boost.uts-dev01.tenant1.dev.evinova.com/userpod/user/register/v1/tenant/dmdp_cu_EDC_TENANT_CONFIG_IyTBDTiMvl
+Authorization Header (line: 24): Bearer eyJhbGciOiJSUzI1NiIsInB2IjoidjEiLCJqdGkiOiIyZDNkMTMzNy1kYzZiLTRjNDMtYjQwZC05YTQxN2QzOWM3MmMiLCJraWQiOiItVktZRE1kZjBsd3o3Nm5lR1hBSTVKZzlMNlpkaGQzZGFqa3MxUERTbm84In0.eyJsYW5nIjoiZW4iLCJjb3VudHJ5IjoienoiLCJyb2xlcyI6W3sicm9sZSI6IlBMQVRGT1JNX0FETUlOIiwiYWNjZXNzUmVmcyI6W119XSwiaXNzIjoiZG1kcCIsImlhdCI6MTc2MTIxMDY2OSwiZXhwIjoxNzYxMjE0MjY5LCJ0ZW5hbnRJZCI6ImRtZHAtdGVuYW50IiwidXNlcklkIjoiNjZjM2EyOWI3MzE5ZTY0YTkyY2U1ZGE1IiwicmVhbFVzZXJJZCI6IjY2YzNhMjliNzMxOWU2NGE5MmNlNWRhNSIsInpvbmVJZCI6IkV1cm9wZS9TdG9ja2hvbG0iLCJvcGVyYXRpb25Nb2RlIjoiTEVHQUNZIn0.ksnrKmP9BIlBTn5B5N95ZPou67slGrBc3d-aC7_3XtURie9yIPCMqExfQFWhTBdiMakltEbJFgMKJ5zYtSjll0nckT24OkAf141oOf709RREOJC8VT2XH3tGSDqOjSNWq-1aOdTi2X9YQ-BWmCCm0Rs_hUMON2_3Wx6dPyRsZ1Hjj0Q3YWFHbUzFMI1hS_v6sC5e4k-omhHZOgGJn3yAQ-2vTuaSXlOT_tod7mJS5uFKqHyg84UXEFaqGbDrswcJ0sEPCGft0xe9TP1EJ5UqKPI-gXFY5-Y4GpSjZ3gsUYyIn6ZWLzBSd93zPWaS4_Zx1CRAEvUh4XS4Pl03mVjLqw
+REQUEST BODY (line: 26): {"idpAccounts":[{"provider":"userpod.idp.light","email":"tenant_admin_iytbdtimvl@s3testmail.dmdp2.aws.intelpharma.net"}],"localization":{"countryCode":"se","langCode":"sv"},"contactPoints":[{"system":"EMAIL","value":"tenant_admin_iytbdtimvl@s3testmail.dmdp2.aws.intelpharma.net","primary":true}],"humanName":{"given":"TENANT_ADMIN","family":"tenant_admin_iytbdtimvl@s3testmail.dmdp2.aws.intelpharma.net"},"externalIds":[{"key":"TEST_REFERENCE","value":"TENANT_ADMIN"}],"roleAccessRefs":[{"accessRefs":[],"role":"TENANT_ADMIN"}]}
+RESPONSE METHOD: POST
+RESPONSE URL (line: 27): https://boost.uts-dev01.tenant1.dev.evinova.com/userpod/user/register/v1/tenant/dmdp_cu_EDC_TENANT_CONFIG_IyTBDTiMvl
+STATUS CODE: 200
+RESPONSE BODY (line: 29): {"userId":"68f9f12d3e9532731edf72d9","eventId":7564342224721282399,"status":"REGISTERED","statusTimestamp":1761210669706,"previousStatuses":[],"idpAccounts":[{"provider":"userpod.idp.light","identity":"tenant_admin_iytbdtimvl@s3testmail.dmdp2.aws.intelpharma.net","idpSubject":"tenant_admin_iytbdtimvl@s3testmail.dmdp2.aws.intelpharma.net","flowType":"USER_REGISTRATION","idpStatus":{"status":"EXISTING","lastModified":1761210669706},"verified":false}],"audit":{"createdAt":"2025-10-23T09:11:09.706Z[UTC]","createdBy":"66c3a29b7319e64a92ce5da5","lastModified":"2025-10-23T09:11:09.706Z[UTC]","modifiedBy":"66c3a29b7319e64a92ce5da5"},"localization":{"countryCode":"se","langCode":"sv"},"roleAccessRefs":[{"accessRefs":[],"role":"TENANT_ADMIN"}],"projects":[],"metas":[],"tags":[],"occasions":[],"customStatuses":[],"contactPoints":[{"contactPointId":"68f9f12d3e9532731edf72d8","system":"EMAIL","value":"tenant_admin_iytbdtimvl@s3testmail.dmdp2.aws.intelpharma.net","primary":true}],"humanName":{"given":"TENANT_ADMIN","family":"tenant_admin_iytbdtimvl@s3testmail.dmdp2.aws.intelpharma.net"},"externalIds":[{"key":"TEST_REFERENCE","value":"TENANT_ADMIN"}],"personal":{"gender":"UNKNOWN","createdAt":"2025-10-23T09:11:09.706Z","createdBy":"66c3a29b7319e64a92ce5da5"},"preferences":{},"metrics":{},"provisionedDevices":[]}
+----------------------------------------
+METHOD: POST
+REQUEST URL (line: 30): https://boost.uts-dev01.tenant1.dev.evinova.com/userpod/jwt/v1
+Authorization Header (line: 31): Bearer 6d1d07a3-da36-461f-b233-92496781e61a
+REQUEST BODY (line: 33): {"tenantId":"dmdp_cu_EDC_TENANT_CONFIG_IyTBDTiMvl","zoneId":"Europe/Stockholm","expireTimeSecs":3600,"version":"v1"}
+RESPONSE METHOD: POST
+RESPONSE URL (line: 34): https://boost.uts-dev01.tenant1.dev.evinova.com/userpod/jwt/v1
+STATUS CODE: 200
+----------------------------------------
+METHOD: PUT
+REQUEST URL (line: 36): https://boost.uts-dev01.tenant1.dev.evinova.com/userpod/user/activate/v1
+Authorization Header (line: 37): Bearer eyJhbGciOiJSUzI1NiIsInB2IjoidjEiLCJqdGkiOiI4MDg4YWMxYi1jMjExLTQ0ZTQtOWVhOC0xMTkxNGNhOWZmZTUiLCJraWQiOiJiMjZfbXpsVTYyUWxhMEgwMjNrbEZNOFBDRGxWMC1mRDA1bWVPdm1qOFVNIn0.eyJsYW5nIjoic3YiLCJjb3VudHJ5Ijoic2UiLCJyb2xlcyI6W10sImlzcyI6ImRtZHAiLCJpYXQiOjE3NjEyMTA2NjksImV4cCI6MTc2MTIxNDI2OSwidGVuYW50SWQiOiJkbWRwX2N1X0VEQ19URU5BTlRfQ09ORklHX0l5VEJEVGlNdmwiLCJ1c2VySWQiOiI2OGY5ZjEyZDNlOTUzMjczMWVkZjcyZDkiLCJyZWFsVXNlcklkIjoiNjhmOWYxMmQzZTk1MzI3MzFlZGY3MmQ5Iiwiem9uZUlkIjoiRXVyb3BlL1N0b2NraG9sbSIsIm9wZXJhdGlvbk1vZGUiOiJMRUdBQ1kifQ.OjGGP1BPTRPiIQthymPGMu3j_nm3uKiKdppvJmT2TI3cQeR2iBuS5zNtbatzjwIGqIqYuZ4v4kBvjsRsu_F_dYKbRVA50OO4T607yt6fMtU3IrYqTRKRg3uQh8N15WXHpdC89pr69492xKTFX-638oxGu08xyGMcuRLJV3FlUz3StGdYBoG-m2KwKBqEKjn6QfOILtsPhMyzf9ahQo44mVnsxXflVxTfXiwY36ZITZ9XmHHMPigXXHf57H0DDYm-0V_oEwG6eCJa2rQQJq8V6JOuVY-K6ujlPytkCVI1PxmOudhQ4oRF9epzBrZZW3FTBBV2C0Xc6IR-ttZOcj-VvQ
+RESPONSE METHOD: PUT
+RESPONSE URL (line: 39): https://boost.uts-dev01.tenant1.dev.evinova.com/userpod/user/activate/v1
+STATUS CODE: 200
+----------------------------------------
+METHOD: POST
+REQUEST URL (line: 41): https://boost.uts-dev01.tenant1.dev.evinova.com/userpod/jwt/v1
+Authorization Header (line: 42): Bearer 6d1d07a3-da36-461f-b233-92496781e61a
+REQUEST BODY (line: 44): {"tenantId":"dmdp_cu_EDC_TENANT_CONFIG_IyTBDTiMvl","zoneId":"Europe/Stockholm","expireTimeSecs":3600,"version":"v1"}
+RESPONSE METHOD: POST
+RESPONSE URL (line: 45): https://boost.uts-dev01.tenant1.dev.evinova.com/userpod/jwt/v1
+STATUS CODE: 200
+----------------------------------------
+METHOD: GET
+REQUEST URL (line: 47): https://boost.uts-dev01.tenant1.dev.evinova.com/userpod/user/v1/mine
+Authorization Header (line: 48): Bearer eyJhbGciOiJSUzI1NiIsInB2IjoidjEiLCJqdGkiOiI3YmZmZTg4MS1hMzE0LTQyNmMtOTgzOS00MjA5MDM1MjEwMWMiLCJraWQiOiJiMjZfbXpsVTYyUWxhMEgwMjNrbEZNOFBDRGxWMC1mRDA1bWVPdm1qOFVNIn0.eyJsYW5nIjoic3YiLCJjb3VudHJ5Ijoic2UiLCJyb2xlcyI6W3sicm9sZSI6IlRFTkFOVF9BRE1JTiIsImFjY2Vzc1JlZnMiOltdfV0sImlzcyI6ImRtZHAiLCJpYXQiOjE3NjEyMTA2NzAsImV4cCI6MTc2MTIxNDI3MCwidGVuYW50SWQiOiJkbWRwX2N1X0VEQ19URU5BTlRfQ09ORklHX0l5VEJEVGlNdmwiLCJ1c2VySWQiOiI2OGY5ZjEyZDNlOTUzMjczMWVkZjcyZDkiLCJyZWFsVXNlcklkIjoiNjhmOWYxMmQzZTk1MzI3MzFlZGY3MmQ5Iiwiem9uZUlkIjoiRXVyb3BlL1N0b2NraG9sbSIsIm9wZXJhdGlvbk1vZGUiOiJMRUdBQ1kifQ.ePXZpdDLqk6fvvpcHUd1PVhILGiL8k0QysxT87ozso3h2VQxqbi0mlTcHqPq1AydWuKHp8Zx7g8_4cIOJh-dzwVSHzf-IdWKdygy6Vc6qLtigFFMfEL7_p4YuMO89HNKudfWQ2o7yqErBrMOjgCLSkF3FT5Q_ar12iLWNJbQtUIJJMrxdFBQzhD_AZhtKxZ7dlPt4DbVQmjyI0JxGfDzaLjZNgyiK768Tof2MVyHiz2QUm2hVVvJOtETl9aCDgIcUQdValpE_9VFaodwf6wA81MPMhp_DcdThTTA6XBnUaDiIId2esV347RnH50UGKcCXpHTj8ceVrik8_bl94zjrg
+RESPONSE METHOD: GET
+RESPONSE URL (line: 50): https://boost.uts-dev01.tenant1.dev.evinova.com/userpod/user/v1/mine
+STATUS CODE: 200
+RESPONSE BODY (line: 52): {"userId":"68f9f12d3e9532731edf72d9","eventId":7564342229016248603,"status":"ACTIVE","statusTimestamp":1761210670178,"previousStatuses":[{"status":"REGISTERED","time":1761210669706},{"status":"VERIFIED","time":1761210669849}],"idpAccounts":[{"provider":"userpod.idp.light","identity":"tenant_admin_iytbdtimvl@s3testmail.dmdp2.aws.intelpharma.net","idpSubject":"tenant_admin_iytbdtimvl@s3testmail.dmdp2.aws.intelpharma.net","flowType":"USER_REGISTRATION","idpStatus":{"status":"EXISTING","lastModified":1761210669706},"verified":true}],"audit":{"createdAt":"2025-10-23T09:11:09.706Z[UTC]","createdBy":"66c3a29b7319e64a92ce5da5","lastModified":"2025-10-23T09:11:10.178Z[UTC]","modifiedBy":"68f9f12d3e9532731edf72d9"},"localization":{"countryCode":"se","langCode":"sv"},"roleAccessRefs":[{"accessRefs":[],"role":"TENANT_ADMIN"}],"projects":[],"metas":[],"tags":[],"occasions":[],"customStatuses":[],"contactPoints":[{"contactPointId":"68f9f12d3e9532731edf72d8","system":"EMAIL","value":"tenant_admin_iytbdtimvl@s3testmail.dmdp2.aws.intelpharma.net","primary":true}],"humanName":{"given":"TENANT_ADMIN","family":"tenant_admin_iytbdtimvl@s3testmail.dmdp2.aws.intelpharma.net"},"externalIds":[{"key":"TEST_REFERENCE","value":"TENANT_ADMIN"}],"personal":{"gender":"UNKNOWN","createdAt":"2025-10-23T09:11:09.706Z","createdBy":"66c3a29b7319e64a92ce5da5","previousPersonals":[]},"preferences":{},"metrics":{"previousMetrics":[]},"provisionedDevices":[]}
+----------------------------------------
+METHOD: PUT
+REQUEST URL (line: 53): https://boost.uts-dev01.tenant1.dev.evinova.com/userpod/config/tenant/v1/userpod-user-mgmt-config/
+Authorization Header (line: 54): Bearer eyJhbGciOiJSUzI1NiIsInB2IjoidjEiLCJqdGkiOiI3YmZmZTg4MS1hMzE0LTQyNmMtOTgzOS00MjA5MDM1MjEwMWMiLCJraWQiOiJiMjZfbXpsVTYyUWxhMEgwMjNrbEZNOFBDRGxWMC1mRDA1bWVPdm1qOFVNIn0.eyJsYW5nIjoic3YiLCJjb3VudHJ5Ijoic2UiLCJyb2xlcyI6W3sicm9sZSI6IlRFTkFOVF9BRE1JTiIsImFjY2Vzc1JlZnMiOltdfV0sImlzcyI6ImRtZHAiLCJpYXQiOjE3NjEyMTA2NzAsImV4cCI6MTc2MTIxNDI3MCwidGVuYW50SWQiOiJkbWRwX2N1X0VEQ19URU5BTlRfQ09ORklHX0l5VEJEVGlNdmwiLCJ1c2VySWQiOiI2OGY5ZjEyZDNlOTUzMjczMWVkZjcyZDkiLCJyZWFsVXNlcklkIjoiNjhmOWYxMmQzZTk1MzI3MzFlZGY3MmQ5Iiwiem9uZUlkIjoiRXVyb3BlL1N0b2NraG9sbSIsIm9wZXJhdGlvbk1vZGUiOiJMRUdBQ1kifQ.ePXZpdDLqk6fvvpcHUd1PVhILGiL8k0QysxT87ozso3h2VQxqbi0mlTcHqPq1AydWuKHp8Zx7g8_4cIOJh-dzwVSHzf-IdWKdygy6Vc6qLtigFFMfEL7_p4YuMO89HNKudfWQ2o7yqErBrMOjgCLSkF3FT5Q_ar12iLWNJbQtUIJJMrxdFBQzhD_AZhtKxZ7dlPt4DbVQmjyI0JxGfDzaLjZNgyiK768Tof2MVyHiz2QUm2hVVvJOtETl9aCDgIcUQdValpE_9VFaodwf6wA81MPMhp_DcdThTTA6XBnUaDiIId2esV347RnH50UGKcCXpHTj8ceVrik8_bl94zjrg
+REQUEST BODY (line: 56): {"version":1,"data":{"sendInvitationEmailEnabled":false,"sendWithdrawEmailEnabled":false,"sendRegistrationEmailEnabled":false}}
+RESPONSE METHOD: PUT
+RESPONSE URL (line: 57): https://boost.uts-dev01.tenant1.dev.evinova.com/userpod/config/tenant/v1/userpod-user-mgmt-config/
+STATUS CODE: 200
+----------------------------------------
+METHOD: POST
+REQUEST URL (line: 59): https://boost.uts-dev01.tenant1.dev.evinova.com/userpod/user/service/v1
+Authorization Header (line: 60): Bearer eyJhbGciOiJSUzI1NiIsInB2IjoidjEiLCJqdGkiOiI3YmZmZTg4MS1hMzE0LTQyNmMtOTgzOS00MjA5MDM1MjEwMWMiLCJraWQiOiJiMjZfbXpsVTYyUWxhMEgwMjNrbEZNOFBDRGxWMC1mRDA1bWVPdm1qOFVNIn0.eyJsYW5nIjoic3YiLCJjb3VudHJ5Ijoic2UiLCJyb2xlcyI6W3sicm9sZSI6IlRFTkFOVF9BRE1JTiIsImFjY2Vzc1JlZnMiOltdfV0sImlzcyI6ImRtZHAiLCJpYXQiOjE3NjEyMTA2NzAsImV4cCI6MTc2MTIxNDI3MCwidGVuYW50SWQiOiJkbWRwX2N1X0VEQ19URU5BTlRfQ09ORklHX0l5VEJEVGlNdmwiLCJ1c2VySWQiOiI2OGY5ZjEyZDNlOTUzMjczMWVkZjcyZDkiLCJyZWFsVXNlcklkIjoiNjhmOWYxMmQzZTk1MzI3MzFlZGY3MmQ5Iiwiem9uZUlkIjoiRXVyb3BlL1N0b2NraG9sbSIsIm9wZXJhdGlvbk1vZGUiOiJMRUdBQ1kifQ.ePXZpdDLqk6fvvpcHUd1PVhILGiL8k0QysxT87ozso3h2VQxqbi0mlTcHqPq1AydWuKHp8Zx7g8_4cIOJh-dzwVSHzf-IdWKdygy6Vc6qLtigFFMfEL7_p4YuMO89HNKudfWQ2o7yqErBrMOjgCLSkF3FT5Q_ar12iLWNJbQtUIJJMrxdFBQzhD_AZhtKxZ7dlPt4DbVQmjyI0JxGfDzaLjZNgyiK768Tof2MVyHiz2QUm2hVVvJOtETl9aCDgIcUQdValpE_9VFaodwf6wA81MPMhp_DcdThTTA6XBnUaDiIId2esV347RnH50UGKcCXpHTj8ceVrik8_bl94zjrg
+REQUEST BODY (line: 62): {"clientId":"dmdp-service-study-admin","role":"SERVICE_STUDY_ADMIN"}
+RESPONSE METHOD: POST
+RESPONSE URL (line: 63): https://boost.uts-dev01.tenant1.dev.evinova.com/userpod/user/service/v1
+STATUS CODE: 200
+RESPONSE BODY (line: 65): {"userId":"68f9f12ed991e57e150c36fb","tenantId":"dmdp_cu_EDC_TENANT_CONFIG_IyTBDTiMvl","status":"ACTIVE","roleAccessRefs":[{"accessRefs":[],"role":"SERVICE_STUDY_ADMIN"}],"localization":{"countryCode":"zz","langCode":"en"}}
+----------------------------------------
+METHOD: GET
+REQUEST URL (line: 66): https://boost.uts-dev01.tenant1.dev.evinova.com/userpod/user/v1/68f9f12ed991e57e150c36fb
+Authorization Header (line: 67): Bearer eyJhbGciOiJSUzI1NiIsInB2IjoidjEiLCJqdGkiOiI3YmZmZTg4MS1hMzE0LTQyNmMtOTgzOS00MjA5MDM1MjEwMWMiLCJraWQiOiJiMjZfbXpsVTYyUWxhMEgwMjNrbEZNOFBDRGxWMC1mRDA1bWVPdm1qOFVNIn0.eyJsYW5nIjoic3YiLCJjb3VudHJ5Ijoic2UiLCJyb2xlcyI6W3sicm9sZSI6IlRFTkFOVF9BRE1JTiIsImFjY2Vzc1JlZnMiOltdfV0sImlzcyI6ImRtZHAiLCJpYXQiOjE3NjEyMTA2NzAsImV4cCI6MTc2MTIxNDI3MCwidGVuYW50SWQiOiJkbWRwX2N1X0VEQ19URU5BTlRfQ09ORklHX0l5VEJEVGlNdmwiLCJ1c2VySWQiOiI2OGY5ZjEyZDNlOTUzMjczMWVkZjcyZDkiLCJyZWFsVXNlcklkIjoiNjhmOWYxMmQzZTk1MzI3MzFlZGY3MmQ5Iiwiem9uZUlkIjoiRXVyb3BlL1N0b2NraG9sbSIsIm9wZXJhdGlvbk1vZGUiOiJMRUdBQ1kifQ.ePXZpdDLqk6fvvpcHUd1PVhILGiL8k0QysxT87ozso3h2VQxqbi0mlTcHqPq1AydWuKHp8Zx7g8_4cIOJh-dzwVSHzf-IdWKdygy6Vc6qLtigFFMfEL7_p4YuMO89HNKudfWQ2o7yqErBrMOjgCLSkF3FT5Q_ar12iLWNJbQtUIJJMrxdFBQzhD_AZhtKxZ7dlPt4DbVQmjyI0JxGfDzaLjZNgyiK768Tof2MVyHiz2QUm2hVVvJOtETl9aCDgIcUQdValpE_9VFaodwf6wA81MPMhp_DcdThTTA6XBnUaDiIId2esV347RnH50UGKcCXpHTj8ceVrik8_bl94zjrg
+RESPONSE METHOD: GET
+RESPONSE URL (line: 69): https://boost.uts-dev01.tenant1.dev.evinova.com/userpod/user/v1/68f9f12ed991e57e150c36fb
+STATUS CODE: 200
+RESPONSE BODY (line: 71): {"userId":"68f9f12ed991e57e150c36fb","eventId":7564342229016249506,"status":"ACTIVE","statusTimestamp":1761210670607,"previousStatuses":[{"status":"REGISTERED","time":1761210670607},{"status":"VERIFIED","time":1761210670607}],"idpAccounts":[{"provider":"userpod.idp.m2m","identity":"dmdp-service-study-admin","idpSubject":"dmdp-service-study-admin","flowType":"USER_REGISTRATION","idpStatus":{"status":"REGISTERED","lastModified":1761210670606},"verified":true}],"audit":{"createdAt":"2025-10-23T09:11:10.606Z[UTC]","createdBy":"68f9f12d3e9532731edf72d9","lastModified":"2025-10-23T09:11:10.606Z[UTC]","modifiedBy":"68f9f12d3e9532731edf72d9"},"localization":{"countryCode":"zz","langCode":"en"},"roleAccessRefs":[{"accessRefs":[],"role":"SERVICE_STUDY_ADMIN"}],"projects":[],"metas":[],"tags":[],"occasions":[],"customStatuses":[],"contactPoints":[],"humanName":{"given":"dmdp-service-study-admin"},"externalIds":[],"personal":{"gender":"UNKNOWN","createdAt":"2025-10-23T09:11:10.606Z","createdBy":"68f9f12d3e9532731edf72d9","previousPersonals":[]},"preferences":{},"metrics":{"previousMetrics":[]},"provisionedDevices":[]}
+----------------------------------------
+METHOD: POST
+REQUEST URL (line: 72): https://boost.uts-dev01.tenant1.dev.evinova.com/userpod/jwt/v1
+Authorization Header (line: 73): Basic ZG1kcC1zZXJ2aWNlLXN0dWR5LWFkbWluOmk3V0pzcURNdVE4WE9SaW8=
+REQUEST BODY (line: 75): {"tenantId":"dmdp_cu_EDC_TENANT_CONFIG_IyTBDTiMvl","zoneId":"Europe/Stockholm","expireTimeSecs":3600,"version":"v1"}
+RESPONSE METHOD: POST
+RESPONSE URL (line: 76): https://boost.uts-dev01.tenant1.dev.evinova.com/userpod/jwt/v1
+STATUS CODE: 200
+----------------------------------------
+METHOD: PUT
+REQUEST URL (line: 78): https://boost.uts-dev01.tenant1.dev.evinova.com/userpod/user/activate/v1
+Authorization Header (line: 79): Bearer eyJhbGciOiJSUzI1NiIsInB2IjoidjEiLCJqdGkiOiI1NGQzZjhiYS01ODJiLTQxZjYtODEyMy05NzI4MzZhZDVlYjgiLCJraWQiOiJiMjZfbXpsVTYyUWxhMEgwMjNrbEZNOFBDRGxWMC1mRDA1bWVPdm1qOFVNIn0.eyJsYW5nIjoiZW4iLCJjb3VudHJ5IjoienoiLCJyb2xlcyI6W3sicm9sZSI6IlNFUlZJQ0VfU1RVRFlfQURNSU4iLCJhY2Nlc3NSZWZzIjpbXX1dLCJpc3MiOiJkbWRwIiwiaWF0IjoxNzYxMjEwNjcwLCJleHAiOjE3NjEyMTQyNzAsInRlbmFudElkIjoiZG1kcF9jdV9FRENfVEVOQU5UX0NPTkZJR19JeVRCRFRpTXZsIiwidXNlcklkIjoiNjhmOWYxMmVkOTkxZTU3ZTE1MGMzNmZiIiwicmVhbFVzZXJJZCI6IjY4ZjlmMTJlZDk5MWU1N2UxNTBjMzZmYiIsInpvbmVJZCI6IkV1cm9wZS9TdG9ja2hvbG0iLCJvcGVyYXRpb25Nb2RlIjoiTEVHQUNZIn0.Qzr_1GXxy0Wcn8kyC7_I8fLRdXxdaNLGmy8EnP7ZVjWUqvAxinu3dMrXx2jlGfabcmljmuhPHHgKntCCEoB8yDQSErj2W-5KiRfkmPB6V8Qw27o6k9pu11F1kXzwgduP3X01dw65EnS-s8G6O8cFmOHAYgGjhZ98I6Yqixg6TDWH1gBc0-QgSxCpfV3bTv0uwZGR_QFAIaZkMc8yitVd9KIs0XeyJEXUZ1_45BQf2-xDATFk2b1uWTv4-RFU2vSrIXtataReU_i2UGzxIRJ1IfaKSoGirQnrJE8lSBSeO2IcfJy9Hu58qIWTr_XVK-0yLEFcMEk8OEUtGRuODqtFvg
+RESPONSE METHOD: PUT
+RESPONSE URL (line: 81): https://boost.uts-dev01.tenant1.dev.evinova.com/userpod/user/activate/v1
+STATUS CODE: 200
+----------------------------------------
+METHOD: POST
+REQUEST URL (line: 83): https://boost.uts-dev01.tenant1.dev.evinova.com/userpod/jwt/v1
+Authorization Header (line: 84): Basic ZG1kcC1zZXJ2aWNlLXN0dWR5LWFkbWluOmk3V0pzcURNdVE4WE9SaW8=
+REQUEST BODY (line: 86): {"tenantId":"dmdp_cu_EDC_TENANT_CONFIG_IyTBDTiMvl","zoneId":"Europe/Stockholm","expireTimeSecs":3600,"version":"v1"}
+RESPONSE METHOD: POST
+RESPONSE URL (line: 87): https://boost.uts-dev01.tenant1.dev.evinova.com/userpod/jwt/v1
+STATUS CODE: 200
+----------------------------------------
+METHOD: POST
+REQUEST URL (line: 89): https://boost.uts-dev01.tenant1.dev.evinova.com/mongodb-test-proxy/mongodb-test/v1/databases/studypod/collections/user:find-document
+Authorization Header (line: 90): Bearer eyJhbGciOiJSUzI1NiIsInB2IjoidjEiLCJqdGkiOiI3YmZmZTg4MS1hMzE0LTQyNmMtOTgzOS00MjA5MDM1MjEwMWMiLCJraWQiOiJiMjZfbXpsVTYyUWxhMEgwMjNrbEZNOFBDRGxWMC1mRDA1bWVPdm1qOFVNIn0.eyJsYW5nIjoic3YiLCJjb3VudHJ5Ijoic2UiLCJyb2xlcyI6W3sicm9sZSI6IlRFTkFOVF9BRE1JTiIsImFjY2Vzc1JlZnMiOltdfV0sImlzcyI6ImRtZHAiLCJpYXQiOjE3NjEyMTA2NzAsImV4cCI6MTc2MTIxNDI3MCwidGVuYW50SWQiOiJkbWRwX2N1X0VEQ19URU5BTlRfQ09ORklHX0l5VEJEVGlNdmwiLCJ1c2VySWQiOiI2OGY5ZjEyZDNlOTUzMjczMWVkZjcyZDkiLCJyZWFsVXNlcklkIjoiNjhmOWYxMmQzZTk1MzI3MzFlZGY3MmQ5Iiwiem9uZUlkIjoiRXVyb3BlL1N0b2NraG9sbSIsIm9wZXJhdGlvbk1vZGUiOiJMRUdBQ1kifQ.ePXZpdDLqk6fvvpcHUd1PVhILGiL8k0QysxT87ozso3h2VQxqbi0mlTcHqPq1AydWuKHp8Zx7g8_4cIOJh-dzwVSHzf-IdWKdygy6Vc6qLtigFFMfEL7_p4YuMO89HNKudfWQ2o7yqErBrMOjgCLSkF3FT5Q_ar12iLWNJbQtUIJJMrxdFBQzhD_AZhtKxZ7dlPt4DbVQmjyI0JxGfDzaLjZNgyiK768Tof2MVyHiz2QUm2hVVvJOtETl9aCDgIcUQdValpE_9VFaodwf6wA81MPMhp_DcdThTTA6XBnUaDiIId2esV347RnH50UGKcCXpHTj8ceVrik8_bl94zjrg
+REQUEST BODY (line: 92): {"queryOperationList": [{"key": "userId", "values": [{"$oid": "68f9f12ed991e57e150c36fb"}, {"$oid": "68f9f12d3e9532731edf72d9"}], "operation": "IN"}], "limit": null, "include": ["userId", "eventId"]}
+RESPONSE METHOD: POST
+RESPONSE URL (line: 93): https://boost.uts-dev01.tenant1.dev.evinova.com/mongodb-test-proxy/mongodb-test/v1/databases/studypod/collections/user:find-document
+STATUS CODE: 200
+RESPONSE BODY (line: 95): {"items": [{"_id": {"$oid": "68f9f12ed991e57e150c36fc"}, "eventId": {"$timestamp": {"t": 1761210670, "i": 1186}}, "userId": {"$oid": "68f9f12ed991e57e150c36fb"}}, {"_id": {"$oid": "68f9f12d3e9532731edf72da"}, "eventId": {"$timestamp": {"t": 1761210670, "i": 283}}, "userId": {"$oid": "68f9f12d3e9532731edf72d9"}}]}
+----------------------------------------
+METHOD: PUT
+REQUEST URL (line: 96): https://boost.uts-dev01.tenant1.dev.evinova.com/studypod/config/tenant/v1/studypod-tenant-config
+Authorization Header (line: 97): Bearer eyJhbGciOiJSUzI1NiIsInB2IjoidjEiLCJqdGkiOiI3YmZmZTg4MS1hMzE0LTQyNmMtOTgzOS00MjA5MDM1MjEwMWMiLCJraWQiOiJiMjZfbXpsVTYyUWxhMEgwMjNrbEZNOFBDRGxWMC1mRDA1bWVPdm1qOFVNIn0.eyJsYW5nIjoic3YiLCJjb3VudHJ5Ijoic2UiLCJyb2xlcyI6W3sicm9sZSI6IlRFTkFOVF9BRE1JTiIsImFjY2Vzc1JlZnMiOltdfV0sImlzcyI6ImRtZHAiLCJpYXQiOjE3NjEyMTA2NzAsImV4cCI6MTc2MTIxNDI3MCwidGVuYW50SWQiOiJkbWRwX2N1X0VEQ19URU5BTlRfQ09ORklHX0l5VEJEVGlNdmwiLCJ1c2VySWQiOiI2OGY5ZjEyZDNlOTUzMjczMWVkZjcyZDkiLCJyZWFsVXNlcklkIjoiNjhmOWYxMmQzZTk1MzI3MzFlZGY3MmQ5Iiwiem9uZUlkIjoiRXVyb3BlL1N0b2NraG9sbSIsIm9wZXJhdGlvbk1vZGUiOiJMRUdBQ1kifQ.ePXZpdDLqk6fvvpcHUd1PVhILGiL8k0QysxT87ozso3h2VQxqbi0mlTcHqPq1AydWuKHp8Zx7g8_4cIOJh-dzwVSHzf-IdWKdygy6Vc6qLtigFFMfEL7_p4YuMO89HNKudfWQ2o7yqErBrMOjgCLSkF3FT5Q_ar12iLWNJbQtUIJJMrxdFBQzhD_AZhtKxZ7dlPt4DbVQmjyI0JxGfDzaLjZNgyiK768Tof2MVyHiz2QUm2hVVvJOtETl9aCDgIcUQdValpE_9VFaodwf6wA81MPMhp_DcdThTTA6XBnUaDiIId2esV347RnH50UGKcCXpHTj8ceVrik8_bl94zjrg
+REQUEST BODY (line: 99): {"version":1,"data":{"ctms":{"enableAutomaticSync":"FALSE","enableMetricsSync":"FALSE","testConfig":{"enabled":"FALSE"}},"dCode":"D111222","rtsm":{"enableSync":"FALSE","enableSupplySync":"FALSE","enableSupplyPushMessages":"FALSE","rtsmTestConfig":{"enabled":"FALSE"}},"edc":{"enableSync":"unknown_enum_value"}}}
+RESPONSE METHOD: PUT
+RESPONSE URL (line: 100): https://boost.uts-dev01.tenant1.dev.evinova.com/studypod/config/tenant/v1/studypod-tenant-config
+STATUS CODE: 400
+RESPONSE BODY (line: 102): {"errorId":"aIOCUEgu","errorCode":"DMDP_BAD_ARGUMENT","message":"Invalid tenant configuration"}
+----------------------------------------
+METHOD: PUT
+REQUEST URL (line: 103): https://boost.uts-dev01.tenant1.dev.evinova.com/studypod/config/tenant/v1/studypod-tenant-config
+Authorization Header (line: 104): Bearer eyJhbGciOiJSUzI1NiIsInB2IjoidjEiLCJqdGkiOiI3YmZmZTg4MS1hMzE0LTQyNmMtOTgzOS00MjA5MDM1MjEwMWMiLCJraWQiOiJiMjZfbXpsVTYyUWxhMEgwMjNrbEZNOFBDRGxWMC1mRDA1bWVPdm1qOFVNIn0.eyJsYW5nIjoic3YiLCJjb3VudHJ5Ijoic2UiLCJyb2xlcyI6W3sicm9sZSI6IlRFTkFOVF9BRE1JTiIsImFjY2Vzc1JlZnMiOltdfV0sImlzcyI6ImRtZHAiLCJpYXQiOjE3NjEyMTA2NzAsImV4cCI6MTc2MTIxNDI3MCwidGVuYW50SWQiOiJkbWRwX2N1X0VEQ19URU5BTlRfQ09ORklHX0l5VEJEVGlNdmwiLCJ1c2VySWQiOiI2OGY5ZjEyZDNlOTUzMjczMWVkZjcyZDkiLCJyZWFsVXNlcklkIjoiNjhmOWYxMmQzZTk1MzI3MzFlZGY3MmQ5Iiwiem9uZUlkIjoiRXVyb3BlL1N0b2NraG9sbSIsIm9wZXJhdGlvbk1vZGUiOiJMRUdBQ1kifQ.ePXZpdDLqk6fvvpcHUd1PVhILGiL8k0QysxT87ozso3h2VQxqbi0mlTcHqPq1AydWuKHp8Zx7g8_4cIOJh-dzwVSHzf-IdWKdygy6Vc6qLtigFFMfEL7_p4YuMO89HNKudfWQ2o7yqErBrMOjgCLSkF3FT5Q_ar12iLWNJbQtUIJJMrxdFBQzhD_AZhtKxZ7dlPt4DbVQmjyI0JxGfDzaLjZNgyiK768Tof2MVyHiz2QUm2hVVvJOtETl9aCDgIcUQdValpE_9VFaodwf6wA81MPMhp_DcdThTTA6XBnUaDiIId2esV347RnH50UGKcCXpHTj8ceVrik8_bl94zjrg
+REQUEST BODY (line: 106): {"version":1,"data":{"ctms":{"enableAutomaticSync":"FALSE","enableMetricsSync":"FALSE","testConfig":{"enabled":"FALSE"}},"dCode":"D111222","rtsm":{"enableSync":"FALSE","enableSupplySync":"FALSE","enableSupplyPushMessages":"FALSE","rtsmTestConfig":{"enabled":"FALSE"}},"edc":{"enableSync":""}}}
+RESPONSE METHOD: PUT
+RESPONSE URL (line: 107): https://boost.uts-dev01.tenant1.dev.evinova.com/studypod/config/tenant/v1/studypod-tenant-config
+STATUS CODE: 400
+RESPONSE BODY (line: 109): {"errorId":"bA49i5I1","errorCode":"DMDP_BAD_ARGUMENT","message":"Invalid tenant configuration"}
+----------------------------------------
+METHOD: PUT
+REQUEST URL (line: 110): https://boost.uts-dev01.tenant1.dev.evinova.com/studypod/config/tenant/v1/studypod-tenant-config
+Authorization Header (line: 111): Bearer eyJhbGciOiJSUzI1NiIsInB2IjoidjEiLCJqdGkiOiI3YmZmZTg4MS1hMzE0LTQyNmMtOTgzOS00MjA5MDM1MjEwMWMiLCJraWQiOiJiMjZfbXpsVTYyUWxhMEgwMjNrbEZNOFBDRGxWMC1mRDA1bWVPdm1qOFVNIn0.eyJsYW5nIjoic3YiLCJjb3VudHJ5Ijoic2UiLCJyb2xlcyI6W3sicm9sZSI6IlRFTkFOVF9BRE1JTiIsImFjY2Vzc1JlZnMiOltdfV0sImlzcyI6ImRtZHAiLCJpYXQiOjE3NjEyMTA2NzAsImV4cCI6MTc2MTIxNDI3MCwidGVuYW50SWQiOiJkbWRwX2N1X0VEQ19URU5BTlRfQ09ORklHX0l5VEJEVGlNdmwiLCJ1c2VySWQiOiI2OGY5ZjEyZDNlOTUzMjczMWVkZjcyZDkiLCJyZWFsVXNlcklkIjoiNjhmOWYxMmQzZTk1MzI3MzFlZGY3MmQ5Iiwiem9uZUlkIjoiRXVyb3BlL1N0b2NraG9sbSIsIm9wZXJhdGlvbk1vZGUiOiJMRUdBQ1kifQ.ePXZpdDLqk6fvvpcHUd1PVhILGiL8k0QysxT87ozso3h2VQxqbi0mlTcHqPq1AydWuKHp8Zx7g8_4cIOJh-dzwVSHzf-IdWKdygy6Vc6qLtigFFMfEL7_p4YuMO89HNKudfWQ2o7yqErBrMOjgCLSkF3FT5Q_ar12iLWNJbQtUIJJMrxdFBQzhD_AZhtKxZ7dlPt4DbVQmjyI0JxGfDzaLjZNgyiK768Tof2MVyHiz2QUm2hVVvJOtETl9aCDgIcUQdValpE_9VFaodwf6wA81MPMhp_DcdThTTA6XBnUaDiIId2esV347RnH50UGKcCXpHTj8ceVrik8_bl94zjrg
+REQUEST BODY (line: 113): {"version":1,"data":{"ctms":{"enableAutomaticSync":"FALSE","enableMetricsSync":"FALSE","testConfig":{"enabled":"FALSE"}},"dCode":"D111222","rtsm":{"enableSync":"FALSE","enableSupplySync":"FALSE","enableSupplyPushMessages":"FALSE","rtsmTestConfig":{"enabled":"FALSE"}},"edc":{"enableSync":"   "}}}
+RESPONSE METHOD: PUT
+RESPONSE URL (line: 114): https://boost.uts-dev01.tenant1.dev.evinova.com/studypod/config/tenant/v1/studypod-tenant-config
+STATUS CODE: 400
+RESPONSE BODY (line: 116): {"errorId":"OVFRE039","errorCode":"DMDP_BAD_ARGUMENT","message":"Invalid tenant configuration"}
+----------------------------------------

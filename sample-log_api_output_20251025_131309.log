@@ -1,0 +1,53 @@
+METHOD: POST
+REQUEST URL (line: 1): https://boost.uts-dev01.tenant1.dev.evinova.com/userpod/jwt/v1
+Authorization Header (line: 2): Basic ZG1kcC1wbGF0Zm9ybS1hZG1pbjpFdVVVRGkwQVM0YnFYRkxs
+REQUEST BODY (line: 4): {"tenantId":"dmdp-tenant","zoneId":"Europe/Stockholm","expireTimeSecs":3600}
+RESPONSE METHOD: POST
+RESPONSE URL (line: 5): https://boost.uts-dev01.tenant1.dev.evinova.com/userpod/jwt/v1
+STATUS CODE: 200
+----------------------------------------
+METHOD: GET
+REQUEST URL (line: 7): https://boost.uts-dev01.tenant1.dev.evinova.com/userpod/idp/light/v1/register?email=tenant_admin_ohjdgtgfcx@s3testmail.dmdp2.aws.intelpharma.net
+Authorization Header: None
+RESPONSE METHOD: GET
+RESPONSE URL (line: 10): https://boost.uts-dev01.tenant1.dev.evinova.com/userpod/idp/light/v1/register?email=tenant_admin_ohjdgtgfcx@s3testmail.dmdp2.aws.intelpharma.net
+STATUS CODE: 200
+----------------------------------------
+METHOD: GET
+REQUEST URL (line: 12): https://boost.uts-dev01.tenant1.dev.evinova.com/userpod/idp/light/v1?email=tenant_admin_ohjdgtgfcx@s3testmail.dmdp2.aws.intelpharma.net&pwd=qwerty
+Authorization Header: None
+RESPONSE METHOD: GET
+RESPONSE URL (line: 15): https://boost.uts-dev01.tenant1.dev.evinova.com/userpod/idp/light/v1?email=tenant_admin_ohjdgtgfcx@s3testmail.dmdp2.aws.intelpharma.net&pwd=qwerty
+STATUS CODE: 200
+----------------------------------------
+METHOD: GET
+REQUEST URL (line: 17): https://boost.uts-dev01.tenant1.dev.evinova.com/userpod/user/info/v1/mine?limit=500
+Authorization Header (line: 18): Bearer c457bf99-fc8c-4233-8917-f83a516ee5c5
+RESPONSE METHOD: GET
+RESPONSE URL (line: 20): https://boost.uts-dev01.tenant1.dev.evinova.com/userpod/user/info/v1/mine?limit=500
+STATUS CODE: 200
+RESPONSE BODY (line: 22): {"users":[]}
+----------------------------------------
+METHOD: POST
+REQUEST URL (line: 23): https://boost.uts-dev01.tenant1.dev.evinova.com/userpod/user/register/v1/tenant/dmdp_cu_STUDY_ohjDGtgFCX
+Authorization Header (line: 24): Bearer eyJhbGciOiJSUzI1NiIsInB2IjoidjEiLCJqdGkiOiI0NTZlZjA5Zi1lODgyLTQxZjItOTFmZi1kYmYxODNiNDA3YTIiLCJraWQiOiItVktZRE1kZjBsd3o3Nm5lR1hBSTVKZzlMNlpkaGQzZGFqa3MxUERTbm84In0.eyJsYW5nIjoiZW4iLCJjb3VudHJ5IjoienoiLCJyb2xlcyI6W3sicm9sZSI6IlBMQVRGT1JNX0FETUlOIiwiYWNjZXNzUmVmcyI6W119XSwiaXNzIjoiZG1kcCIsImlhdCI6MTc2MTM4OTk0MCwiZXhwIjoxNzYxMzkzNTQwLCJ0ZW5hbnRJZCI6ImRtZHAtdGVuYW50IiwidXNlcklkIjoiNjZjM2EyOWI3MzE5ZTY0YTkyY2U1ZGE1IiwicmVhbFVzZXJJZCI6IjY2YzNhMjliNzMxOWU2NGE5MmNlNWRhNSIsInpvbmVJZCI6IkV1cm9wZS9TdG9ja2hvbG0iLCJvcGVyYXRpb25Nb2RlIjoiTEVHQUNZIn0.H1uUij5D_IHXhPfHmWAJ7S1hQSofFFthoBr330g1ooyN9vuYs5t5iMZt2iiD_utC_SgjkbgE1gKcmoUDwvunACgkRqnfDdM7Dd_540BGU6HiG7mjKXPBxAR3nGPd003L_KVxELhPd0-lTvNuG6sRGXPK16VMe1iQp2wSj_PgTAP3XYl__6HMHilh5yKQai2NfeaonRxbVqRzoXA2r1un3x35-U4hibf7qdv5mucctgGycbVqu8SJYaViq-1kA1GK6fNj4J-A4d962l9kXNfrlQxt-4-CWdlqXGXoWtx4jAlowlbILUl35c22W7qJwK4Mce4HdW7wXm6yiHRL85mEOA
+REQUEST BODY (line: 26): {"idpAccounts":[{"provider":"userpod.idp.light","email":"tenant_admin_ohjdgtgfcx@s3testmail.dmdp2.aws.intelpharma.net"}],"localization":{"countryCode":"se","langCode":"sv"},"contactPoints":[{"system":"EMAIL","value":"tenant_admin_ohjdgtgfcx@s3testmail.dmdp2.aws.intelpharma.net","primary":true}],"humanName":{"given":"TENANT_ADMIN","family":"tenant_admin_ohjdgtgfcx@s3testmail.dmdp2.aws.intelpharma.net"},"externalIds":[{"key":"TEST_REFERENCE","value":"TENANT_ADMIN"}],"roleAccessRefs":[{"accessRefs":[],"role":"TENANT_ADMIN"}]}
+RESPONSE METHOD: POST
+RESPONSE URL (line: 27): https://boost.uts-dev01.tenant1.dev.evinova.com/userpod/user/register/v1/tenant/dmdp_cu_STUDY_ohjDGtgFCX
+STATUS CODE: 200
+RESPONSE BODY (line: 29): {"userId":"68fcad74276f27e95fc50b19","eventId":7565112187803402351,"status":"REGISTERED","statusTimestamp":1761389940955,"previousStatuses":[],"idpAccounts":[{"provider":"userpod.idp.light","identity":"tenant_admin_ohjdgtgfcx@s3testmail.dmdp2.aws.intelpharma.net","idpSubject":"tenant_admin_ohjdgtgfcx@s3testmail.dmdp2.aws.intelpharma.net","flowType":"USER_REGISTRATION","idpStatus":{"status":"EXISTING","lastModified":1761389940955},"verified":false}],"audit":{"createdAt":"2025-10-25T10:59:00.955Z[UTC]","createdBy":"66c3a29b7319e64a92ce5da5","lastModified":"2025-10-25T10:59:00.955Z[UTC]","modifiedBy":"66c3a29b7319e64a92ce5da5"},"localization":{"countryCode":"se","langCode":"sv"},"roleAccessRefs":[{"accessRefs":[],"role":"TENANT_ADMIN"}],"projects":[],"metas":[],"tags":[],"occasions":[],"customStatuses":[],"contactPoints":[{"contactPointId":"68fcad74276f27e95fc50b18","system":"EMAIL","value":"tenant_admin_ohjdgtgfcx@s3testmail.dmdp2.aws.intelpharma.net","primary":true}],"humanName":{"given":"TENANT_ADMIN","family":"tenant_admin_ohjdgtgfcx@s3testmail.dmdp2.aws.intelpharma.net"},"externalIds":[{"key":"TEST_REFERENCE","value":"TENANT_ADMIN"}],"personal":{"gender":"UNKNOWN","createdAt":"2025-10-25T10:59:00.955Z","createdBy":"66c3a29b7319e64a92ce5da5"},"preferences":{},"metrics":{},"provisionedDevices":[]}
+----------------------------------------
+========================================
+Total API calls extracted: 5
+Unique endpoints extracted:
+  POST /userpod/jwt/v1
+  GET /userpod/idp/light/v1/register?email=tenant_admin_ohjdgtgfcx@s3testmail.dmdp2.aws.intelpharma.net
+  GET /userpod/idp/light/v1?email=tenant_admin_ohjdgtgfcx@s3testmail.dmdp2.aws.intelpharma.net&pwd=qwerty
+  GET /userpod/user/info/v1/mine?limit=500
+  POST /userpod/user/register/v1/tenant/dmdp_cu_STUDY_ohjDGtgFCX
+
+Unique Authorization Bearer Tokens:
+Authorization Header: Bearer c457bf99-fc8c-4233-8917-f83a516ee5c5
+****************************************************************
+Authorization Header: Bearer eyJhbGciOiJSUzI1NiIsInB2IjoidjEiLCJqdGkiOiI0NTZlZjA5Zi1lODgyLTQxZjItOTFmZi1kYmYxODNiNDA3YTIiLCJraWQiOiItVktZRE1kZjBsd3o3Nm5lR1hBSTVKZzlMNlpkaGQzZGFqa3MxUERTbm84In0.eyJsYW5nIjoiZW4iLCJjb3VudHJ5IjoienoiLCJyb2xlcyI6W3sicm9sZSI6IlBMQVRGT1JNX0FETUlOIiwiYWNjZXNzUmVmcyI6W119XSwiaXNzIjoiZG1kcCIsImlhdCI6MTc2MTM4OTk0MCwiZXhwIjoxNzYxMzkzNTQwLCJ0ZW5hbnRJZCI6ImRtZHAtdGVuYW50IiwidXNlcklkIjoiNjZjM2EyOWI3MzE5ZTY0YTkyY2U1ZGE1IiwicmVhbFVzZXJJZCI6IjY2YzNhMjliNzMxOWU2NGE5MmNlNWRhNSIsInpvbmVJZCI6IkV1cm9wZS9TdG9ja2hvbG0iLCJvcGVyYXRpb25Nb2RlIjoiTEVHQUNZIn0.H1uUij5D_IHXhPfHmWAJ7S1hQSofFFthoBr330g1ooyN9vuYs5t5iMZt2iiD_utC_SgjkbgE1gKcmoUDwvunACgkRqnfDdM7Dd_540BGU6HiG7mjKXPBxAR3nGPd003L_KVxELhPd0-lTvNuG6sRGXPK16VMe1iQp2wSj_PgTAP3XYl__6HMHilh5yKQai2NfeaonRxbVqRzoXA2r1un3x35-U4hibf7qdv5mucctgGycbVqu8SJYaViq-1kA1GK6fNj4J-A4d962l9kXNfrlQxt-4-CWdlqXGXoWtx4jAlowlbILUl35c22W7qJwK4Mce4HdW7wXm6yiHRL85mEOA
+****************************************************************

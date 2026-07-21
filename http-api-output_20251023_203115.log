@@ -1,0 +1,306 @@
+METHOD: POST
+REQUEST URL: https://boost.uts-dev01.tenant1.dev.evinova.com/userpod/jwt/v1
+REQUEST BODY: {"tenantId":"dmdp-tenant","zoneId":"Europe/Stockholm","expireTimeSecs":3600}
+RESPONSE METHOD: POST
+RESPONSE URL: https://boost.uts-dev01.tenant1.dev.evinova.com/userpod/jwt/v1
+STATUS CODE: 200
+----------------------------------------
+METHOD: GET
+REQUEST URL: https://boost.uts-dev01.tenant1.dev.evinova.com/userpod/idp/light/v1/register?email=tenant_admin_lvzpvrfaev@s3testmail.dmdp2.aws.intelpharma.net
+RESPONSE METHOD: GET
+RESPONSE URL: https://boost.uts-dev01.tenant1.dev.evinova.com/userpod/idp/light/v1/register?email=tenant_admin_lvzpvrfaev@s3testmail.dmdp2.aws.intelpharma.net
+STATUS CODE: 200
+----------------------------------------
+METHOD: GET
+REQUEST URL: https://boost.uts-dev01.tenant1.dev.evinova.com/userpod/idp/light/v1?email=tenant_admin_lvzpvrfaev@s3testmail.dmdp2.aws.intelpharma.net&pwd=qwerty
+RESPONSE METHOD: GET
+RESPONSE URL: https://boost.uts-dev01.tenant1.dev.evinova.com/userpod/idp/light/v1?email=tenant_admin_lvzpvrfaev@s3testmail.dmdp2.aws.intelpharma.net&pwd=qwerty
+STATUS CODE: 200
+----------------------------------------
+METHOD: GET
+REQUEST URL: https://boost.uts-dev01.tenant1.dev.evinova.com/userpod/user/info/v1/mine?limit=500
+RESPONSE METHOD: GET
+RESPONSE URL: https://boost.uts-dev01.tenant1.dev.evinova.com/userpod/user/info/v1/mine?limit=500
+STATUS CODE: 200
+RESPONSE BODY: {"users":[]}
+----------------------------------------
+METHOD: POST
+REQUEST URL: https://boost.uts-dev01.tenant1.dev.evinova.com/userpod/user/register/v1/tenant/dmdp_cu_STUDY_lVZPVrFAEV
+REQUEST BODY: {"idpAccounts":[{"provider":"userpod.idp.light","email":"tenant_admin_lvzpvrfaev@s3testmail.dmdp2.aws.intelpharma.net"}],"localization":{"countryCode":"se","langCode":"sv"},"contactPoints":[{"system":"EMAIL","value":"tenant_admin_lvzpvrfaev@s3testmail.dmdp2.aws.intelpharma.net","primary":true}],"humanName":{"given":"TENANT_ADMIN","family":"tenant_admin_lvzpvrfaev@s3testmail.dmdp2.aws.intelpharma.net"},"externalIds":[{"key":"TEST_REFERENCE","value":"TENANT_ADMIN"}],"roleAccessRefs":[{"accessRefs":[],"role":"TENANT_ADMIN"}]}
+RESPONSE METHOD: POST
+RESPONSE URL: https://boost.uts-dev01.tenant1.dev.evinova.com/userpod/user/register/v1/tenant/dmdp_cu_STUDY_lVZPVrFAEV
+STATUS CODE: 200
+RESPONSE BODY: {"userId":"68fa1fd3caf9ebfde68de859","eventId":7564393515220729867,"status":"REGISTERED","statusTimestamp":1761222611647,"previousStatuses":[],"idpAccounts":[{"provider":"userpod.idp.light","identity":"tenant_admin_lvzpvrfaev@s3testmail.dmdp2.aws.intelpharma.net","idpSubject":"tenant_admin_lvzpvrfaev@s3testmail.dmdp2.aws.intelpharma.net","flowType":"USER_REGISTRATION","idpStatus":{"status":"EXISTING","lastModified":1761222611646},"verified":false}],"audit":{"createdAt":"2025-10-23T12:30:11.646Z[UTC]","createdBy":"66c3a29b7319e64a92ce5da5","lastModified":"2025-10-23T12:30:11.646Z[UTC]","modifiedBy":"66c3a29b7319e64a92ce5da5"},"localization":{"countryCode":"se","langCode":"sv"},"roleAccessRefs":[{"accessRefs":[],"role":"TENANT_ADMIN"}],"projects":[],"metas":[],"tags":[],"occasions":[],"customStatuses":[],"contactPoints":[{"contactPointId":"68fa1fd3caf9ebfde68de858","system":"EMAIL","value":"tenant_admin_lvzpvrfaev@s3testmail.dmdp2.aws.intelpharma.net","primary":true}],"humanName":{"given":"TENANT_ADMIN","family":"tenant_admin_lvzpvrfaev@s3testmail.dmdp2.aws.intelpharma.net"},"externalIds":[{"key":"TEST_REFERENCE","value":"TENANT_ADMIN"}],"personal":{"gender":"UNKNOWN","createdAt":"2025-10-23T12:30:11.646Z","createdBy":"66c3a29b7319e64a92ce5da5"},"preferences":{},"metrics":{},"provisionedDevices":[]}
+----------------------------------------
+METHOD: POST
+REQUEST URL: https://boost.uts-dev01.tenant1.dev.evinova.com/userpod/jwt/v1
+REQUEST BODY: {"tenantId":"dmdp_cu_STUDY_lVZPVrFAEV","zoneId":"Europe/Stockholm","expireTimeSecs":3600,"version":"v1"}
+RESPONSE METHOD: POST
+RESPONSE URL: https://boost.uts-dev01.tenant1.dev.evinova.com/userpod/jwt/v1
+STATUS CODE: 200
+----------------------------------------
+METHOD: PUT
+REQUEST URL: https://boost.uts-dev01.tenant1.dev.evinova.com/userpod/user/activate/v1
+RESPONSE METHOD: PUT
+RESPONSE URL: https://boost.uts-dev01.tenant1.dev.evinova.com/userpod/user/activate/v1
+STATUS CODE: 200
+----------------------------------------
+METHOD: POST
+REQUEST URL: https://boost.uts-dev01.tenant1.dev.evinova.com/userpod/jwt/v1
+REQUEST BODY: {"tenantId":"dmdp_cu_STUDY_lVZPVrFAEV","zoneId":"Europe/Stockholm","expireTimeSecs":3600,"version":"v1"}
+RESPONSE METHOD: POST
+RESPONSE URL: https://boost.uts-dev01.tenant1.dev.evinova.com/userpod/jwt/v1
+STATUS CODE: 200
+----------------------------------------
+METHOD: GET
+REQUEST URL: https://boost.uts-dev01.tenant1.dev.evinova.com/userpod/user/v1/mine
+RESPONSE METHOD: GET
+RESPONSE URL: https://boost.uts-dev01.tenant1.dev.evinova.com/userpod/user/v1/mine
+STATUS CODE: 200
+RESPONSE BODY: {"userId":"68fa1fd3caf9ebfde68de859","eventId":7564393515220729919,"status":"ACTIVE","statusTimestamp":1761222611931,"previousStatuses":[{"status":"REGISTERED","time":1761222611647},{"status":"VERIFIED","time":1761222611747}],"idpAccounts":[{"provider":"userpod.idp.light","identity":"tenant_admin_lvzpvrfaev@s3testmail.dmdp2.aws.intelpharma.net","idpSubject":"tenant_admin_lvzpvrfaev@s3testmail.dmdp2.aws.intelpharma.net","flowType":"USER_REGISTRATION","idpStatus":{"status":"EXISTING","lastModified":1761222611646},"verified":true}],"audit":{"createdAt":"2025-10-23T12:30:11.646Z[UTC]","createdBy":"66c3a29b7319e64a92ce5da5","lastModified":"2025-10-23T12:30:11.931Z[UTC]","modifiedBy":"68fa1fd3caf9ebfde68de859"},"localization":{"countryCode":"se","langCode":"sv"},"roleAccessRefs":[{"accessRefs":[],"role":"TENANT_ADMIN"}],"projects":[],"metas":[],"tags":[],"occasions":[],"customStatuses":[],"contactPoints":[{"contactPointId":"68fa1fd3caf9ebfde68de858","system":"EMAIL","value":"tenant_admin_lvzpvrfaev@s3testmail.dmdp2.aws.intelpharma.net","primary":true}],"humanName":{"given":"TENANT_ADMIN","family":"tenant_admin_lvzpvrfaev@s3testmail.dmdp2.aws.intelpharma.net"},"externalIds":[{"key":"TEST_REFERENCE","value":"TENANT_ADMIN"}],"personal":{"gender":"UNKNOWN","createdAt":"2025-10-23T12:30:11.646Z","createdBy":"66c3a29b7319e64a92ce5da5","previousPersonals":[]},"preferences":{},"metrics":{"previousMetrics":[]},"provisionedDevices":[]}
+----------------------------------------
+METHOD: PUT
+REQUEST URL: https://boost.uts-dev01.tenant1.dev.evinova.com/userpod/config/tenant/v1/userpod-user-mgmt-config/
+REQUEST BODY: {"version":1,"data":{"sendInvitationEmailEnabled":false,"sendWithdrawEmailEnabled":false,"sendRegistrationEmailEnabled":false}}
+RESPONSE METHOD: PUT
+RESPONSE URL: https://boost.uts-dev01.tenant1.dev.evinova.com/userpod/config/tenant/v1/userpod-user-mgmt-config/
+STATUS CODE: 200
+----------------------------------------
+METHOD: GET
+REQUEST URL: https://boost.uts-dev01.tenant1.dev.evinova.com/userpod/user/info/v1/mine?limit=500
+RESPONSE METHOD: GET
+RESPONSE URL: https://boost.uts-dev01.tenant1.dev.evinova.com/userpod/user/info/v1/mine?limit=500
+STATUS CODE: 200
+RESPONSE BODY: {"paging":{"prev":"66fd17f6d3bc0c705805065b","next":"66fd17f6d3bc0c705805065b","limit":500,"count":0},"users":[{"userId":"66fd17f6d3bc0c705805065a","tenantId":"dmdp-tenant","status":"ACTIVE","roleAccessRefs":[{"accessRefs":[],"role":"PRODUCT_ADMIN"}],"localization":{"countryCode":"se","langCode":"sv"}}]}
+----------------------------------------
+METHOD: POST
+REQUEST URL: https://boost.uts-dev01.tenant1.dev.evinova.com/userpod/jwt/v1
+REQUEST BODY: {"tenantId":"dmdp-tenant","zoneId":"Europe/Stockholm","expireTimeSecs":3600,"version":"v1"}
+RESPONSE METHOD: POST
+RESPONSE URL: https://boost.uts-dev01.tenant1.dev.evinova.com/userpod/jwt/v1
+STATUS CODE: 200
+----------------------------------------
+METHOD: PUT
+REQUEST URL: https://boost.uts-dev01.tenant1.dev.evinova.com/userpod/user/activate/v1
+RESPONSE METHOD: PUT
+RESPONSE URL: https://boost.uts-dev01.tenant1.dev.evinova.com/userpod/user/activate/v1
+STATUS CODE: 200
+----------------------------------------
+METHOD: POST
+REQUEST URL: https://boost.uts-dev01.tenant1.dev.evinova.com/userpod/jwt/v1
+REQUEST BODY: {"tenantId":"dmdp-tenant","zoneId":"Europe/Stockholm","expireTimeSecs":3600,"version":"v1"}
+RESPONSE METHOD: POST
+RESPONSE URL: https://boost.uts-dev01.tenant1.dev.evinova.com/userpod/jwt/v1
+STATUS CODE: 200
+----------------------------------------
+METHOD: GET
+REQUEST URL: https://boost.uts-dev01.tenant1.dev.evinova.com/userpod/user/v1/mine
+RESPONSE METHOD: GET
+RESPONSE URL: https://boost.uts-dev01.tenant1.dev.evinova.com/userpod/user/v1/mine
+STATUS CODE: 200
+RESPONSE BODY: {"userId":"66fd17f6d3bc0c705805065a","eventId":7421114114895773710,"status":"ACTIVE","statusTimestamp":1727862776587,"previousStatuses":[{"status":"REGISTERED","time":1727862774045},{"status":"VERIFIED","time":1727862776261}],"idpAccounts":[{"provider":"userpod.idp.light","identity":"product_admin@s3testmail.dmdp2.aws.intelpharma.net","idpSubject":"product_admin@s3testmail.dmdp2.aws.intelpharma.net","flowType":"USER_REGISTRATION","idpStatus":{"status":"EXISTING","lastModified":1727862774040},"verified":true}],"audit":{"createdAt":"2024-10-02T09:52:54.04Z[UTC]","createdBy":"66c3a29b7319e64a92ce5da5","lastModified":"2024-10-02T09:52:56.588Z[UTC]","modifiedBy":"66fd17f6d3bc0c705805065a"},"localization":{"countryCode":"se","langCode":"sv"},"roleAccessRefs":[{"accessRefs":[],"role":"PRODUCT_ADMIN"}],"projects":[],"metas":[],"tags":[],"occasions":[],"customStatuses":[],"contactPoints":[{"contactPointId":"66fd17f6d3bc0c7058050659","system":"EMAIL","value":"product_admin@s3testmail.dmdp2.aws.intelpharma.net","primary":true}],"humanName":{"given":"PRODUCT_ADMIN","family":"product_admin@s3testmail.dmdp2.aws.intelpharma.net"},"externalIds":[{"key":"TEST_REFERENCE","value":"PRODUCT_ADMIN"}],"personal":{"gender":"THIRD","previousPersonals":[]},"preferences":{},"metrics":{"previousMetrics":[]},"provisionedDevices":[]}
+----------------------------------------
+METHOD: POST
+REQUEST URL: https://boost.uts-dev01.tenant1.dev.evinova.com/userpod/organization/v1/query
+REQUEST BODY: {"criterion":{"operator":"AND","criteria":[{"fieldCriterion":{"field":"EXTERNAL_ID_KEY","type":"EQ","values":["TEST_REFERENCE"]}},{"fieldCriterion":{"field":"EXTERNAL_ID_VALUE","type":"EQ","values":["TREE"]}}]}}
+RESPONSE METHOD: POST
+RESPONSE URL: https://boost.uts-dev01.tenant1.dev.evinova.com/userpod/organization/v1/query
+STATUS CODE: 200
+RESPONSE BODY: {"paging":{"prev":"00000000cd20c217c1f6afba","next":"00000000cd20c217c1f6afba","limit":5000},"orgs":[]}
+----------------------------------------
+METHOD: POST
+REQUEST URL: https://boost.uts-dev01.tenant1.dev.evinova.com/userpod/organization/v1/tree
+REQUEST BODY: {"name":"BaseTree","status":"ACTIVE","test":false}
+RESPONSE METHOD: POST
+RESPONSE URL: https://boost.uts-dev01.tenant1.dev.evinova.com/userpod/organization/v1/tree
+STATUS CODE: 200
+RESPONSE BODY: {"orgId":"68fa1fd40b49318fb80e5cb4","eventId":7564393519515697178,"type":"TREE","name":"BaseTree","status":"ACTIVE","parentId":"68fa1fd40b49318fb80e5cb4","branchParentIds":[],"metas":[],"test":false,"externalIds":[],"customStatuses":[]}
+----------------------------------------
+METHOD: POST
+REQUEST URL: https://boost.uts-dev01.tenant1.dev.evinova.com/userpod/organization/v1/query
+REQUEST BODY: {"criterion":{"operator":"AND","criteria":[{"fieldCriterion":{"field":"EXTERNAL_ID_KEY","type":"EQ","values":["TEST_REFERENCE"]}},{"fieldCriterion":{"field":"EXTERNAL_ID_VALUE","type":"EQ","values":["SWEDEN"]}}]}}
+RESPONSE METHOD: POST
+RESPONSE URL: https://boost.uts-dev01.tenant1.dev.evinova.com/userpod/organization/v1/query
+STATUS CODE: 200
+RESPONSE BODY: {"paging":{"prev":"00000000cd20c217c1f6afba","next":"00000000cd20c217c1f6afba","limit":5000},"orgs":[]}
+----------------------------------------
+METHOD: POST
+REQUEST URL: https://boost.uts-dev01.tenant1.dev.evinova.com/userpod/organization/v1/country
+REQUEST BODY: {"countryCode":"se","langCodes":["sv"],"name":"Sweden","status":"ACTIVE","parentId":"68fa1fd40b49318fb80e5cb4","test":false,"details":{}}
+RESPONSE METHOD: POST
+RESPONSE URL: https://boost.uts-dev01.tenant1.dev.evinova.com/userpod/organization/v1/country
+STATUS CODE: 200
+RESPONSE BODY: {"orgId":"68fa1fd488c25efef26e457c","eventId":7564393519515697189,"type":"COUNTRY","name":"Sweden","status":"ACTIVE","parentId":"68fa1fd40b49318fb80e5cb4","branchParentIds":["68fa1fd40b49318fb80e5cb4"],"metas":[],"test":false,"details":{"contacts":[],"contactPoints":[]},"country":{"countryCode":"se","langCodes":["sv"]},"externalIds":[],"customStatuses":[]}
+----------------------------------------
+METHOD: POST
+REQUEST URL: https://boost.uts-dev01.tenant1.dev.evinova.com/userpod/organization/v1/query
+REQUEST BODY: {"criterion":{"operator":"AND","criteria":[{"fieldCriterion":{"field":"EXTERNAL_ID_KEY","type":"EQ","values":["TEST_REFERENCE"]}},{"fieldCriterion":{"field":"EXTERNAL_ID_VALUE","type":"EQ","values":["REGION"]}}]}}
+RESPONSE METHOD: POST
+RESPONSE URL: https://boost.uts-dev01.tenant1.dev.evinova.com/userpod/organization/v1/query
+STATUS CODE: 200
+RESPONSE BODY: {"paging":{"prev":"0000000088c25efef26bd0eb","next":"0000000088c25efef26bd0eb","limit":5000},"orgs":[]}
+----------------------------------------
+METHOD: POST
+REQUEST URL: https://boost.uts-dev01.tenant1.dev.evinova.com/userpod/organization/v1/region
+REQUEST BODY: {"name":"Västra Götaland","status":"ACTIVE","parentId":"68fa1fd488c25efef26e457c","test":false,"details":{}}
+RESPONSE METHOD: POST
+RESPONSE URL: https://boost.uts-dev01.tenant1.dev.evinova.com/userpod/organization/v1/region
+STATUS CODE: 200
+RESPONSE BODY: {"orgId":"68fa1fd4091203b99e431c96","eventId":7564393519515697200,"type":"REGION","name":"Västra Götaland","status":"ACTIVE","parentId":"68fa1fd488c25efef26e457c","branchParentIds":["68fa1fd488c25efef26e457c","68fa1fd40b49318fb80e5cb4"],"metas":[],"test":false,"details":{"contacts":[],"contactPoints":[]},"region":{},"externalIds":[],"customStatuses":[]}
+----------------------------------------
+METHOD: POST
+REQUEST URL: https://boost.uts-dev01.tenant1.dev.evinova.com/userpod/organization/v1/query
+REQUEST BODY: {"criterion":{"operator":"AND","criteria":[{"fieldCriterion":{"field":"EXTERNAL_ID_KEY","type":"EQ","values":["TEST_REFERENCE"]}},{"fieldCriterion":{"field":"EXTERNAL_ID_VALUE","type":"EQ","values":["SAHLGRENSKA"]}}]}}
+RESPONSE METHOD: POST
+RESPONSE URL: https://boost.uts-dev01.tenant1.dev.evinova.com/userpod/organization/v1/query
+STATUS CODE: 200
+RESPONSE BODY: {"paging":{"prev":"00000000caf9ebfde68aeb3b","next":"00000000caf9ebfde68aeb3b","limit":5000},"orgs":[]}
+----------------------------------------
+METHOD: POST
+REQUEST URL: https://boost.uts-dev01.tenant1.dev.evinova.com/userpod/organization/v1/practice
+REQUEST BODY: {"practiceType":"REGULAR","name":"Sahlgrenska","status":"ACTIVE","parentId":"68fa1fd4091203b99e431c96","test":false,"details":{}}
+RESPONSE METHOD: POST
+RESPONSE URL: https://boost.uts-dev01.tenant1.dev.evinova.com/userpod/organization/v1/practice
+STATUS CODE: 200
+RESPONSE BODY: {"orgId":"68fa1fd5caf9ebfde68de865","eventId":7564393523810664458,"type":"PRACTICE","name":"Sahlgrenska","status":"ACTIVE","parentId":"68fa1fd4091203b99e431c96","branchParentIds":["68fa1fd4091203b99e431c96","68fa1fd488c25efef26e457c","68fa1fd40b49318fb80e5cb4"],"metas":[],"test":false,"details":{"contacts":[],"contactPoints":[]},"practice":{"practiceType":"REGULAR","addresses":[],"locations":[]},"externalIds":[],"customStatuses":[]}
+----------------------------------------
+METHOD: POST
+REQUEST URL: https://boost.uts-dev01.tenant1.dev.evinova.com/userpod/user/service/v1
+REQUEST BODY: {"clientId":"dmdp-service-study-admin","role":"SERVICE_STUDY_ADMIN"}
+RESPONSE METHOD: POST
+RESPONSE URL: https://boost.uts-dev01.tenant1.dev.evinova.com/userpod/user/service/v1
+STATUS CODE: 200
+RESPONSE BODY: {"userId":"68fa1fd5f9852e32068b0e8f","tenantId":"dmdp_cu_STUDY_lVZPVrFAEV","status":"ACTIVE","roleAccessRefs":[{"accessRefs":[],"role":"SERVICE_STUDY_ADMIN"}],"localization":{"countryCode":"zz","langCode":"en"}}
+----------------------------------------
+METHOD: GET
+REQUEST URL: https://boost.uts-dev01.tenant1.dev.evinova.com/userpod/user/v1/68fa1fd5f9852e32068b0e8f
+RESPONSE METHOD: GET
+RESPONSE URL: https://boost.uts-dev01.tenant1.dev.evinova.com/userpod/user/v1/68fa1fd5f9852e32068b0e8f
+STATUS CODE: 200
+RESPONSE BODY: {"userId":"68fa1fd5f9852e32068b0e8f","eventId":7564393523810664460,"status":"ACTIVE","statusTimestamp":1761222613183,"previousStatuses":[{"status":"REGISTERED","time":1761222613183},{"status":"VERIFIED","time":1761222613183}],"idpAccounts":[{"provider":"userpod.idp.m2m","identity":"dmdp-service-study-admin","idpSubject":"dmdp-service-study-admin","flowType":"USER_REGISTRATION","idpStatus":{"status":"REGISTERED","lastModified":1761222613183},"verified":true}],"audit":{"createdAt":"2025-10-23T12:30:13.183Z[UTC]","createdBy":"68fa1fd3caf9ebfde68de859","lastModified":"2025-10-23T12:30:13.183Z[UTC]","modifiedBy":"68fa1fd3caf9ebfde68de859"},"localization":{"countryCode":"zz","langCode":"en"},"roleAccessRefs":[{"accessRefs":[],"role":"SERVICE_STUDY_ADMIN"}],"projects":[],"metas":[],"tags":[],"occasions":[],"customStatuses":[],"contactPoints":[],"humanName":{"given":"dmdp-service-study-admin"},"externalIds":[],"personal":{"gender":"UNKNOWN","createdAt":"2025-10-23T12:30:13.183Z","createdBy":"68fa1fd3caf9ebfde68de859","previousPersonals":[]},"preferences":{},"metrics":{"previousMetrics":[]},"provisionedDevices":[]}
+----------------------------------------
+METHOD: POST
+REQUEST URL: https://boost.uts-dev01.tenant1.dev.evinova.com/userpod/jwt/v1
+REQUEST BODY: {"tenantId":"dmdp_cu_STUDY_lVZPVrFAEV","zoneId":"Europe/Stockholm","expireTimeSecs":3600,"version":"v1"}
+RESPONSE METHOD: POST
+RESPONSE URL: https://boost.uts-dev01.tenant1.dev.evinova.com/userpod/jwt/v1
+STATUS CODE: 200
+----------------------------------------
+METHOD: PUT
+REQUEST URL: https://boost.uts-dev01.tenant1.dev.evinova.com/userpod/user/activate/v1
+RESPONSE METHOD: PUT
+RESPONSE URL: https://boost.uts-dev01.tenant1.dev.evinova.com/userpod/user/activate/v1
+STATUS CODE: 200
+----------------------------------------
+METHOD: POST
+REQUEST URL: https://boost.uts-dev01.tenant1.dev.evinova.com/userpod/jwt/v1
+REQUEST BODY: {"tenantId":"dmdp_cu_STUDY_lVZPVrFAEV","zoneId":"Europe/Stockholm","expireTimeSecs":3600,"version":"v1"}
+RESPONSE METHOD: POST
+RESPONSE URL: https://boost.uts-dev01.tenant1.dev.evinova.com/userpod/jwt/v1
+STATUS CODE: 200
+----------------------------------------
+METHOD: PUT
+REQUEST URL: https://boost.uts-dev01.tenant1.dev.evinova.com/studypod/config/tenant/v1/studypod-tenant-config
+REQUEST BODY: {"version":1,"data":{"dCode":"D169DC00222","ctms":{"enableAutomaticSync":"FALSE","enableMetricsSync":"FALSE","testConfig":{"enabled":"TRUE","clientId":"systest-client","clientSecret":"systest-s3cr3t","studyBaseUrl":"https://boost.uts-dev01.tenant1.dev.evinova.com/wiremockpod-systemtest/api/ts-exp-dps-study-cph/2/dmdp_cu_STUDY_lVZPVrFAEV_20251023","studyDetailsBaseUrl":"https://boost.uts-dev01.tenant1.dev.evinova.com/wiremockpod-systemtest/api/ts-exp-dps-study-association-cph/2/dmdp_cu_STUDY_lVZPVrFAEV_20251023"}},"rtsm":{"enableSync":"FALSE","subjectSyncVendor":"CUBE","enableSupplySync":"FALSE","enableSupplyPushMessages":"FALSE","defaultEta":2,"defaultEtaWindow":3,"rtsmTestConfig":{"enabled":"TRUE","clientId":"systest-client","clientSecret":"systest-s3cr3t","supplySubscriptionKey":"systest-subscription-key","subjectSubscriptionKey":"systest-subscription-key","baseUrl":"https://boost.uts-dev01.tenant1.dev.evinova.com/wiremockpod-systemtest/mule/api/dv-exp-rtsm-association-api/1/dmdp_cu_STUDY_lVZPVrFAEV_20251023","baseSupplyUrl":"https://boost.uts-dev01.tenant1.dev.evinova.com/wiremockpod-systemtest/api/dv-exp-unify-shipment-kit-api/1/dmdp_cu_STUDY_lVZPVrFAEV_20251023"}}}}
+RESPONSE METHOD: PUT
+RESPONSE URL: https://boost.uts-dev01.tenant1.dev.evinova.com/studypod/config/tenant/v1/studypod-tenant-config
+STATUS CODE: 200
+----------------------------------------
+METHOD: POST
+REQUEST URL: https://boost.uts-dev01.tenant1.dev.evinova.com/studypod/study/v1/sync
+RESPONSE METHOD: POST
+RESPONSE URL: https://boost.uts-dev01.tenant1.dev.evinova.com/studypod/study/v1/sync
+STATUS CODE: 202
+RESPONSE BODY: {"syncId":"68fa1fd67af93d40317c0acc","tenantId":"dmdp_cu_STUDY_lVZPVrFAEV","status":"ONGOING","createdBy":"68fa1fd3caf9ebfde68de859","modifiedBy":"68fa1fd3caf9ebfde68de859","createdAt":"2025-10-23T12:30:14.074Z[UTC]","lastModified":"2025-10-23T12:30:14.074Z[UTC]","syncResults":[]}
+----------------------------------------
+METHOD: GET
+REQUEST URL: https://boost.uts-dev01.tenant1.dev.evinova.com/studypod/study/v1/sync/68fa1fd67af93d40317c0acc
+RESPONSE METHOD: GET
+RESPONSE URL: https://boost.uts-dev01.tenant1.dev.evinova.com/studypod/study/v1/sync/68fa1fd67af93d40317c0acc
+STATUS CODE: 200
+RESPONSE BODY: {"syncId":"68fa1fd67af93d40317c0acc","tenantId":"dmdp_cu_STUDY_lVZPVrFAEV","status":"ONGOING","createdBy":"68fa1fd3caf9ebfde68de859","modifiedBy":"68fa1fd3caf9ebfde68de859","createdAt":"2025-10-23T12:30:14.074Z[UTC]","lastModified":"2025-10-23T12:30:14.074Z[UTC]","syncResults":[]}
+----------------------------------------
+METHOD: GET
+REQUEST URL: https://boost.uts-dev01.tenant1.dev.evinova.com/studypod/study/v1/sync/68fa1fd67af93d40317c0acc
+RESPONSE METHOD: GET
+RESPONSE URL: https://boost.uts-dev01.tenant1.dev.evinova.com/studypod/study/v1/sync/68fa1fd67af93d40317c0acc
+STATUS CODE: 200
+RESPONSE BODY: {"syncId":"68fa1fd67af93d40317c0acc","tenantId":"dmdp_cu_STUDY_lVZPVrFAEV","status":"SUCCESS","dcode":"D169DC00222","countTotal":7,"countSuccess":7,"syncDuration":236,"createdBy":"68fa1fd3caf9ebfde68de859","modifiedBy":"68fa1fd5f9852e32068b0e8f","createdAt":"2025-10-23T12:30:14.074Z[UTC]","lastModified":"2025-10-23T12:30:14.312Z[UTC]","syncResults":[]}
+----------------------------------------
+METHOD: GET
+REQUEST URL: https://boost.uts-dev01.tenant1.dev.evinova.com/studypod/study/v1/sync/68fa1fd67af93d40317c0acc
+RESPONSE METHOD: GET
+RESPONSE URL: https://boost.uts-dev01.tenant1.dev.evinova.com/studypod/study/v1/sync/68fa1fd67af93d40317c0acc
+STATUS CODE: 200
+RESPONSE BODY: {"syncId":"68fa1fd67af93d40317c0acc","tenantId":"dmdp_cu_STUDY_lVZPVrFAEV","status":"SUCCESS","dcode":"D169DC00222","countTotal":7,"countSuccess":7,"syncDuration":236,"createdBy":"68fa1fd3caf9ebfde68de859","modifiedBy":"68fa1fd5f9852e32068b0e8f","createdAt":"2025-10-23T12:30:14.074Z[UTC]","lastModified":"2025-10-23T12:30:14.312Z[UTC]","syncResults":[]}
+----------------------------------------
+METHOD: GET
+REQUEST URL: https://boost.uts-dev01.tenant1.dev.evinova.com/userpod/organization/v1
+RESPONSE METHOD: GET
+RESPONSE URL: https://boost.uts-dev01.tenant1.dev.evinova.com/userpod/organization/v1
+STATUS CODE: 200
+RESPONSE BODY: {"paging":{"prev":"68fa1fd4091203b99e431c97","next":"68fa1fd6f9852e32068b0e9e","limit":5000},"orgs":[{"orgId":"68fa1fd4091203b99e431c96","eventId":7564393519515697200,"type":"REGION","name":"Västra Götaland","status":"ACTIVE","parentId":"68fa1fd488c25efef26e457c","branchParentIds":["68fa1fd488c25efef26e457c","68fa1fd40b49318fb80e5cb4"],"metas":[],"test":false,"details":{"contacts":[],"contactPoints":[]},"region":{},"externalIds":[],"customStatuses":[]},{"orgId":"68fa1fd40b49318fb80e5cb4","eventId":7564393519515697178,"type":"TREE","name":"BaseTree","status":"ACTIVE","parentId":"68fa1fd40b49318fb80e5cb4","branchParentIds":[],"metas":[],"test":false,"externalIds":[],"customStatuses":[]},{"orgId":"68fa1fd488c25efef26e457c","eventId":7564393519515697189,"type":"COUNTRY","name":"Sweden","status":"ACTIVE","parentId":"68fa1fd40b49318fb80e5cb4","branchParentIds":["68fa1fd40b49318fb80e5cb4"],"metas":[],"test":false,"details":{"contacts":[],"contactPoints":[]},"country":{"countryCode":"se","langCodes":["sv"]},"externalIds":[],"customStatuses":[]},{"orgId":"68fa1fd5caf9ebfde68de865","eventId":7564393523810664458,"type":"PRACTICE","name":"Sahlgrenska","status":"ACTIVE","parentId":"68fa1fd4091203b99e431c96","branchParentIds":["68fa1fd4091203b99e431c96","68fa1fd488c25efef26e457c","68fa1fd40b49318fb80e5cb4"],"metas":[],"test":false,"details":{"contacts":[],"contactPoints":[]},"practice":{"practiceType":"REGULAR","addresses":[],"locations":[]},"externalIds":[],"customStatuses":[]},{"orgId":"68fa1fd6caf9ebfde68de867","eventId":7564393528105631772,"type":"TREE","name":"SELECT-2: NSCLC efficacy/safety Selum/Doc vs Placebo/Doc","status":"ACTIVE","parentId":"68fa1fd6caf9ebfde68de867","studyCode":"D169DC00222","branchParentIds":[],"metas":[],"test":false,"externalIds":[{"key":"CTMS_STUDY_ID","value":"0ST000000008025"}],"customStatuses":[{"type":"ctms_status","value":"CLOSINGTE","createdAt":"2025-10-23T12:30:14.228Z","createdBy":"68fa1fd5f9852e32068b0e8f","previousCustomStatuses":[]}]},{"orgId":"68fa1fd6f9852e32068b0e9b","eventId":7564393528105631763,"type":"COUNTRY","name":"France","status":"ACTIVE","parentId":"68fa1fd6caf9ebfde68de867","branchParentIds":["68fa1fd6caf9ebfde68de867"],"metas":[],"test":false,"country":{"countryCode":"fr","langCodes":["en"]},"externalIds":[{"key":"CTMS_COUNTRY_ID","value":"00C000000000142"}],"customStatuses":[]},{"orgId":"68fa1fd6f9852e32068b0e9d","eventId":7564393528105631812,"type":"PRACTICE","name":"CHU Morvan-Institut de Cancerologie et d'Hematologie","status":"ACTIVE","parentId":"68fa1fd6f9852e32068b0e9b","branchParentIds":["68fa1fd6f9852e32068b0e9b","68fa1fd6caf9ebfde68de867"],"metas":[],"test":false,"practice":{"practiceType":"REGULAR","addresses":[],"locations":[{"locationId":"68fa1fd6caf9ebfde68de869","name":"CHU Morvan-Institut de Cancerologie et d'Hematologie","primary":true,"address":{"lines":["5 Avenue Foch","Institut de cancérologie","Service d'Hematologie"],"city":"Brest Cedex","district":"","state":"closed_state__v","postalCode":"29609","country":"France"},"contactPoints":[],"externalIds":[{"key":"CTMS_LOCATION_ID","value":"00L00000000DI52"}]}],"practiceCode":"2301"},"externalIds":[{"key":"CTMS_SITE_ID","value":"0SI00000000N737"}],"customStatuses":[{"type":"ctms_status","value":"CLOSED","createdAt":"2025-10-23T12:30:14.283Z","createdBy":"68fa1fd5f9852e32068b0e8f","previousCustomStatuses":[]}]}]}
+----------------------------------------
+METHOD: POST
+REQUEST URL: https://boost.uts-dev01.tenant1.dev.evinova.com/userpod/user/v1/query
+REQUEST BODY: {"criterion":{"operator":"AND","criteria":[{"fieldCriterion":{"field":"EXTERNAL_ID_KEY","type":"EQ","values":["TEST_REFERENCE"]}},{"fieldCriterion":{"field":"EXTERNAL_ID_VALUE","type":"EQ","values":["SWEDEN_LST"]}}]}}
+RESPONSE METHOD: POST
+RESPONSE URL: https://boost.uts-dev01.tenant1.dev.evinova.com/userpod/user/v1/query
+STATUS CODE: 200
+RESPONSE BODY: {"paging":{"prev":"00000000cd20c217c1f6afba","next":"00000000cd20c217c1f6afba","limit":5000},"users":[]}
+----------------------------------------
+METHOD: POST
+REQUEST URL: https://boost.uts-dev01.tenant1.dev.evinova.com/userpod/user/register/v1
+REQUEST BODY: {"idpAccounts":[{"provider":"userpod.idp.light","email":"sweden_lst_lvzpvrfaev@s3testmail.dmdp2.aws.intelpharma.net"}],"localization":{"countryCode":"se","langCode":"sv"},"contactPoints":[{"system":"EMAIL","value":"sweden_lst_lvzpvrfaev@s3testmail.dmdp2.aws.intelpharma.net","primary":true}],"humanName":{"given":"SWEDEN_LST","family":"sweden_lst_lvzpvrfaev@s3testmail.dmdp2.aws.intelpharma.net"},"externalIds":[{"key":"TEST_REFERENCE","value":"SWEDEN_LST"}],"roleAccessRefs":[{"accessRefs":[{"type":"ORG","ref":"68fa1fd488c25efef26e457c"}],"role":"LST"}]}
+RESPONSE METHOD: POST
+RESPONSE URL: https://boost.uts-dev01.tenant1.dev.evinova.com/userpod/user/register/v1
+STATUS CODE: 200
+RESPONSE BODY: {"userId":"68fa1fd688c25efef26e4582","eventId":7564393528105631851,"status":"REGISTERED","statusTimestamp":1761222614681,"previousStatuses":[],"idpAccounts":[{"provider":"userpod.idp.light","identity":"sweden_lst_lvzpvrfaev@s3testmail.dmdp2.aws.intelpharma.net","idpSubject":"sweden_lst_lvzpvrfaev@s3testmail.dmdp2.aws.intelpharma.net","flowType":"USER_REGISTRATION","idpStatus":{"status":"REGISTERED","lastModified":1761222614681},"verified":false}],"audit":{"createdAt":"2025-10-23T12:30:14.681Z[UTC]","createdBy":"68fa1fd3caf9ebfde68de859","lastModified":"2025-10-23T12:30:14.681Z[UTC]","modifiedBy":"68fa1fd3caf9ebfde68de859"},"localization":{"countryCode":"se","langCode":"sv"},"roleAccessRefs":[{"accessRefs":[{"accessRefId":"68fa1fd688c25efef26e4580","partOf":["68fa1fd40b49318fb80e5cb4"],"type":"ORG","ref":"68fa1fd488c25efef26e457c","fromUtc":1761222614680}],"role":"LST"}],"projects":[],"metas":[],"tags":[],"occasions":[],"customStatuses":[],"contactPoints":[{"contactPointId":"68fa1fd688c25efef26e4581","system":"EMAIL","value":"sweden_lst_lvzpvrfaev@s3testmail.dmdp2.aws.intelpharma.net","primary":true}],"humanName":{"given":"SWEDEN_LST","family":"sweden_lst_lvzpvrfaev@s3testmail.dmdp2.aws.intelpharma.net"},"externalIds":[{"key":"TEST_REFERENCE","value":"SWEDEN_LST"}],"personal":{"gender":"UNKNOWN","createdAt":"2025-10-23T12:30:14.681Z","createdBy":"68fa1fd3caf9ebfde68de859"},"preferences":{},"metrics":{},"provisionedDevices":[]}
+----------------------------------------
+METHOD: POST
+REQUEST URL: https://boost.uts-dev01.tenant1.dev.evinova.com/mongodb-test-proxy/mongodb-test/v1/databases/studypod/collections/user:find-document
+REQUEST BODY: {"queryOperationList": [{"key": "userId", "values": [{"$oid": "68fa1fd688c25efef26e4582"}, {"$oid": "68fa1fd5f9852e32068b0e8f"}, {"$oid": "68fa1fd3caf9ebfde68de859"}], "operation": "IN"}], "limit": null, "include": ["userId", "eventId"]}
+RESPONSE METHOD: POST
+RESPONSE URL: https://boost.uts-dev01.tenant1.dev.evinova.com/mongodb-test-proxy/mongodb-test/v1/databases/studypod/collections/user:find-document
+STATUS CODE: 200
+RESPONSE BODY: {"items": [{"_id": {"$oid": "68fa1fd688c25efef26e4583"}, "eventId": {"$timestamp": {"t": 1761222614, "i": 107}}, "userId": {"$oid": "68fa1fd688c25efef26e4582"}}, {"_id": {"$oid": "68fa1fd5f9852e32068b0e90"}, "eventId": {"$timestamp": {"t": 1761222613, "i": 12}}, "userId": {"$oid": "68fa1fd5f9852e32068b0e8f"}}, {"_id": {"$oid": "68fa1fd3caf9ebfde68de85a"}, "eventId": {"$timestamp": {"t": 1761222611, "i": 63}}, "userId": {"$oid": "68fa1fd3caf9ebfde68de859"}}]}
+----------------------------------------
+METHOD: GET
+REQUEST URL: https://boost.uts-dev01.tenant1.dev.evinova.com/userpod/idp/light/v1/register?email=sweden_lst_lvzpvrfaev@s3testmail.dmdp2.aws.intelpharma.net
+RESPONSE METHOD: GET
+RESPONSE URL: https://boost.uts-dev01.tenant1.dev.evinova.com/userpod/idp/light/v1/register?email=sweden_lst_lvzpvrfaev@s3testmail.dmdp2.aws.intelpharma.net
+STATUS CODE: 200
+----------------------------------------
+METHOD: GET
+REQUEST URL: https://boost.uts-dev01.tenant1.dev.evinova.com/userpod/idp/light/v1?email=sweden_lst_lvzpvrfaev@s3testmail.dmdp2.aws.intelpharma.net&pwd=qwerty
+RESPONSE METHOD: GET
+RESPONSE URL: https://boost.uts-dev01.tenant1.dev.evinova.com/userpod/idp/light/v1?email=sweden_lst_lvzpvrfaev@s3testmail.dmdp2.aws.intelpharma.net&pwd=qwerty
+STATUS CODE: 200
+----------------------------------------
+METHOD: POST
+REQUEST URL: https://boost.uts-dev01.tenant1.dev.evinova.com/userpod/jwt/v1
+REQUEST BODY: {"tenantId":"dmdp_cu_STUDY_lVZPVrFAEV","zoneId":"Europe/Stockholm","expireTimeSecs":3600,"version":"v1"}
+RESPONSE METHOD: POST
+RESPONSE URL: https://boost.uts-dev01.tenant1.dev.evinova.com/userpod/jwt/v1
+STATUS CODE: 200
+----------------------------------------
+METHOD: PUT
+REQUEST URL: https://boost.uts-dev01.tenant1.dev.evinova.com/userpod/user/activate/v1
+RESPONSE METHOD: PUT
+RESPONSE URL: https://boost.uts-dev01.tenant1.dev.evinova.com/userpod/user/activate/v1
+STATUS CODE: 200
+----------------------------------------
+METHOD: POST
+REQUEST URL: https://boost.uts-dev01.tenant1.dev.evinova.com/userpod/jwt/v1
+REQUEST BODY: {"tenantId":"dmdp_cu_STUDY_lVZPVrFAEV","zoneId":"Europe/Stockholm","expireTimeSecs":3600,"version":"v1"}
+RESPONSE METHOD: POST
+RESPONSE URL: https://boost.uts-dev01.tenant1.dev.evinova.com/userpod/jwt/v1
+STATUS CODE: 200
+----------------------------------------
+METHOD: GET
+REQUEST URL: https://boost.uts-dev01.tenant1.dev.evinova.com/studypod/study/v1/info
+RESPONSE METHOD: GET
+RESPONSE URL: https://boost.uts-dev01.tenant1.dev.evinova.com/studypod/study/v1/info
+STATUS CODE: 200
+RESPONSE BODY: {"dcode":"D169DC00222","name":"SELECT-2: NSCLC efficacy/safety Selum/Doc vs Placebo/Doc","status":"CLOSINGTE"}
+----------------------------------------
